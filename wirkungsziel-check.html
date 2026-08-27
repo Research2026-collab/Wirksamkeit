@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wirkungsziel-Check – Wirkungs-Werkstatt</title>
+<style>
+:root{
+  --navy:#1a365d;
+  --navy-light:#2a4a7f;
+  --teal:#2b7a78;
+  --teal-light:#3aafa9;
+  --bg:#f7f8fa;
+  --surface:#ffffff;
+  --text:#1a202c;
+  --text-muted:#4a5568;
+  --text-light:#718096;
+  --border:#e2e8f0;
+  --soft:#eef7f6;
+  --soft-blue:#edf4fb;
+  --soft-info:#eef7f6;
+  --info:#2b7a78;
+  --success:#276749;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  font-size:15px;
+}
+.app{max-width:1040px;margin:0 auto;padding:24px 20px 80px}
+.topnav{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:10px 0 18px;border-bottom:1px solid var(--border);
+}
+.topnav a{font-size:13px;color:var(--teal);text-decoration:none}
+.brand{font-weight:700;color:var(--navy)}
+.header{text-align:center;padding:42px 0 26px}
+.eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:10px
+}
+.header h1{font-size:30px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.header p{font-size:15px;color:var(--text-muted);max-width:700px;margin:0 auto}
+
+.progress-wrap{margin:2px auto 28px;max-width:760px}
+.progress-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-light);margin-bottom:7px}
+.progress-track{height:7px;background:#e8edf2;border-radius:999px;overflow:hidden}
+.progress-bar{height:100%;width:20%;background:var(--teal);transition:width .25s ease}
+
+.step{display:none}
+.step.active{display:block}
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:28px;margin-bottom:18px
+}
+.card h2{font-size:22px;color:var(--navy);margin-bottom:6px}
+.lead{font-size:15px;color:var(--text-muted);margin-bottom:22px;max-width:800px}
+.question{margin-bottom:22px}
+.question label{
+  display:block;font-size:14px;font-weight:700;margin-bottom:6px;color:var(--text)
+}
+.hint{font-size:12px;color:var(--text-light);margin-bottom:7px}
+input[type="text"],textarea,select{
+  width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:7px;
+  font-size:14px;font-family:inherit;color:var(--text);background:var(--bg)
+}
+textarea{min-height:92px;resize:vertical}
+input:focus,textarea:focus,select:focus{
+  outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(43,122,120,.1)
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.option{
+  border:1px solid var(--border);background:var(--surface);border-radius:9px;
+  padding:14px;cursor:pointer;transition:.15s
+}
+.option:hover{border-color:var(--teal-light)}
+.option.selected{border-color:var(--teal);background:var(--soft)}
+.option strong{display:block;color:var(--navy);font-size:14px;margin-bottom:3px}
+.option span{font-size:12px;color:var(--text-muted)}
+.option input{display:none}
+
+.note{
+  padding:15px 16px;border-radius:9px;background:var(--soft-blue);
+  font-size:13px;color:var(--text-muted);margin-top:16px
+}
+.note strong{color:var(--navy)}
+.note.amber{background:var(--soft-info);border-left:3px solid var(--teal)}
+.note.amber strong{color:var(--info)}
+
+.time-help{margin-top:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.time-tip{padding:11px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);font-size:12px;color:var(--text-muted)}
+.time-tip strong{display:block;color:var(--navy);font-size:12px;margin-bottom:2px}
+.time-feedback{margin-top:10px;padding:12px 14px;border-radius:8px;background:var(--soft);font-size:13px;color:var(--text-muted);display:none}
+.time-feedback strong{color:var(--teal)}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{
+  border:none;border-radius:7px;padding:10px 20px;font-size:14px;font-weight:650;
+  font-family:inherit;cursor:pointer
+}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:var(--navy-light)}
+.btn-secondary{background:var(--surface);color:var(--text-muted);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal)}
+.btn-link{background:transparent;color:var(--teal);padding-left:0}
+
+.mini-path{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 6px
+}
+.path-item{
+  padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg)
+}
+.path-item small{display:block;text-transform:uppercase;letter-spacing:.05em;color:var(--teal);font-weight:700;font-size:10px}
+.path-item span{display:block;font-size:12px;color:var(--text-muted);margin-top:4px}
+
+.result-card{
+  border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden
+}
+.result-head{padding:24px 26px;background:var(--soft)}
+.result-head .eyebrow{margin-bottom:5px}
+.result-head h2{font-size:24px;color:var(--navy)}
+.result-body{padding:24px 26px}
+.result-block{padding:15px 0;border-bottom:1px solid var(--border)}
+.result-block:last-child{border-bottom:none}
+.result-label{
+  font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--teal);margin-bottom:4px
+}
+.result-text{font-size:15px}
+.result-muted{font-size:13px;color:var(--text-muted);margin-top:4px}
+.badge{
+  display:inline-block;font-size:11px;font-weight:700;border-radius:999px;
+  background:var(--soft-blue);color:var(--navy);padding:4px 9px;margin-top:7px
+}
+.export-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.status{font-size:12px;color:var(--success);min-height:18px;margin-top:8px}
+
+footer.site-footer{
+  border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px;margin-top:24px
+}
+footer.site-footer p{max-width:1040px;margin:0 auto;font-size:13px;color:#8a8a86;text-align:center}
+footer.site-footer a{color:#8a8a86;text-decoration:underline}
+
+@media(max-width:700px){
+  .grid2,.options,.mini-path,.time-help{grid-template-columns:1fr}
+  .header h1{font-size:26px}
+  .card{padding:20px}
+}
+@media print{
+  .topnav,.header,.progress-wrap,.actions,.export-actions,.site-footer,.no-print{display:none!important}
+  body{background:#fff}
+  .app{padding:0}
+  .step{display:none!important}
+  #step5{display:block!important}
+  .result-card{border:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="topnav">
+    <div class="brand">Wirkungs-Werkstatt</div>
+    <div>
+      <a href="index.html">Startseite</a>
+      &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="wirkung-verstehen.html">Wirkung verstehen</a>
+    </div>
+  </div>
+
+  <div class="header">
+    <div class="eyebrow">Werkzeug 1</div>
+    <h1>Wirkungsziel-Check</h1>
+    <p>Entwickeln Sie aus einem bestehenden oder geplanten Bildungsangebot ein Wirkungsziel, das den Blick über Durchführung und Teilnahme hinaus auf Veränderungen bei Menschen und mögliche gesellschaftliche Wirkungen richtet.</p>
+  </div>
+
+  <div class="progress-wrap no-print">
+    <div class="progress-top">
+      <span id="progressText">Schritt 1 von 5</span>
+      <span id="progressLabel">Ausgangspunkt</span>
+    </div>
+    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
+
+  <!-- STEP 1 -->
+  <section class="step active" id="step1">
+    <div class="card">
+      <h2>Woran arbeiten Sie?</h2>
+      <p class="lead">Beginnen Sie bei Ihrem konkreten Angebot. Hier geht es zunächst nur darum, den Ausgangspunkt knapp zu beschreiben.</p>
+
+      <div class="question">
+        <label for="angebot">Welches Angebot planen Sie?</label>
+        <div class="hint">Zum Beispiel: Smartphone-Kurs, politische Bildungsreihe, Elternkurs, Sprachcafé, Fortbildung für Ehrenamtliche.</div>
+        <input type="text" id="angebot" placeholder="z. B. dreiteiliger Smartphone-Kurs">
+      </div>
+
+      <div class="question">
+        <label for="zielgruppe">Für wen ist das Angebot gedacht?</label>
+        <input type="text" id="zielgruppe" placeholder="z. B. ältere Erwachsene mit wenig Smartphone-Erfahrung">
+      </div>
+
+      <div class="grid2">
+        <div class="question">
+          <label for="ressourcen">Was setzen Sie dafür ein?</label>
+          <div class="hint">Nur so viel, wie für Ihre Planung relevant ist.</div>
+          <input type="text" id="ressourcen" placeholder="z. B. Kursleitung, Raum, Lernmaterial">
+        </div>
+        <div class="question">
+          <label for="leistung">Was planen Sie konkret?</label>
+          <div class="hint">Zum Beispiel Umfang, Format oder Anzahl der Termine.</div>
+          <input type="text" id="leistung" placeholder="z. B. 3 Termine à 2 Stunden">
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Zur Einordnung:</strong> Ressourcen und durchgeführte Leistungen werden in der Wirkungslogik häufig als <strong>Input</strong> und <strong>Output</strong> bezeichnet. Sie sind wichtig, sagen aber noch wenig darüber aus, was sich für die Teilnehmenden verändert.
+      </div>
+
+      <div class="actions">
+        <span></span>
+        <button class="btn btn-primary" onclick="nextStep(2)">Weiter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="step" id="step2">
+    <div class="card">
+      <h2>Was soll für die Teilnehmenden anders sein?</h2>
+      <p class="lead">Stellen Sie sich vor, das Angebot ist gut gelaufen. Denken Sie jetzt nicht an Teilnehmerzahlen oder Zufriedenheit, sondern an eine Veränderung bei den Menschen.</p>
+
+      <div class="question">
+        <label>Wo erwarten Sie am ehesten eine Veränderung?</label>
+        <div class="options" id="changeOptions">
+          <label class="option">
+            <input type="checkbox" value="Wissen und Verstehen">
+            <strong>Wissen und Verstehen</strong>
+            <span>Etwas wird klarer, Zusammenhänge werden besser verstanden.</span>
+          </label>
+          <label class="option">
+            <input type="checkbox" value="Können und Handlungssicherheit">
+            <strong>Können und Handlungssicherheit</strong>
+            <span>Etwas kann selbstständiger oder sicherer getan werden.</span>
+          </label>
+          <label class="option">
+            <input type="checkbox" value="Verhalten und Anwendung">
+            <strong>Verhalten und Anwendung</strong>
+            <span>Etwas wird im Alltag tatsächlich anders gemacht.</span>
+          </label>
+          <label class="option">
+            <input type="checkbox" value="Teilhabe und Möglichkeiten">
+            <strong>Teilhabe und Möglichkeiten</strong>
+            <span>Menschen gewinnen Zugänge, Handlungsspielräume oder Beteiligungsmöglichkeiten.</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label for="veraenderung">Vervollständigen Sie den Satz</label>
+        <div class="hint">„Wenn unser Angebot erfolgreich ist, dann …“</div>
+        <textarea id="veraenderung" placeholder="z. B. können die Teilnehmenden wichtige Funktionen ihres Smartphones selbstständiger nutzen und digitale Kommunikationsangebote sicherer einsetzen."></textarea>
+      </div>
+
+      <div class="note">
+        <strong>Jetzt weitet sich der Blick:</strong> Eine Veränderung bei Wissen, Können, Verhalten oder Teilhabe wird in der Wirkungslogik als <strong>Outcome</strong> bezeichnet.
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-secondary" onclick="nextStep(1)">Zurück</button>
+        <button class="btn btn-primary" onclick="nextStep(3)">Weiter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="step" id="step3">
+    <div class="card">
+      <h2>Wie weit reicht die angestrebte Veränderung?</h2>
+      <p class="lead">Manche Veränderungen zeigen sich unmittelbar. Andere werden erst im Alltag sichtbar. Wählen Sie den Zeitraum, der für Ihr Angebot realistisch erscheint.</p>
+
+      <div class="question">
+        <label for="zeitraum">Wann könnte die Veränderung für die Teilnehmenden erkennbar werden?</label>
+        <div class="hint">Der Zeitraum hilft Ihnen später bei der Entscheidung, wann Sie Teilnehmende sinnvoll nach Veränderungen fragen. Wählen Sie nicht den frühestmöglichen Zeitpunkt, sondern den Zeitpunkt, zu dem sich die angestrebte Veränderung tatsächlich zeigen könnte.</div>
+        <select id="zeitraum" onchange="showTimeHelp()">
+          <option value="">Bitte auswählen</option>
+          <option>direkt am Ende des Angebots</option>
+          <option>in den folgenden Wochen</option>
+          <option>innerhalb einiger Monate</option>
+          <option>langfristig</option>
+        </select>
+
+        <div class="time-help">
+          <div class="time-tip"><strong>Direkt danach</strong>Geeignet, wenn es etwa um neues Wissen, Verstehen oder unmittelbar erlebte Handlungssicherheit geht.</div>
+          <div class="time-tip"><strong>Nach einigen Wochen</strong>Geeignet, wenn Teilnehmende etwas im Alltag ausprobieren oder anwenden sollen.</div>
+          <div class="time-tip"><strong>Nach einigen Monaten</strong>Geeignet, wenn sich Routinen, Handlungsmöglichkeiten oder Teilhabe erst mit der Zeit entwickeln können.</div>
+          <div class="time-tip"><strong>Langfristig</strong>Geeignet für weiterreichende Entwicklungen. Hier wird die eindeutige Zuschreibung zu einem einzelnen Angebot meist schwieriger.</div>
+        </div>
+        <div class="time-feedback" id="timeFeedback"></div>
+      </div>
+
+      <div class="question">
+        <label for="erkennbar">Woran könnten die Teilnehmenden selbst eine Veränderung erkennen oder sie benennen?</label>
+        <div class="hint">Denken Sie daran, was Teilnehmende nach dem Angebot über ihr Wissen, ihre Sicherheit, ihr Handeln oder ihre Möglichkeiten sagen könnten.</div>
+        <textarea id="erkennbar" placeholder="z. B. Teilnehmende berichten, dass sie sich bei der Nutzung wichtiger Smartphone-Funktionen sicherer fühlen und digitale Kommunikation häufiger selbstständig nutzen."></textarea>
+      </div>
+
+      <div class="note amber">
+        <strong>Wichtig:</strong> Zufriedenheit mit einer Veranstaltung kann wertvoll sein, ist aber noch kein Hinweis darauf, was sich durch das Angebot verändert hat. Für den Wirkungsblick ist entscheidend, ob für die Teilnehmenden selbst eine Veränderung erkennbar ist oder von ihnen benannt wird.
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-secondary" onclick="nextStep(2)">Zurück</button>
+        <button class="btn btn-primary" onclick="nextStep(4)">Weiter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="step" id="step4">
+    <div class="card">
+      <h2>Und wenn wir noch weiter schauen?</h2>
+      <p class="lead">Bildungsarbeit kann über die direkte Veränderung bei einzelnen Teilnehmenden hinauswirken. Dieser Schritt ist bewusst offen: Es geht um einen möglichen gesellschaftlichen Beitrag, nicht um einen vorschnellen Wirkungsnachweis.</p>
+
+      <div class="question">
+        <label for="gesellschaft">Wozu könnte die Veränderung längerfristig beitragen?</label>
+        <div class="hint">Zum Beispiel zu größerer gesellschaftlicher Teilhabe, mehr Selbstbestimmung, demokratischer Beteiligung, sozialer Integration oder faireren Chancen.</div>
+        <textarea id="gesellschaft" placeholder="z. B. zu größerer digitaler Teilhabe älterer Menschen und zu mehr Selbstständigkeit im digitalen Alltag."></textarea>
+      </div>
+
+      <div class="question">
+        <label for="beitrag">Wie sicher können Sie diesen Beitrag Ihrem Angebot zuschreiben?</label>
+        <select id="beitrag">
+          <option value="">Bitte auswählen</option>
+          <option>Wir können einen plausiblen Beitrag beschreiben.</option>
+          <option>Wir haben Hinweise, aber keine eindeutige Zuschreibung.</option>
+          <option>Wir verfügen über belastbare Daten zu diesem Zusammenhang.</option>
+          <option>Das können wir derzeit noch nicht einschätzen.</option>
+        </select>
+      </div>
+
+      <div class="note">
+        <strong>Zur Einordnung:</strong> Weiterreichende Veränderungen auf gesellschaftlicher Ebene werden häufig als <strong>Impact</strong> bezeichnet. Bei Bildungsangeboten ist es oft sachgerechter, von einem <strong>Beitrag</strong> zu einer solchen Entwicklung zu sprechen als von einer eindeutigen Ursache.
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-secondary" onclick="nextStep(3)">Zurück</button>
+        <button class="btn btn-primary" onclick="buildResult()">Ergebnis erstellen</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5 -->
+  <section class="step" id="step5">
+    <div class="result-card">
+      <div class="result-head">
+        <div class="eyebrow">Ihr Ergebnis</div>
+        <h2>Wirkungsprofil des Angebots</h2>
+      </div>
+      <div class="result-body">
+
+        <div class="mini-path">
+          <div class="path-item"><small>Input</small><span id="rInputShort">–</span></div>
+          <div class="path-item"><small>Output</small><span id="rOutputShort">–</span></div>
+          <div class="path-item"><small>Outcome</small><span id="rOutcomeShort">–</span></div>
+          <div class="path-item"><small>Impact</small><span id="rImpactShort">–</span></div>
+        </div>
+
+        <div class="result-block">
+          <div class="result-label">Angebot und Zielgruppe</div>
+          <div class="result-text" id="rAngebot"></div>
+          <div class="result-muted" id="rZielgruppe"></div>
+        </div>
+
+        <div class="result-block">
+          <div class="result-label">Angestrebtes Wirkungsziel</div>
+          <div class="result-text" id="rOutcome"></div>
+          <span class="badge">Outcome</span>
+        </div>
+
+        <div class="result-block">
+          <div class="result-label">Woran Teilnehmende die Veränderung erkennen oder sie benennen könnten</div>
+          <div class="result-text" id="rErkennbar"></div>
+          <div class="result-muted" id="rZeitraum"></div>
+        </div>
+
+        <div class="result-block">
+          <div class="result-label">Möglicher längerfristiger Beitrag</div>
+          <div class="result-text" id="rImpact"></div>
+          <div class="result-muted" id="rBeitrag"></div>
+          <span class="badge">möglicher Impact / Wirkungsbeitrag</span>
+        </div>
+
+        <div class="result-block">
+          <div class="result-label">Einordnung</div>
+          <div class="result-text">
+            Ihr Angebot wird hier nicht nur über eingesetzte Ressourcen und durchgeführte Leistungen beschrieben. Der Wirkungsblick richtet sich auf Veränderungen bei den Teilnehmenden und auf einen möglichen längerfristigen gesellschaftlichen Beitrag.
+          </div>
+        </div>
+
+        <div class="note amber">
+          <strong>Hinweis:</strong> Das Wirkungsprofil formuliert eine plausible Wirkungsannahme. Es ist noch kein Nachweis dafür, dass die beschriebenen Veränderungen tatsächlich eingetreten oder ausschließlich durch das Angebot verursacht worden sind.
+        </div>
+
+        <div class="export-actions no-print">
+          <button class="btn btn-primary" onclick="window.print()">Als PDF drucken / sichern</button>
+          <button class="btn btn-secondary" onclick="downloadWord()">Als Word-Dokument</button>
+          <button class="btn btn-secondary" onclick="copyResult()">Ergebnis kopieren</button>
+          <a class="btn btn-link" href="index.html">Zur Werkzeugübersicht</a>
+        </div>
+        <div class="status" id="status"></div>
+
+        <div class="actions no-print">
+          <button class="btn btn-secondary" onclick="nextStep(4)">Zurück und ändern</button>
+          <button class="btn btn-primary" onclick="restart()">Neuen Check starten</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site-footer">
+  <p>
+    &copy; Elisabeth Vanderheiden ·
+    <a href="https://research2026-collab.github.io/elisabeth.vanderheiden/" target="_blank" rel="noopener">Website</a> ·
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+<script>
+const labels = ["Ausgangspunkt","Veränderung","Erkennen","Weiter denken","Ergebnis"];
+let currentStep = 1;
+
+function nextStep(n){
+  document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+  document.getElementById("step"+n).classList.add("active");
+  currentStep = n;
+  document.getElementById("progressText").textContent = "Schritt "+n+" von 5";
+  document.getElementById("progressLabel").textContent = labels[n-1];
+  document.getElementById("progressBar").style.width = (n*20)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+document.querySelectorAll(".option").forEach(opt=>{
+  opt.addEventListener("click", function(){
+    const cb = this.querySelector("input");
+    setTimeout(()=>this.classList.toggle("selected", cb.checked),0);
+  });
+});
+
+function val(id, fallback="–"){
+  const el=document.getElementById(id);
+  return (el && el.value.trim()) ? el.value.trim() : fallback;
+}
+
+function selectedChanges(){
+  return [...document.querySelectorAll('#changeOptions input:checked')].map(x=>x.value);
+}
+
+function showTimeHelp(){
+  const z=document.getElementById("zeitraum").value;
+  const box=document.getElementById("timeFeedback");
+  const messages={
+    "direkt am Ende des Angebots":"Dann können Sie direkt zum Abschluss fragen, was die Teilnehmenden neu verstanden haben oder wobei sie sich sicherer fühlen.",
+    "in den folgenden Wochen":"Dann ist eine kurze Rückfrage nach einigen Wochen sinnvoll: Was wurde seit dem Angebot ausprobiert, angewendet oder anders erlebt?",
+    "innerhalb einiger Monate":"Dann sollte die Rückmeldung zeitversetzt erfolgen. Fragen Sie danach, ob sich im Alltag neue Handlungsmöglichkeiten oder längerfristige Veränderungen entwickelt haben.",
+    "langfristig":"Langfristige Veränderungen können bedeutsam sein, werden aber meist von vielen Einflüssen mitgeprägt. Fragen Sie nach wahrgenommenen Veränderungen und formulieren Sie den Beitrag des Angebots entsprechend vorsichtig."
+  };
+  if(!z){ box.style.display="none"; box.innerHTML=""; return; }
+  box.innerHTML="<strong>Was bedeutet das für Ihre Erhebung?</strong> "+messages[z];
+  box.style.display="block";
+}
+
+function buildResult(){
+  const angebot=val("angebot","Ihr Bildungsangebot");
+  const zielgruppe=val("zielgruppe","Zielgruppe noch nicht angegeben");
+  const ressourcen=val("ressourcen","Ressourcen noch nicht angegeben");
+  const leistung=val("leistung","Durchführung noch nicht angegeben");
+  const veraenderung=val("veraenderung","Angestrebte Veränderung noch nicht formuliert");
+  const zeitraum=val("zeitraum","Zeitraum noch nicht angegeben");
+  const erkennbar=val("erkennbar","Mögliche Anzeichen noch nicht formuliert");
+  const gesellschaft=val("gesellschaft","Längerfristiger Beitrag noch nicht formuliert");
+  const beitrag=val("beitrag","Grad der Zuschreibung noch nicht eingeschätzt");
+  const cats=selectedChanges();
+
+  document.getElementById("rInputShort").textContent=ressourcen;
+  document.getElementById("rOutputShort").textContent=leistung;
+  document.getElementById("rOutcomeShort").textContent=veraenderung;
+  document.getElementById("rImpactShort").textContent=gesellschaft;
+
+  document.getElementById("rAngebot").textContent=angebot;
+  document.getElementById("rZielgruppe").textContent="Zielgruppe: "+zielgruppe;
+
+  let outcomeText=veraenderung;
+  if(cats.length){
+    outcomeText += " ("+cats.join(", ")+")";
+  }
+  document.getElementById("rOutcome").textContent=outcomeText;
+  document.getElementById("rErkennbar").textContent=erkennbar;
+  document.getElementById("rZeitraum").textContent="Realistischer Beobachtungszeitraum: "+zeitraum;
+  document.getElementById("rImpact").textContent=gesellschaft;
+  document.getElementById("rBeitrag").textContent=beitrag;
+
+  nextStep(5);
+}
+
+function buildPlainText(){
+  return [
+    "Wirkungsprofil",
+    "",
+    "Angebot: "+val("angebot"),
+    "Zielgruppe: "+val("zielgruppe"),
+    "",
+    "INPUT",
+    val("ressourcen"),
+    "",
+    "OUTPUT",
+    val("leistung"),
+    "",
+    "ANGESTREBTES WIRKUNGSZIEL / OUTCOME",
+    val("veraenderung"),
+    "",
+    "Woran die Veränderung erkennbar werden könnte:",
+    val("erkennbar"),
+    "Beobachtungszeitraum: "+val("zeitraum"),
+    "",
+    "MÖGLICHER LÄNGERFRISTIGER BEITRAG / IMPACT",
+    val("gesellschaft"),
+    "Einordnung der Zuschreibung: "+val("beitrag"),
+    "",
+    "Hinweis: Das Wirkungsprofil formuliert eine plausible Wirkungsannahme und noch keinen Wirkungsnachweis."
+  ].join("\n");
+}
+
+function copyResult(){
+  navigator.clipboard.writeText(buildPlainText()).then(()=>{
+    document.getElementById("status").textContent="Ergebnis wurde in die Zwischenablage kopiert.";
+  });
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+function safeFileName(s){
+  return s.replace(/[^a-z0-9äöüß\- ]/gi,"").trim().replace(/\s+/g,"_") || "wirkungsprofil";
+}
+function downloadWord(){
+  const content = buildPlainText().split("\n").map(x=>escapeHtml(x)).join("<br>");
+  const title = val("angebot","Wirkungsprofil");
+  const html = `
+  <html xmlns:o="urn:schemas-microsoft-com:office:office"
+        xmlns:w="urn:schemas-microsoft-com:office:word"
+        xmlns="http://www.w3.org/TR/REC-html40">
+  <head><meta charset="utf-8"><title>Wirkungsprofil</title></head>
+  <body style="font-family:Calibri,Arial,sans-serif;">
+    <h1 style="color:#1a365d;">Wirkungsprofil</h1>
+    <p style="font-size:11pt;line-height:1.5;">${content}</p>
+    <p style="font-size:9pt;color:#777;margin-top:24pt;">Erstellt mit der Wirkungs-Werkstatt.</p>
+  </body></html>`;
+  const blob=new Blob(['\ufeff',html],{type:'application/msword'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=safeFileName(title)+"_Wirkungsprofil.doc";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  document.getElementById("status").textContent="Word-Dokument wurde erstellt.";
+}
+
+function restart(){
+  document.querySelectorAll("input[type=text], textarea").forEach(el=>el.value="");
+  document.querySelectorAll("select").forEach(el=>el.selectedIndex=0);
+  document.querySelectorAll('input[type=checkbox]').forEach(el=>el.checked=false);
+  document.querySelectorAll('.option').forEach(el=>el.classList.remove("selected"));
+  document.getElementById("status").textContent="";
+  nextStep(1);
+}
+</script>
+</body>
+</html>
