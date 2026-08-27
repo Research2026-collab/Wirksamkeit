@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wirkungs-Landkarte – Wirkungs-Werkstatt</title>
+<style>
+:root{
+  --navy:#17365d;--navy2:#2a4a7f;--teal:#2b7a78;--teal2:#3aafa9;
+  --bg:#f6f8fa;--surface:#fff;--text:#1d2939;--muted:#667085;--light:#98a2b3;
+  --border:#dfe5eb;--soft:#eef7f6;--softblue:#eef4fa;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+.app{max-width:1040px;margin:auto;padding:24px 20px 72px}
+.topnav{display:flex;justify-content:space-between;align-items:center;padding:10px 0 18px;border-bottom:1px solid var(--border)}
+.brand{font-weight:800;color:var(--navy)} .topnav a{font-size:13px;color:var(--teal);text-decoration:none}
+.header{text-align:center;padding:42px 0 26px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.header h1{font-size:31px;color:var(--navy);margin:0 0 9px}.header p{max-width:760px;margin:auto;color:var(--muted)}
+.tabs{display:flex;justify-content:center;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.tab{border:1px solid var(--border);background:#fff;color:var(--muted);padding:9px 15px;border-radius:8px;cursor:pointer;font:inherit;font-size:13px;font-weight:700}
+.tab.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+.panel{display:none}.panel.active{display:block}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:18px}
+.card h2{font-size:21px;color:var(--navy);margin:0 0 6px}.lead{color:var(--muted);margin:0 0 20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:18px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}.hint{font-size:12px;color:var(--light);margin-bottom:5px}
+input[type=text],textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:7px;background:#f8fafc;font:inherit;font-size:14px}
+textarea{min-height:78px;resize:vertical}input:focus,textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(43,122,120,.1)}
+.note{padding:14px 15px;border-radius:9px;background:var(--soft);border-left:3px solid var(--teal);font-size:13px;color:var(--muted);margin-top:14px}.note strong{color:var(--teal)}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{border:0;border-radius:8px;padding:10px 18px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.primary{background:var(--teal);color:#fff}.primary:hover{background:var(--navy2)}.secondary{background:#fff;border:1px solid var(--border);color:var(--muted)}
+
+.map-shell{margin-top:18px}
+.map-top-label,.map-bottom-label{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);font-weight:700;margin:0 5px}
+.map-top-label{margin-bottom:8px}.map-bottom-label{margin-top:8px}
+.map-layout{display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:stretch}
+.y-axis{position:relative;min-height:500px}
+.y-high,.y-low{position:absolute;left:50%;transform:translateX(-50%) rotate(-90deg);white-space:nowrap;font-size:12px;color:var(--muted);font-weight:700}
+.y-high{top:56px}.y-low{bottom:56px}
+.y-title{position:absolute;left:-30px;top:50%;transform:rotate(-90deg) translateX(-50%);transform-origin:left top;white-space:nowrap;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--light)}
+.map{
+  position:relative;height:500px;border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  background:
+    radial-gradient(circle at 22% 76%, rgba(219,230,243,.95), transparent 28%),
+    radial-gradient(circle at 73% 30%, rgba(218,242,237,.95), transparent 31%),
+    linear-gradient(135deg,#f9fbfd 0%,#eef5f8 48%,#edf8f5 100%);
+  touch-action:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.6);
+}
+.map::before,.map::after{content:"";position:absolute;background:rgba(125,145,165,.18);z-index:1}
+.map::before{left:50%;top:0;width:1px;height:100%}
+.map::after{top:50%;left:0;height:1px;width:100%}
+.quad{position:absolute;font-size:11px;color:rgba(70,90,110,.46);z-index:1;pointer-events:none;max-width:150px}
+.q1{left:18px;top:16px}.q2{right:18px;top:16px;text-align:right}.q3{left:18px;bottom:16px}.q4{right:18px;bottom:16px;text-align:right}
+.path-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.path-line{fill:none;stroke:rgba(43,122,120,.55);stroke-width:2.2;stroke-dasharray:5 5}
+.marker{
+  position:absolute;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;
+  transform:translate(-50%,-50%);cursor:grab;user-select:none;box-shadow:0 5px 16px rgba(23,54,93,.18);
+  border:4px solid #fff;font-weight:800;font-size:11px;text-align:center;line-height:1.05;z-index:4
+}
+.marker:active{cursor:grabbing}
+.before{background:#d9e4f0;color:var(--navy)}
+.now{background:var(--teal);color:#fff}
+.next{background:#fff;border-color:var(--teal2);color:var(--teal)}
+.x-title{text-align:center;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--light);margin-top:8px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 4px 48px}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}.dot{width:13px;height:13px;border-radius:50%}.d1{background:#d9e4f0}.d2{background:var(--teal)}.d3{background:#fff;border:2px solid var(--teal2)}
+.reflect{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.result{background:var(--soft);border-radius:12px;padding:20px;margin-top:16px}.result h3{color:var(--navy);margin:0 0 8px;font-size:18px}.result p{margin:6px 0;font-size:14px}.status{font-size:12px;color:#276749;min-height:18px;margin-top:8px}
+footer{border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px;margin-top:24px;text-align:center;font-size:12px;color:#8a8a86}footer a{color:#8a8a86}
+@media(max-width:760px){
+  .grid2,.reflect{grid-template-columns:1fr}.map{height:420px}.y-axis{min-height:420px}.map-layout{grid-template-columns:32px 1fr}.legend{margin-left:42px}
+  .marker{width:52px;height:52px}.quad{font-size:10px}
+}
+@media print{.topnav,.header,.tabs,#setup,.actions,footer{display:none!important}.panel{display:block!important}.app{padding:0}.card{border:0}.map{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topnav">
+    <div class="brand">Wirkungs-Werkstatt</div>
+    <div><a href="index.html">Startseite</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="wirkung-verstehen.html">Wirkung verstehen</a></div>
+  </div>
+
+  <div class="header">
+    <div class="eyebrow">Anders erheben</div>
+    <h1>Wirkungs-Landkarte</h1>
+    <p>Machen Sie wahrgenommene Veränderungen sichtbar. Die Teilnehmenden markieren, wo sie sich vor dem Angebot verortet haben, wo sie heute stehen und welchen nächsten Schritt sie für sich sehen.</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" id="tabSetup" onclick="openTab('setup','tabSetup')">1 · Landkarte vorbereiten</button>
+    <button class="tab" id="tabMap" onclick="openTab('mapPanel','tabMap')">2 · Landkarte nutzen</button>
+  </div>
+
+  <section class="panel active" id="setup">
+    <div class="card">
+      <h2>Welche zwei Dimensionen möchten Sie sichtbar machen?</h2>
+      <p class="lead">Die Achsen richten sich nach Ihrem Wirkungsziel. Möglich sind zum Beispiel Handlungssicherheit und Handlungsmöglichkeiten, Orientierung und Beteiligung oder Wissen und Anwendung.</p>
+
+      <div class="field">
+        <label for="mapTitle">Titel der Landkarte</label>
+        <input id="mapTitle" type="text" value="Meine Wirkungs-Landkarte">
+      </div>
+
+      <div class="grid2">
+        <div>
+          <div class="field"><label>Horizontale Achse</label><div class="hint">Was verändert sich von links nach rechts?</div><input id="xName" type="text" value="Handlungssicherheit"></div>
+          <div class="grid2">
+            <div class="field"><label>Links</label><input id="xLow" type="text" value="wenig sicher"></div>
+            <div class="field"><label>Rechts</label><input id="xHigh" type="text" value="sehr sicher"></div>
+          </div>
+        </div>
+        <div>
+          <div class="field"><label>Vertikale Achse</label><div class="hint">Was verändert sich von unten nach oben?</div><input id="yName" type="text" value="Handlungsmöglichkeiten"></div>
+          <div class="grid2">
+            <div class="field"><label>Unten</label><input id="yLow" type="text" value="wenige Möglichkeiten"></div>
+            <div class="field"><label>Oben</label><input id="yHigh" type="text" value="viele Möglichkeiten"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="promptText">Impuls für die Teilnehmenden</label>
+        <textarea id="promptText">Wenn Sie an die Zeit vor dem Angebot zurückdenken und an heute: Wo würden Sie sich jeweils auf dieser Landkarte verorten?</textarea>
+      </div>
+
+      <div class="note"><strong>Die Landkarte bildet die eigene Einschätzung der Teilnehmenden ab.</strong> Besonders aufschlussreich sind die Wege zwischen den Punkten und die Begründungen, die Teilnehmende dafür geben.</div>
+
+      <div class="actions"><span></span><button class="btn primary" type="button" onclick="applySetup()">Landkarte öffnen</button></div>
+    </div>
+  </section>
+
+  <section class="panel" id="mapPanel">
+    <div class="card">
+      <div class="eyebrow">Ihre Landkarte</div>
+      <h2 id="displayTitle">Meine Wirkungs-Landkarte</h2>
+      <p class="lead" id="displayPrompt"></p>
+
+      <div class="map-shell">
+        <div class="map-layout">
+          <div class="y-axis">
+            <div class="y-high" id="dyHigh">viele Möglichkeiten</div>
+            <div class="y-low" id="dyLow">wenige Möglichkeiten</div>
+            <div class="y-title" id="dyName">Handlungsmöglichkeiten</div>
+          </div>
+
+          <div>
+            <div class="map-top-label"><span></span><span></span></div>
+            <div class="map" id="map">
+              <div class="quad q1">mehr Möglichkeiten<br>weniger Sicherheit</div>
+              <div class="quad q2">mehr Möglichkeiten<br>mehr Sicherheit</div>
+              <div class="quad q3">weniger Möglichkeiten<br>weniger Sicherheit</div>
+              <div class="quad q4">weniger Möglichkeiten<br>mehr Sicherheit</div>
+
+              <svg class="path-svg" id="pathSvg" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                <polyline id="pathLine" class="path-line" points=""></polyline>
+              </svg>
+
+              <div class="marker before" id="mBefore" data-x="24" data-y="72">vorher</div>
+              <div class="marker now" id="mNow" data-x="58" data-y="44">heute</div>
+              <div class="marker next" id="mNext" data-x="79" data-y="26">nächster<br>Schritt</div>
+            </div>
+            <div class="map-bottom-label"><span id="dxLow">wenig sicher</span><span id="dxHigh">sehr sicher</span></div>
+            <div class="x-title" id="dxName">Handlungssicherheit</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><span class="dot d1"></span> Vor dem Angebot</div>
+        <div class="legend-item"><span class="dot d2"></span> Heute</div>
+        <div class="legend-item"><span class="dot d3"></span> Nächster Schritt</div>
+      </div>
+
+      <div class="reflect">
+        <div class="field">
+          <label for="whyNow">Woran merken Sie, dass Sie heute hier stehen?</label>
+          <textarea id="whyNow" placeholder="z. B. Ich traue mir bestimmte Situationen inzwischen eher zu ..."></textarea>
+        </div>
+        <div class="field">
+          <label for="nextStep">Was wäre für Sie ein nächster Schritt?</label>
+          <textarea id="nextStep" placeholder="z. B. Ich möchte das Gelernte in einer konkreten Situation ausprobieren ..."></textarea>
+        </div>
+      </div>
+
+      <div class="result">
+        <h3>Ihre Veränderung auf einen Blick</h3>
+        <p id="resultMove">Verschieben Sie die Punkte, um Ihre Landkarte zu erstellen.</p>
+      </div>
+
+      <div class="note"><strong>Für die Auswertung:</strong> Nutzen Sie die Positionen als Ausgangspunkt für ein Gespräch oder eine kurze Reflexion. Bei mehreren Teilnehmenden können wiederkehrende Bewegungsrichtungen und Begründungen Hinweise auf gemeinsame Wirkungsmuster geben.</div>
+
+      <div class="actions">
+        <button class="btn secondary" type="button" onclick="backToSetup()">Landkarte anpassen</button>
+        <div><button class="btn secondary" type="button" onclick="copyResult()">Ergebnis kopieren</button> <button class="btn primary" type="button" onclick="window.print()">Als PDF drucken / sichern</button></div>
+      </div>
+      <div class="status" id="status"></div>
+    </div>
+  </section>
+</div>
+
+<footer>&copy; Elisabeth Vanderheiden · <a href="https://research2026-collab.github.io/elisabeth.vanderheiden/" target="_blank">Website</a> · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank">CC BY-NC 4.0</a></footer>
+
+<script>
+function $(id){return document.getElementById(id)}
+
+function openTab(panelId,tabId){
+  document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));
+  $(panelId).classList.add("active");
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  $(tabId).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function applySetup(){
+  $("displayTitle").textContent=$("mapTitle").value.trim()||"Meine Wirkungs-Landkarte";
+  $("displayPrompt").textContent=$("promptText").value.trim()||"Wo würden Sie sich verorten?";
+  $("dxName").textContent=$("xName").value.trim()||"Horizontale Dimension";
+  $("dxLow").textContent=$("xLow").value.trim()||"wenig";
+  $("dxHigh").textContent=$("xHigh").value.trim()||"viel";
+  $("dyName").textContent=$("yName").value.trim()||"Vertikale Dimension";
+  $("dyLow").textContent=$("yLow").value.trim()||"wenig";
+  $("dyHigh").textContent=$("yHigh").value.trim()||"viel";
+
+  const q1=document.querySelector(".q1"),q2=document.querySelector(".q2"),q3=document.querySelector(".q3"),q4=document.querySelector(".q4");
+  q1.innerHTML=$("yHigh").value+"<br>"+$("xLow").value;
+  q2.innerHTML=$("yHigh").value+"<br>"+$("xHigh").value;
+  q3.innerHTML=$("yLow").value+"<br>"+$("xLow").value;
+  q4.innerHTML=$("yLow").value+"<br>"+$("xHigh").value;
+
+  openTab("mapPanel","tabMap");
+  updateResult();
+}
+
+function backToSetup(){openTab("setup","tabSetup")}
+
+const mapEl=$("map");
+const markers=[$("mBefore"),$("mNow"),$("mNext")];
+
+function placeMarker(m,x,y){
+  x=Math.max(4,Math.min(96,x)); y=Math.max(5,Math.min(95,y));
+  m.dataset.x=x.toFixed(1); m.dataset.y=y.toFixed(1);
+  m.style.left=x+"%"; m.style.top=y+"%";
+}
+
+function drawPath(){
+  const w=1000,h=500;
+  const pts=markers.map(m=>{
+    const x=parseFloat(m.dataset.x)/100*w;
+    const y=parseFloat(m.dataset.y)/100*h;
+    return x+","+y;
+  }).join(" ");
+  $("pathLine").setAttribute("points",pts);
+}
+
+markers.forEach(m=>{
+  placeMarker(m,parseFloat(m.dataset.x),parseFloat(m.dataset.y));
+  let dragging=false;
+  const start=e=>{dragging=true;e.preventDefault()};
+  const end=()=>{if(dragging){dragging=false;updateResult()}};
+  const move=e=>{
+    if(!dragging)return;
+    const point=e.touches?e.touches[0]:e;
+    const r=mapEl.getBoundingClientRect();
+    const x=(point.clientX-r.left)/r.width*100;
+    const y=(point.clientY-r.top)/r.height*100;
+    placeMarker(m,x,y);drawPath();updateResult();
+  };
+  m.addEventListener("mousedown",start);
+  m.addEventListener("touchstart",start,{passive:false});
+  window.addEventListener("mousemove",move);
+  window.addEventListener("touchmove",move,{passive:false});
+  window.addEventListener("mouseup",end);
+  window.addEventListener("touchend",end);
+});
+
+function updateResult(){
+  drawPath();
+  const bx=parseFloat($("mBefore").dataset.x), by=100-parseFloat($("mBefore").dataset.y);
+  const nx=parseFloat($("mNow").dataset.x), ny=100-parseFloat($("mNow").dataset.y);
+  const dx=nx-bx,dy=ny-by;
+  const xdir=Math.abs(dx)<7?"kaum verändert":dx>0?"in Richtung „"+$("dxHigh").textContent+"“ verschoben":"in Richtung „"+$("dxLow").textContent+"“ verschoben";
+  const ydir=Math.abs(dy)<7?"kaum verändert":dy>0?"in Richtung „"+$("dyHigh").textContent+"“ verschoben":"in Richtung „"+$("dyLow").textContent+"“ verschoben";
+  $("resultMove").textContent="Im Vergleich zu „vorher“ hat sich Ihre Position bei „"+$("dxName").textContent+"“ "+xdir+" und bei „"+$("dyName").textContent+"“ "+ydir+".";
+}
+
+function buildText(){
+  return [
+    $("displayTitle").textContent,
+    "",
+    $("displayPrompt").textContent,
+    "",
+    "Woran merken Sie, dass Sie heute hier stehen?",
+    $("whyNow").value.trim()||"–",
+    "",
+    "Was wäre für Sie ein nächster Schritt?",
+    $("nextStep").value.trim()||"–",
+    "",
+    $("resultMove").textContent
+  ].join("\n");
+}
+
+function copyResult(){
+  navigator.clipboard.writeText(buildText()).then(()=>$("status").textContent="Ergebnis wurde kopiert.");
+}
+
+updateResult();
+</script>
+</body>
+</html>
