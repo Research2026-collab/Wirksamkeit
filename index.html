@@ -98,6 +98,18 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
   .header h1{font-size:29px;}
   .journey-grid,.tools-grid,.info-strip,.mini-glossary{grid-template-columns:1fr;}
 }
+
+.play-section { margin:38px 0 10px; }
+.play-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; display:flex; gap:20px; align-items:center; }
+.play-icon { width:58px; height:58px; border-radius:50%; background:#eef7f6; display:grid; place-items:center; font-size:28px; flex-shrink:0; }
+.play-copy { flex:1; }
+.play-copy .play-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--teal); margin-bottom:4px; }
+.play-copy h3 { font-size:19px; color:var(--navy); margin-bottom:5px; }
+.play-copy p { font-size:13px; color:var(--text-muted); margin-bottom:12px; }
+.play-link { display:inline-block; padding:9px 16px; border-radius:6px; background:var(--teal); color:#fff; text-decoration:none; font-size:13px; font-weight:600; }
+.play-link:hover { background:var(--navy-light); }
+@media(max-width:650px){ .play-card{flex-direction:column;align-items:flex-start}.play-icon{width:50px;height:50px} }
+
 </style>
 </head>
 <body>
@@ -201,6 +213,19 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
     <h2>Über die Wirkungs-Werkstatt</h2>
     <p>Die Toolbox richtet sich besonders an Einrichtungen der Erwachsenenbildung, die wirkungsorientiert arbeiten möchten, ohne ein umfangreiches Wirkungsmanagement oder komplexe Evaluationsverfahren einzuführen. Die einzelnen Werkzeuge unterstützen bei konkreten Fragen und können unabhängig voneinander genutzt werden.</p>
   </section>
+
+  <section class="play-section">
+    <div class="play-card">
+      <div class="play-icon">🔎</div>
+      <div class="play-copy">
+        <div class="play-eyebrow">Wirkungs-Werkstatt · PLAY</div>
+        <h3>Der Wirkungsfall</h3>
+        <p>Ein Praxisbeispiel aus der Erwachsenenbildung. Folgen Sie den Spuren und entscheiden Sie Schritt für Schritt, was die vorliegenden Informationen über Output, Outcome und mögliche weiterreichende Wirkung zeigen.</p>
+        <a class="play-link" href="wirkungsfall.html">Wirkungsfall starten</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <footer class="site-footer">

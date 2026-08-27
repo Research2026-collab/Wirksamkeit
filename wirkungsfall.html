@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Der Wirkungsfall – Wirkungs-Werkstatt PLAY</title>
+<style>
+:root{--navy:#17365d;--teal:#2b7a78;--mint:#eaf7f4;--bg:#f6f8fa;--text:#1d2939;--muted:#667085;--border:#dfe5eb;--white:#fff;--amber:#fff7df;--red:#fff0f0}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.55}.wrap{max-width:940px;margin:auto;padding:24px 18px 70px}
+nav{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding:10px 0 17px}.brand{font-weight:800;color:var(--navy)}nav a{color:var(--teal);text-decoration:none;font-size:13px}
+.hero{text-align:center;padding:42px 10px 26px}.tag{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--teal);text-transform:uppercase}.hero h1{font-size:34px;color:var(--navy);margin:7px 0}.hero p{max-width:690px;margin:auto;color:var(--muted)}
+.case{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px;margin:12px 0 22px;box-shadow:0 4px 16px rgba(20,45,70,.04)}.casehead{display:flex;gap:15px;align-items:center;margin-bottom:16px}.icon{width:52px;height:52px;border-radius:50%;background:var(--mint);display:grid;place-items:center;font-size:26px}.case h2{color:var(--navy);font-size:21px;margin:0}.case p{margin:8px 0}
+.evidence{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}.ev{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:13px;font-size:14px}.ev b{color:var(--navy);font-size:18px}
+.progress{display:flex;gap:6px;margin:0 0 22px}.pip{height:6px;flex:1;background:#dfe5eb;border-radius:9px}.pip.on{background:var(--teal)}
+.scene{display:none}.scene.active{display:block}.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:27px}.card h2{font-size:23px;color:var(--navy);margin:0 0 7px}.lead{color:var(--muted);margin:0 0 21px}
+.choices{display:grid;gap:10px}.choice{border:1px solid var(--border);background:#fff;border-radius:10px;padding:15px 17px;cursor:pointer;text-align:left;font:inherit;color:var(--text);transition:.15s}.choice:hover{border-color:var(--teal);transform:translateY(-1px)}.choice.selected{border:2px solid var(--teal);background:var(--mint)}.choice strong{color:var(--navy);display:block}.choice small{color:var(--muted)}
+.feedback{display:none;margin-top:17px;padding:16px;border-radius:10px;background:var(--mint);border-left:4px solid var(--teal)}.feedback.show{display:block}.feedback.warn{background:var(--amber);border-left-color:#c38a00}.feedback h3{font-size:15px;margin:0 0 4px;color:var(--navy)}.feedback p{margin:0;font-size:14px}
+.actions{display:flex;justify-content:space-between;margin-top:22px;gap:10px}.btn{border:0;border-radius:8px;padding:10px 18px;font-weight:700;cursor:pointer;font:inherit}.primary{background:var(--teal);color:#fff}.secondary{background:#fff;border:1px solid var(--border);color:var(--muted)}.primary:disabled{opacity:.4;cursor:default}
+.sortgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.bucket{border:2px dashed #cbd5df;border-radius:12px;padding:13px;min-height:130px}.bucket h3{font-size:14px;color:var(--navy);margin:0 0 7px}.bucket p{font-size:12px;color:var(--muted);margin:0}.chip{border:1px solid var(--border);border-radius:9px;background:#fff;padding:10px;margin:8px 0;font-size:13px;cursor:pointer}.chip.done{background:var(--mint);border-color:var(--teal)}
+.statement{font-size:20px;line-height:1.5;padding:20px;border-radius:10px;background:#f8fafc;border-left:4px solid var(--navy);margin:15px 0}
+.final{background:var(--mint);border-radius:12px;padding:20px;margin-top:16px}.final h3{color:var(--navy);margin-top:0}.path{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:18px 0}.node{background:#fff;border:1px solid var(--border);padding:8px 11px;border-radius:8px;font-size:13px}.arrow{color:var(--teal);font-weight:bold}
+footer{text-align:center;border-top:1px solid var(--border);margin-top:30px;padding:16px;font-size:12px;color:#8b929b}footer a{color:#8b929b}
+@media(max-width:680px){.evidence,.sortgrid{grid-template-columns:1fr}.hero h1{font-size:29px}.case,.card{padding:20px}}
+</style></head>
+<body><div class="wrap">
+<nav><div class="brand">Wirkungs-Werkstatt · PLAY</div><a href="index.html">Zur Toolbox</a></nav>
+<div class="hero"><div class="tag">Ein Wirkungsfall</div><h1>Was ist hier eigentlich Wirkung?</h1><p>Ein Praxisbeispiel aus der Erwachsenenbildung. Folgen Sie den Spuren und entscheiden Sie Schritt für Schritt, was die vorliegenden Informationen tatsächlich zeigen.</p></div>
+
+<div class="case">
+<div class="casehead"><div class="icon">🔎</div><div><div class="tag">Fallakte 01</div><h2>Smartphone sicher nutzen</h2></div></div>
+<p>Eine Bildungseinrichtung bietet einen sechswöchigen Smartphone-Kurs an. Ziel ist, dass die Teilnehmenden digitale Kommunikationsmöglichkeiten selbstständiger nutzen und sich bei wichtigen Funktionen sicherer fühlen.</p>
+<div class="evidence">
+<div class="ev"><b>18</b><br>Personen haben teilgenommen.</div>
+<div class="ev"><b>16</b><br>haben den Kurs abgeschlossen.</div>
+<div class="ev"><b>14 von 16</b><br>geben am Kursende an, sich bei wichtigen Smartphone-Funktionen sicherer zu fühlen.</div>
+<div class="ev"><b>5 Gespräche</b><br>vier Wochen später: Vier Personen nennen Situationen, in denen sie Funktionen selbstständig genutzt haben.</div>
+</div></div>
+
+<div class="progress"><div class="pip on"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+
+<section class="scene active" id="s1"><div class="card">
+<h2>Was zeigt zunächst nur die Durchführung?</h2><p class="lead">Welche Information sagt zunächst nur etwas darüber aus, was stattgefunden hat?</p>
+<div class="choices">
+<button class="choice" onclick="answer(this,false,'14 von 16 fühlen sich sicherer')"><strong>14 von 16 fühlen sich sicherer.</strong><small>Eine Selbsteinschätzung am Kursende.</small></button>
+<button class="choice" onclick="answer(this,true,'18 Personen haben teilgenommen')"><strong>18 Personen haben teilgenommen.</strong><small>Die Zahl beschreibt die Nutzung des Angebots.</small></button>
+<button class="choice" onclick="answer(this,false,'Vier Personen nennen eine selbstständige Anwendung')"><strong>Vier Personen nennen eine selbstständige Anwendung.</strong><small>Eine Erfahrung einige Wochen später.</small></button>
+</div>
+<div class="feedback" id="fb1"></div><div class="actions"><span></span><button id="n1" class="btn primary" disabled onclick="next(2)">Nächste Spur</button></div>
+</div></section>
+
+<section class="scene" id="s2"><div class="card">
+<h2>Spur 2: Wo zeigt sich Outcome?</h2><p class="lead">Welche Information gibt den deutlichsten Hinweis auf eine Veränderung bei den Teilnehmenden?</p>
+<div class="choices">
+<button class="choice" onclick="answer2(this,false)"><strong>16 Personen haben den Kurs abgeschlossen.</strong></button>
+<button class="choice" onclick="answer2(this,true)"><strong>14 von 16 berichten mehr Sicherheit im Umgang mit wichtigen Funktionen.</strong></button>
+<button class="choice" onclick="answer2(this,false)"><strong>Der Kurs dauerte sechs Wochen.</strong></button>
+</div>
+<div class="feedback" id="fb2"></div><div class="actions"><button class="btn secondary" onclick="next(1)">Zurück</button><button id="n2" class="btn primary" disabled onclick="next(3)">Nächste Spur</button></div>
+</div></section>
+
+<section class="scene" id="s3"><div class="card">
+<h2>Spur 3: Was macht den Hinweis stärker?</h2><p class="lead">Vier Wochen später berichten vier von fünf befragten Personen von konkreten Situationen, in denen sie Smartphone-Funktionen selbstständig genutzt haben. Warum ist diese Information besonders interessant?</p>
+<div class="choices">
+<button class="choice" onclick="answer3(this,true)"><strong>Die Veränderung zeigt sich mit zeitlichem Abstand in konkreten Alltagssituationen.</strong></button>
+<button class="choice" onclick="answer3(this,false)"><strong>Fünf Gespräche reichen aus, um die Wirkung für alle Teilnehmenden nachzuweisen.</strong></button>
+<button class="choice" onclick="answer3(this,false)"><strong>Damit ist bewiesen, dass ausschließlich der Kurs die Veränderung verursacht hat.</strong></button>
+</div>
+<div class="feedback" id="fb3"></div><div class="actions"><button class="btn secondary" onclick="next(2)">Zurück</button><button id="n3" class="btn primary" disabled onclick="next(4)">Nächste Spur</button></div>
+</div></section>
+
+<section class="scene" id="s4"><div class="card">
+<h2>Spur 4: Wie weit dürfen wir gehen?</h2><p class="lead">Welche Wirkungsaussage passt am besten zu den vorliegenden Informationen?</p>
+<div class="choices">
+<button class="choice" onclick="answer4(this,false)"><strong>Der Kurs hat die digitale Teilhabe der Teilnehmenden nachhaltig verbessert.</strong></button>
+<button class="choice" onclick="answer4(this,true)"><strong>Die Ergebnisse geben Hinweise darauf, dass viele Teilnehmende mehr Handlungssicherheit gewonnen haben und Smartphone-Funktionen selbstständiger nutzen.</strong></button>
+<button class="choice" onclick="answer4(this,false)"><strong>Der Kurs war erfolgreich, weil 16 Personen ihn abgeschlossen haben.</strong></button>
+</div>
+<div class="feedback" id="fb4"></div><div class="actions"><button class="btn secondary" onclick="next(3)">Zurück</button><button id="n4" class="btn primary" disabled onclick="next(5)">Fall auflösen</button></div>
+</div></section>
+
+<section class="scene" id="s5"><div class="card">
+<div class="tag">Fall gelöst</div><h2>Vom Angebot zur Wirkungsspur</h2>
+<p class="lead">Sie haben den Fall vom Output bis zu einer begründeten Outcome-Aussage verfolgt.</p>
+<div class="path"><span class="node">Kurs findet statt</span><span class="arrow">→</span><span class="node">18 Teilnehmende</span><span class="arrow">→</span><span class="node">14 berichten mehr Sicherheit</span><span class="arrow">→</span><span class="node">Anwendung im Alltag</span></div>
+<div class="final"><h3>Was wissen wir?</h3><p>Die Teilnahme- und Abschlusszahlen beschreiben den <strong>Output</strong>. Die berichtete höhere Sicherheit und die Beispiele selbstständiger Nutzung geben Hinweise auf <strong>Outcomes</strong>. Die Gespräche nach vier Wochen erweitern den Blick über das unmittelbare Kursende hinaus.</p><p><strong>Was bleibt offen?</strong> Für eine weiterreichende Aussage über digitale Teilhabe oder gesellschaftlichen Impact wären zusätzliche Informationen erforderlich. Der Fall zeigt deshalb auch, dass Wirkungsorientierung bedeutet, die Reichweite der eigenen Aussage bewusst zu bestimmen.</p></div>
+<div class="actions"><button class="btn secondary" onclick="restart()">Fall noch einmal spielen</button><a class="btn primary" href="index.html" style="text-decoration:none">Zur Wirkungs-Werkstatt</a></div>
+</div></section>
+</div>
+<footer>&copy; Elisabeth Vanderheiden · <a href="https://research2026-collab.github.io/elisabeth.vanderheiden/">Website</a> · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de">CC BY-NC 4.0</a></footer>
+<script>
+function feedback(id,ok,good,bad){
+ let f=document.getElementById(id);f.className="feedback show"+(ok?"":" warn");
+ f.innerHTML=ok?`<h3>Gute Spur.</h3><p>${good}</p>`:`<h3>Noch einmal auf die Reichweite schauen.</h3><p>${bad}</p>`;
+}
+function mark(btn){btn.parentElement.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));btn.classList.add("selected")}
+function answer(btn,ok){mark(btn);feedback("fb1",ok,"Die Zahl der Teilnehmenden beschreibt zunächst den Output: Das Angebot wurde durchgeführt und genutzt.","Suchen Sie nach der Information, die noch keine Veränderung bei den Teilnehmenden beschreibt.");if(ok)n1.disabled=false}
+function answer2(btn,ok){mark(btn);feedback("fb2",ok,"Die Teilnehmenden benennen hier selbst eine Veränderung. Damit verlassen wir die reine Output-Ebene.","Abschlusszahl und Dauer beschreiben das Angebot. Gesucht ist eine wahrgenommene Veränderung.");if(ok)n2.disabled=false}
+function answer3(btn,ok){mark(btn);feedback("fb3",ok,"Der zeitliche Abstand und die konkreten Beispiele geben zusätzliche Hinweise darauf, dass sich etwas über die Veranstaltung hinaus verändert hat.","Die Gespräche liefern wertvolle Hinweise, erlauben aber weder eine Aussage über alle Teilnehmenden noch einen eindeutigen Kausalnachweis.");if(ok)n3.disabled=false}
+function answer4(btn,ok){mark(btn);feedback("fb4",ok,"Die Formulierung bleibt bei dem, was die Daten tragen: Hinweise auf mehr Handlungssicherheit und selbstständigere Nutzung.","Prüfen Sie, ob die Aussage weiter reicht als die vorliegenden Rückmeldungen und Beispiele.");if(ok)n4.disabled=false}
+function next(n){document.querySelectorAll(".scene").forEach(x=>x.classList.remove("active"));document.getElementById("s"+n).classList.add("active");document.querySelectorAll(".pip").forEach((p,i)=>p.classList.toggle("on",i<n));window.scrollTo({top:document.querySelector(".progress").offsetTop-20,behavior:"smooth"})}
+function restart(){location.reload()}
+</script>
+</body></html>
