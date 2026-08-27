@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wirkung zeigen – Wirkungs-Werkstatt</title><style>
+:root{--navy:#1a365d;--navy2:#2a4a7f;--teal:#2b7a78;--teal2:#3aafa9;--bg:#f7f8fa;--surface:#fff;--text:#1a202c;--muted:#4a5568;--light:#718096;--border:#e2e8f0;--soft:#eef7f6;--softblue:#edf4fb}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}.app{max-width:1040px;margin:auto;padding:24px 20px 80px}
+.topnav{display:flex;justify-content:space-between;align-items:center;padding:10px 0 18px;border-bottom:1px solid var(--border)}.topnav a{font-size:13px;color:var(--teal);text-decoration:none}.brand{font-weight:700;color:var(--navy)}
+.header{text-align:center;padding:42px 0 26px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}.header h1{font-size:30px;color:var(--navy);margin-bottom:10px}.header p{color:var(--muted);max-width:760px;margin:auto}
+.progress{max-width:760px;margin:2px auto 28px}.progress-top{display:flex;justify-content:space-between;font-size:12px;color:var(--light);margin-bottom:7px}.track{height:7px;background:#e8edf2;border-radius:99px;overflow:hidden}.bar{height:100%;width:20%;background:var(--teal);transition:.25s}
+.step{display:none}.step.active{display:block}.card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:18px}.card h2{font-size:22px;color:var(--navy);margin-bottom:6px}.lead{color:var(--muted);margin-bottom:22px}.question{margin-bottom:22px}.question label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}.hint{font-size:12px;color:var(--light);margin-bottom:7px}
+textarea,input[type=text],select{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:7px;background:var(--bg);font:inherit;font-size:14px}textarea{min-height:92px;resize:vertical}textarea:focus,input:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(43,122,120,.1)}
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.option{border:1px solid var(--border);border-radius:9px;padding:14px;background:#fff;cursor:pointer}.option:hover{border-color:var(--teal2)}.option.selected{border-color:var(--teal);background:var(--soft)}.option input{display:none}.option strong{display:block;color:var(--navy);font-size:14px}.option span{font-size:12px;color:var(--muted)}
+.note{padding:15px 16px;border-radius:9px;background:var(--soft);border-left:3px solid var(--teal);font-size:13px;color:var(--muted);margin-top:16px}.note strong{color:var(--teal)}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border:none;border-radius:7px;padding:10px 20px;font-size:14px;font-weight:650;font-family:inherit;cursor:pointer}.primary{background:var(--teal);color:#fff}.primary:hover{background:var(--navy2)}.secondary{background:#fff;color:var(--muted);border:1px solid var(--border)}
+.result{border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden}.result-head{padding:24px 26px;background:var(--soft)}.result-head h2{font-size:24px;color:var(--navy)}.result-body{padding:24px 26px}.block{padding:15px 0;border-bottom:1px solid var(--border)}.label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);margin-bottom:4px}.rtext{font-size:15px}.muted{font-size:13px;color:var(--muted);margin-top:4px}.status{font-size:12px;color:#276749;min-height:18px;margin-top:8px}
+footer{border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px;margin-top:24px}footer p{max-width:1040px;margin:auto;text-align:center;font-size:13px;color:#8a8a86}footer a{color:#8a8a86}
+@media(max-width:700px){.options{grid-template-columns:1fr}.card{padding:20px}.header h1{font-size:26px}}
+@media print{.topnav,.header,.progress,.actions,footer{display:none!important}.step{display:none!important}#step5{display:block!important}.app{padding:0}.result{border:0}}
+
+.audience-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.audience{border:1px solid var(--border);border-radius:9px;padding:14px;background:#fff;cursor:pointer}.audience.selected{border-color:var(--teal);background:var(--soft)}.audience input{display:none}.audience strong{display:block;color:var(--navy);font-size:14px}.audience span{font-size:12px;color:var(--muted)}
+.sample{border-left:4px solid var(--teal);background:var(--soft);padding:18px 20px;border-radius:0 10px 10px 0;font-size:15px}
+@media(max-width:700px){.audience-grid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="app">
+<div class="topnav"><div class="brand">Wirkungs-Werkstatt</div><div><a href="index.html">Startseite</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="wirkung-verstehen.html">Wirkung verstehen</a></div></div>
+<div class="header"><div class="eyebrow">Werkzeug 8</div><h1>Wirkung zeigen</h1><p>Bereiten Sie Ihre Ergebnisse so auf, dass deutlich wird, was sich für Teilnehmende verändert hat, worauf Ihre Aussagen beruhen und welchen Beitrag Ihr Angebot leisten kann.</p></div>
+<div class="progress"><div class="progress-top"><span id="pt">Schritt 1 von 5</span><span id="pl">Ergebnis</span></div><div class="track"><div class="bar" id="pb"></div></div></div>
+
+<section class="step active" id="step1"><div class="card">
+<h2>Welche Wirkung möchten Sie darstellen?</h2><p class="lead">Fassen Sie das zentrale Ergebnis in wenigen Sätzen zusammen. Wenn Sie den Aussage-Check genutzt haben, können Sie die dort entwickelte Formulierung übernehmen.</p>
+<div class="question"><label for="claim">Ihre Wirkungsaussage</label><textarea id="claim" placeholder="z. B. Die Rückmeldungen geben Hinweise darauf, dass Teilnehmende sich bei wichtigen Smartphone-Funktionen sicherer fühlen und digitale Kommunikation selbstständiger nutzen."></textarea></div>
+<div class="question"><label for="evidence">Worauf stützt sich die Aussage?</label><textarea id="evidence" placeholder="z. B. 18 Rückmeldungen am Kursende und fünf kurze Nachgespräche nach vier Wochen"></textarea></div>
+<div class="actions"><span></span><button class="btn primary" onclick="go(2)">Weiter</button></div></div></section>
+
+<section class="step" id="step2"><div class="card">
+<h2>Für wen bereiten Sie die Wirkung auf?</h2><p class="lead">Die gleiche Wirkung kann je nach Adressat anders gewichtet werden. Wählen Sie den Kontext, in dem Sie die Ergebnisse verwenden möchten.</p>
+<div class="audience-grid" id="aud">
+<label class="audience"><input type="radio" name="aud" value="foerder"><strong>Fördermittelgeber oder Antrag</strong><span>Zielerreichung, Wirkungsbeitrag und nachvollziehbare Belege stehen im Vordergrund.</span></label>
+<label class="audience"><input type="radio" name="aud" value="bericht"><strong>Jahres- oder Projektbericht</strong><span>Ergebnisse, Lernen und Weiterentwicklung werden verbunden.</span></label>
+<label class="audience"><input type="radio" name="aud" value="web"><strong>Website oder Öffentlichkeit</strong><span>Eine verständliche, knappe Darstellung mit konkreter Bedeutung.</span></label>
+<label class="audience"><input type="radio" name="aud" value="intern"><strong>Interne Planung</strong><span>Konsequenzen für zukünftige Angebote stehen im Mittelpunkt.</span></label>
+</div>
+<div class="note"><strong>Wirkungskommunikation beginnt bei der Aussage.</strong> Zahlen, Zitate oder Beispiele unterstützen die Darstellung, wenn sie zeigen, worauf die Aussage beruht.</div>
+<div class="actions"><button class="btn secondary" onclick="go(1)">Zurück</button><button class="btn primary" onclick="go(3)">Weiter</button></div></div></section>
+
+<section class="step" id="step3"><div class="card">
+<h2>Was möchten Sie ergänzen?</h2><p class="lead">Wählen Sie Elemente, die Ihre Wirkungsaussage nachvollziehbar und anschaulich machen.</p>
+<div class="options" id="elements">
+<label class="option"><input type="checkbox" value="zahl"><strong>Eine zentrale Zahl</strong><span>Zum Beispiel Anteil der Teilnehmenden mit einer bestimmten Rückmeldung.</span></label>
+<label class="option"><input type="checkbox" value="zitat"><strong>Eine Stimme aus der Zielgruppe</strong><span>Ein kurzes, abgestimmtes Zitat oder eine sinngemäße Aussage.</span></label>
+<label class="option"><input type="checkbox" value="beispiel"><strong>Ein konkretes Beispiel</strong><span>Eine Situation, in der die Veränderung sichtbar wurde.</span></label>
+<label class="option"><input type="checkbox" value="lernen"><strong>Eine Konsequenz für die weitere Arbeit</strong><span>Was wurde aus den Ergebnissen gelernt oder verändert?</span></label>
+</div>
+<div class="question" style="margin-top:20px"><label for="detail">Ergänzende Information</label><textarea id="detail" placeholder="z. B. 14 von 18 Teilnehmenden berichten mehr Sicherheit; in Nachgesprächen wurden konkrete Alltagssituationen genannt."></textarea></div>
+<div class="actions"><button class="btn secondary" onclick="go(2)">Zurück</button><button class="btn primary" onclick="go(4)">Weiter</button></div></div></section>
+
+<section class="step" id="step4"><div class="card">
+<h2>Welche Reichweite soll die Aussage haben?</h2><p class="lead">Ordnen Sie ein, ob Sie einen unmittelbaren Outcome oder einen weiterreichenden Wirkungsbeitrag darstellen.</p>
+<div class="question"><label for="reach">Reichweite</label><select id="reach">
+<option value="outcome">Veränderung bei den Teilnehmenden / Outcome</option>
+<option value="contribution">Beitrag zu einer weiterreichenden Veränderung</option>
+</select></div>
+<div class="question"><label for="contribution">Optional: Welchen weiterreichenden Beitrag sehen Sie?</label><textarea id="contribution" placeholder="z. B. einen Beitrag zu größerer digitaler Teilhabe und Selbstständigkeit im Alltag"></textarea></div>
+<div class="note"><strong>Weiterreichende Wirkung lässt sich als Beitrag formulieren.</strong> So bleibt sichtbar, dass gesellschaftliche Veränderungen von mehreren Faktoren beeinflusst werden.</div>
+<div class="actions"><button class="btn secondary" onclick="go(3)">Zurück</button><button class="btn primary" onclick="makeResult()">Darstellung erstellen</button></div></div></section>
+
+<section class="step" id="step5"><div class="result"><div class="result-head"><div class="eyebrow">Ihr Ergebnis</div><h2>Wirkung kompakt dargestellt</h2></div><div class="result-body">
+<div class="block"><div class="label">Kernaussage</div><div class="sample" id="rtext"></div></div>
+<div class="block"><div class="label">Grundlage</div><div class="rtext" id="revidence"></div></div>
+<div class="block"><div class="label">Ergänzende Information</div><div class="rtext" id="rdetail"></div></div>
+<div class="block"><div class="label">Verwendung</div><div class="rtext" id="raud"></div></div>
+<div class="note"><strong>Für eine glaubwürdige Wirkungskommunikation:</strong> Machen Sie sichtbar, was sich verändert hat, worauf Sie diese Einschätzung stützen und wie weit Ihre Aussage reicht.</div>
+<div class="actions"><div><button class="btn primary" onclick="window.print()">Als PDF drucken / sichern</button> <button class="btn secondary" onclick="downloadWord()">Als Word-Dokument</button> <button class="btn secondary" onclick="copyText()">Kopieren</button></div><a href="index.html" style="color:var(--teal);font-size:13px">Zur Werkzeugübersicht</a></div><div class="status" id="status"></div>
+<div class="actions"><button class="btn secondary" onclick="go(4)">Zurück und ändern</button><button class="btn primary" onclick="restart()">Neue Darstellung</button></div>
+</div></div></section>
+</div>
+<footer><p>&copy; Elisabeth Vanderheiden · <a href="https://research2026-collab.github.io/elisabeth.vanderheiden/" target="_blank">Website</a> · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank">CC BY-NC 4.0</a></p></footer>
+<script>
+const labels=["Ergebnis","Adressat","Ergänzen","Reichweite","Ergebnis"];
+function go(n){document.querySelectorAll(".step").forEach(x=>x.classList.remove("active"));document.getElementById("step"+n).classList.add("active");pt.textContent="Schritt "+n+" von 5";pl.textContent=labels[n-1];pb.style.width=(n*20)+"%";window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll(".option,.audience").forEach(o=>o.addEventListener("click",function(){let i=this.querySelector("input");if(i.type==="radio"){document.querySelectorAll(".audience").forEach(x=>x.classList.remove("selected"));setTimeout(()=>this.classList.add("selected"),0)}else setTimeout(()=>this.classList.toggle("selected",i.checked),0)}));
+function v(id){return document.getElementById(id).value.trim()||"–"}
+function audText(){let r=document.querySelector('input[name="aud"]:checked');let map={foerder:"Fördermittelgeber oder Antrag",bericht:"Jahres- oder Projektbericht",web:"Website oder Öffentlichkeit",intern:"Interne Planung"};return r?map[r.value]:"–"}
+function makeResult(){let claim=v("claim"),reach=document.getElementById("reach").value,cont=v("contribution"),text=claim;if(reach==="contribution"&&cont!=="–")text+=" Die Ergebnisse weisen zugleich auf einen möglichen Beitrag zu "+cont.replace(/^einen Beitrag zu /i,"")+" hin.";rtext.textContent=text;revidence.textContent=v("evidence");rdetail.textContent=v("detail");raud.textContent=audText();go(5)}
+function plain(){return ["Wirkung kompakt dargestellt","","Kernaussage:",rtext.textContent,"","Grundlage:",revidence.textContent,"","Ergänzende Information:",rdetail.textContent,"","Verwendung:",raud.textContent].join("\n")}
+function copyText(){navigator.clipboard.writeText(plain()).then(()=>status.textContent="Darstellung wurde kopiert.")}
+function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function downloadWord(){let h=`<html><head><meta charset="utf-8"></head><body style="font-family:Calibri,Arial"><h1 style="color:#1a365d">Wirkung kompakt dargestellt</h1><p>${esc(plain()).replace(/\n/g,"<br>")}</p><p style="font-size:9pt;color:#777">Erstellt mit der Wirkungs-Werkstatt.</p></body></html>`;let b=new Blob(['\ufeff',h],{type:"application/msword"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="Wirkung-kompakt.doc";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(u);status.textContent="Word-Dokument wurde erstellt."}
+function restart(){document.querySelectorAll("textarea,input[type=text]").forEach(x=>x.value="");document.querySelectorAll("input[type=checkbox],input[type=radio]").forEach(x=>x.checked=false);document.querySelectorAll(".option,.audience").forEach(x=>x.classList.remove("selected"));document.querySelectorAll("select").forEach(x=>x.selectedIndex=0);go(1)}
+</script></body></html>

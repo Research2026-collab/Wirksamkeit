@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wirkungs-Rückblick – Wirkungs-Werkstatt</title><style>
+:root{--navy:#1a365d;--navy2:#2a4a7f;--teal:#2b7a78;--teal2:#3aafa9;--bg:#f7f8fa;--surface:#fff;--text:#1a202c;--muted:#4a5568;--light:#718096;--border:#e2e8f0;--soft:#eef7f6;--softblue:#edf4fb}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}.app{max-width:1040px;margin:auto;padding:24px 20px 80px}
+.topnav{display:flex;justify-content:space-between;align-items:center;padding:10px 0 18px;border-bottom:1px solid var(--border)}.topnav a{font-size:13px;color:var(--teal);text-decoration:none}.brand{font-weight:700;color:var(--navy)}
+.header{text-align:center;padding:42px 0 26px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}.header h1{font-size:30px;color:var(--navy);margin-bottom:10px}.header p{color:var(--muted);max-width:760px;margin:auto}
+.progress{max-width:760px;margin:2px auto 28px}.progress-top{display:flex;justify-content:space-between;font-size:12px;color:var(--light);margin-bottom:7px}.track{height:7px;background:#e8edf2;border-radius:99px;overflow:hidden}.bar{height:100%;width:20%;background:var(--teal);transition:.25s}
+.step{display:none}.step.active{display:block}.card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:18px}.card h2{font-size:22px;color:var(--navy);margin-bottom:6px}.lead{color:var(--muted);margin-bottom:22px}.question{margin-bottom:22px}.question label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}.hint{font-size:12px;color:var(--light);margin-bottom:7px}
+textarea,input[type=text],select{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:7px;background:var(--bg);font:inherit;font-size:14px}textarea{min-height:92px;resize:vertical}textarea:focus,input:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(43,122,120,.1)}
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.option{border:1px solid var(--border);border-radius:9px;padding:14px;background:#fff;cursor:pointer}.option:hover{border-color:var(--teal2)}.option.selected{border-color:var(--teal);background:var(--soft)}.option input{display:none}.option strong{display:block;color:var(--navy);font-size:14px}.option span{font-size:12px;color:var(--muted)}
+.note{padding:15px 16px;border-radius:9px;background:var(--soft);border-left:3px solid var(--teal);font-size:13px;color:var(--muted);margin-top:16px}.note strong{color:var(--teal)}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border:none;border-radius:7px;padding:10px 20px;font-size:14px;font-weight:650;font-family:inherit;cursor:pointer}.primary{background:var(--teal);color:#fff}.primary:hover{background:var(--navy2)}.secondary{background:#fff;color:var(--muted);border:1px solid var(--border)}
+.result{border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden}.result-head{padding:24px 26px;background:var(--soft)}.result-head h2{font-size:24px;color:var(--navy)}.result-body{padding:24px 26px}.block{padding:15px 0;border-bottom:1px solid var(--border)}.label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);margin-bottom:4px}.rtext{font-size:15px}.muted{font-size:13px;color:var(--muted);margin-top:4px}.status{font-size:12px;color:#276749;min-height:18px;margin-top:8px}
+footer{border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px;margin-top:24px}footer p{max-width:1040px;margin:auto;text-align:center;font-size:13px;color:#8a8a86}footer a{color:#8a8a86}
+@media(max-width:700px){.options{grid-template-columns:1fr}.card{padding:20px}.header h1{font-size:26px}}
+@media print{.topnav,.header,.progress,.actions,footer{display:none!important}.step{display:none!important}#step5{display:block!important}.app{padding:0}.result{border:0}}
+</style></head>
+<body><div class="app">
+<div class="topnav"><div class="brand">Wirkungs-Werkstatt</div><div><a href="index.html">Startseite</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="wirkung-verstehen.html">Wirkung verstehen</a></div></div>
+<div class="header"><div class="eyebrow">Werkzeug 7</div><h1>Wirkungs-Rückblick</h1><p>Nutzen Sie Ihre Ergebnisse, um daraus Konsequenzen für die weitere Arbeit abzuleiten. Der Rückblick verbindet beobachtete Wirkungen mit der Frage, was beibehalten, verändert oder weiter geprüft werden sollte.</p></div>
+<div class="progress"><div class="progress-top"><span id="pt">Schritt 1 von 5</span><span id="pl">Ergebnisse</span></div><div class="track"><div class="bar" id="pb"></div></div></div>
+
+<section class="step active" id="step1"><div class="card">
+<h2>Was haben Sie erfahren?</h2><p class="lead">Fassen Sie die wichtigsten Ergebnisse knapp zusammen. Es reicht, wenn Sie die Veränderungen benennen, die für Ihre weitere Planung relevant sind.</p>
+<div class="question"><label for="results">Zentrale Ergebnisse</label><textarea id="results" placeholder="z. B. Viele Teilnehmende berichten mehr Sicherheit. Die Anwendung im Alltag gelingt unterschiedlich. Einige wünschen sich mehr Zeit zum Üben."></textarea></div>
+<div class="question"><label for="offer">Angebot</label><input type="text" id="offer" placeholder="z. B. Smartphone sicher nutzen"></div>
+<div class="note"><strong>Der Rückblick beginnt bei den Ergebnissen.</strong> Entscheidend ist, was diese für die weitere Gestaltung des Angebots bedeuten.</div>
+<div class="actions"><span></span><button class="btn primary" onclick="go(2)">Weiter</button></div></div></section>
+
+<section class="step" id="step2"><div class="card">
+<h2>Was sollte erhalten bleiben?</h2><p class="lead">Markieren Sie, welche Aspekte sich aus Ihrer Sicht bewährt haben oder von Teilnehmenden als hilfreich beschrieben wurden.</p>
+<div class="options" id="keep">
+<label class="option"><input type="checkbox" value="inhalt"><strong>Inhalte</strong><span>Bestimmte Themen oder Schwerpunkte tragen zur angestrebten Wirkung bei.</span></label>
+<label class="option"><input type="checkbox" value="methode"><strong>Methoden</strong><span>Bestimmte Lernformen unterstützen die Teilnehmenden besonders.</span></label>
+<label class="option"><input type="checkbox" value="rahmen"><strong>Rahmenbedingungen</strong><span>Zeit, Ort, Gruppengröße oder Zugang passen gut.</span></label>
+<label class="option"><input type="checkbox" value="ansprache"><strong>Ansprache und Begleitung</strong><span>Die Art der Begleitung unterstützt Sicherheit, Beteiligung oder Transfer.</span></label>
+</div>
+<div class="question" style="margin-top:20px"><label for="keeptext">Was möchten Sie auf jeden Fall beibehalten?</label><textarea id="keeptext" placeholder="Kurze Notiz"></textarea></div>
+<div class="actions"><button class="btn secondary" onclick="go(1)">Zurück</button><button class="btn primary" onclick="go(3)">Weiter</button></div></div></section>
+
+<section class="step" id="step3"><div class="card">
+<h2>Was möchten Sie verändern?</h2><p class="lead">Leiten Sie aus den Ergebnissen konkrete Anpassungen ab. Kleine Veränderungen reichen, wenn sie auf Ihre Wirkungsziele einzahlen.</p>
+<div class="question"><label for="change">Was soll beim nächsten Mal anders sein?</label><textarea id="change" placeholder="z. B. mehr Übungszeit, zusätzliche Transferphase, andere Reihenfolge der Inhalte"></textarea></div>
+<div class="question"><label for="why">Auf welches Ergebnis reagieren Sie damit?</label><textarea id="why" placeholder="z. B. Teilnehmende berichten, dass sie sich sicherer fühlen, die Anwendung im Alltag aber noch schwerfällt."></textarea></div>
+<div class="note"><strong>Wirkungsorientierung wird hier praktisch.</strong> Ergebnisse gewinnen an Wert, wenn sie Entscheidungen über die Gestaltung zukünftiger Angebote unterstützen.</div>
+<div class="actions"><button class="btn secondary" onclick="go(2)">Zurück</button><button class="btn primary" onclick="go(4)">Weiter</button></div></div></section>
+
+<section class="step" id="step4"><div class="card">
+<h2>Was möchten Sie weiter beobachten?</h2><p class="lead">Manche Fragen lassen sich mit einer einzelnen Evaluation noch nicht beantworten. Halten Sie fest, worauf Sie bei der nächsten Durchführung genauer schauen möchten.</p>
+<div class="question"><label for="open">Welche Frage bleibt offen?</label><textarea id="open" placeholder="z. B. Bleibt die wahrgenommene Sicherheit auch einige Wochen später bestehen?"></textarea></div>
+<div class="question"><label for="next">Was möchten Sie beim nächsten Mal gezielt erheben?</label><textarea id="next" placeholder="z. B. kurze Rückfrage nach vier Wochen zur Anwendung im Alltag"></textarea></div>
+<div class="note"><strong>Wirkungsorientierung ist ein Lernprozess.</strong> Ein Rückblick darf mit offenen Fragen enden. Diese geben der nächsten Erhebung eine klarere Richtung.</div>
+<div class="actions"><button class="btn secondary" onclick="go(3)">Zurück</button><button class="btn primary" onclick="makeResult()">Rückblick erstellen</button></div></div></section>
+
+<section class="step" id="step5"><div class="result"><div class="result-head"><div class="eyebrow">Ihr Ergebnis</div><h2>Wirkungs-Rückblick</h2></div><div class="result-body">
+<div class="block"><div class="label">Angebot</div><div class="rtext" id="roffer"></div></div>
+<div class="block"><div class="label">Was wir aus den Ergebnissen mitnehmen</div><div class="rtext" id="rresults"></div></div>
+<div class="block"><div class="label">Das behalten wir bei</div><div class="rtext" id="rkeep"></div></div>
+<div class="block"><div class="label">Das verändern wir</div><div class="rtext" id="rchange"></div><div class="muted" id="rwhy"></div></div>
+<div class="block"><div class="label">Das beobachten wir weiter</div><div class="rtext" id="ropen"></div><div class="muted" id="rnext"></div></div>
+<div class="note"><strong>Der Rückblick schließt den Wirkungskreislauf.</strong> Ergebnisse werden damit zur Grundlage für Planung, Weiterentwicklung und die nächste Erhebung.</div>
+<div class="actions"><div><button class="btn primary" onclick="window.print()">Als PDF drucken / sichern</button> <button class="btn secondary" onclick="downloadWord()">Als Word-Dokument</button> <button class="btn secondary" onclick="copyText()">Kopieren</button></div><a href="index.html" style="color:var(--teal);font-size:13px">Zur Werkzeugübersicht</a></div><div class="status" id="status"></div>
+<div class="actions"><button class="btn secondary" onclick="go(4)">Zurück und ändern</button><button class="btn primary" onclick="restart()">Neuen Rückblick starten</button></div>
+</div></div></section>
+</div>
+<footer><p>&copy; Elisabeth Vanderheiden · <a href="https://research2026-collab.github.io/elisabeth.vanderheiden/" target="_blank">Website</a> · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank">CC BY-NC 4.0</a></p></footer>
+<script>
+const labels=["Ergebnisse","Beibehalten","Verändern","Weiter beobachten","Ergebnis"];
+function go(n){document.querySelectorAll(".step").forEach(x=>x.classList.remove("active"));document.getElementById("step"+n).classList.add("active");pt.textContent="Schritt "+n+" von 5";pl.textContent=labels[n-1];pb.style.width=(n*20)+"%";window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll(".option").forEach(o=>o.addEventListener("click",function(){let c=this.querySelector("input");setTimeout(()=>this.classList.toggle("selected",c.checked),0)}));
+function v(id){return document.getElementById(id).value.trim()||"–"}
+function makeResult(){let ks=[...document.querySelectorAll("#keep input:checked")].map(x=>x.value);roffer.textContent=v("offer");rresults.textContent=v("results");rkeep.textContent=v("keeptext")+(ks.length?" ("+ks.join(", ")+")":"");rchange.textContent=v("change");rwhy.textContent="Bezug zum Ergebnis: "+v("why");ropen.textContent=v("open");rnext.textContent="Nächster Erhebungsschritt: "+v("next");go(5)}
+function plain(){return ["Wirkungs-Rückblick","","Angebot: "+v("offer"),"","Ergebnisse:",v("results"),"","Beibehalten:",v("keeptext"),"","Verändern:",v("change"),"Bezug zum Ergebnis: "+v("why"),"","Weiter beobachten:",v("open"),"Nächster Erhebungsschritt: "+v("next")].join("\n")}
+function copyText(){navigator.clipboard.writeText(plain()).then(()=>status.textContent="Rückblick wurde kopiert.")}
+function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function downloadWord(){let h=`<html><head><meta charset="utf-8"></head><body style="font-family:Calibri,Arial"><h1 style="color:#1a365d">Wirkungs-Rückblick</h1><p>${esc(plain()).replace(/\n/g,"<br>")}</p><p style="font-size:9pt;color:#777">Erstellt mit der Wirkungs-Werkstatt.</p></body></html>`;let b=new Blob(['\ufeff',h],{type:"application/msword"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="Wirkungs-Rueckblick.doc";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(u);status.textContent="Word-Dokument wurde erstellt."}
+function restart(){document.querySelectorAll("textarea,input[type=text]").forEach(x=>x.value="");document.querySelectorAll("input[type=checkbox]").forEach(x=>x.checked=false);document.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));go(1)}
+</script></body></html>
