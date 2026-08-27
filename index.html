@@ -143,6 +143,25 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 .meta-card{border-style:dashed}
 .meta-card .level-icon{color:var(--teal)}
 
+
+/* Einheitliche monochrome Icons in den vier Hauptkacheln */
+.level-grid .level-icon,
+.level-grid .level-card:nth-child(1) .level-icon,
+.level-grid .level-card:nth-child(2) .level-icon,
+.level-grid .level-card:nth-child(3) .level-icon,
+.level-grid .level-card:nth-child(4) .level-icon {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #2b7a78 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.level-grid .level-icon svg,
+.level-grid .level-icon svg * {
+  stroke: #2b7a78 !important;
+  fill: none !important;
+}
+
 </style>
 </head>
 <body>
