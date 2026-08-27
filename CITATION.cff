@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Wenn Sie die Wirkungs-Werkstatt verwenden, zitieren Sie sie bitte anhand dieser Metadaten."
+title: "Wirkungs-Werkstatt: Digitale Werkzeuge für wirkungsorientierte Erwachsenenbildung"
+type: software
+authors:
+  - family-names: "Vanderheiden"
+    given-names: "Elisabeth"
+url: "https://research2026-collab.github.io/Wirksamkeit/"
+repository-code: "https://github.com/Research2026-collab/Wirksamkeit"
+license: "CC-BY-NC-4.0"
+abstract: >-
+  Browserbasierte Toolbox für Einrichtungen der Erwachsenenbildung,
+  die wirkungsorientiert arbeiten möchten, ohne ein umfangreiches
+  Wirkungsmanagement oder komplexe Evaluationsverfahren einzuführen.
+keywords:
+  - Erwachsenenbildung
+  - Wirkungsorientierung
+  - Wirkung
+  - Evaluation
+  - digitale Toolbox
