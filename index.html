@@ -110,6 +110,25 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 .play-link:hover { background:var(--navy-light); }
 @media(max-width:650px){ .play-card{flex-direction:column;align-items:flex-start}.play-icon{width:50px;height:50px} }
 
+
+/* Drei Zugänge zur Wirkungs-Werkstatt */
+.levels { margin:42px 0 8px; }
+.levels-head { max-width:760px; margin-bottom:22px; }
+.levels-head .kicker { font-size:11px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--teal); margin-bottom:5px; }
+.levels-head h2 { color:var(--navy); margin:0 0 7px; }
+.levels-head p { color:var(--text-muted); margin:0; }
+.level-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.level-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px; display:flex; flex-direction:column; min-height:270px; }
+.level-number { font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); margin-bottom:7px; }
+.level-card h3 { color:var(--navy); margin:0 0 7px; font-size:19px; }
+.level-question { font-weight:700; color:var(--text); font-size:13px; margin:0 0 9px; }
+.level-card p { color:var(--text-muted); font-size:13px; margin:0 0 15px; }
+.level-links { margin-top:auto; border-top:1px solid var(--border); padding-top:12px; }
+.level-links a { display:block; color:var(--teal); text-decoration:none; font-size:13px; font-weight:700; padding:4px 0; }
+.level-links a:hover { text-decoration:underline; }
+.level-links .coming { display:block; color:var(--text-muted); font-size:12px; padding:4px 0; }
+@media(max-width:800px){ .level-grid{grid-template-columns:1fr}.level-card{min-height:0} }
+
 </style>
 </head>
 <body>
@@ -118,7 +137,7 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
     <div class="brand">Wirkungs-Werkstatt</div>
     <nav aria-label="Hauptnavigation">
       <a href="#start">Start</a>
-      <a href="#werkzeuge">Werkzeuge</a>
+      <a href="#zugaenge">Zugänge</a>
       <a href="wirkung-verstehen.html">Wirkung verstehen</a>
       <a href="#ueber">Über die Toolbox</a>
     </nav>
@@ -180,7 +199,53 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
     </div>
   </section>
 
-  <section id="werkzeuge" aria-labelledby="tools-heading">
+  
+  <section class="levels" id="zugaenge">
+    <div class="levels-head">
+      <div class="kicker">Drei Zugänge</div>
+      <h2>Wie möchten Sie mit Wirkung arbeiten?</h2>
+      <p>Die Wirkungs-Werkstatt verbindet praktische Werkzeuge, alternative Formen der Wirkungserhebung und spielerische Zugänge zum Wirkungsdenken.</p>
+    </div>
+
+    <div class="level-grid">
+      <article class="level-card">
+        <div class="level-number">01 · Planen &amp; auswerten</div>
+        <h3>Mit Wirkung arbeiten</h3>
+        <p class="level-question">Wie arbeiten Sie wirkungsorientiert?</p>
+        <p>Entwickeln Sie Wirkungsziele, finden Sie passende Indikatoren, planen Sie Erhebungen und ordnen Sie Ergebnisse ein. Die Werkzeuge können einzeln oder als praxisnaher Wirkungsprozess genutzt werden.</p>
+        <div class="level-links">
+          <a href="#werkzeuge">Zu den Werkzeugen →</a>
+        </div>
+      </article>
+
+      <article class="level-card">
+        <div class="level-number">02 · Anders erheben</div>
+        <h3>Veränderungen sichtbar machen</h3>
+        <p class="level-question">Wie erfahren Sie, was sich für Teilnehmende verändert hat?</p>
+        <p>Nutzen Sie alternative Erhebungsformen, die Wahrnehmungen, Erfahrungen und Veränderungen der Teilnehmenden sichtbar machen. Die Instrumente können für ein konkretes Bildungsangebot vorbereitet und mit Teilnehmenden eingesetzt werden.</p>
+        <div class="level-links">
+          <a href="wirkungs-landkarte.html">Wirkungs-Landkarte →</a>
+          <span class="coming">Weitere Instrumente folgen.</span>
+        </div>
+      </article>
+
+      <article class="level-card">
+        <div class="level-number">03 · PLAY</div>
+        <h3>Wirkung ausprobieren</h3>
+        <p class="level-question">Wie lässt sich Wirkung spielerisch verstehen?</p>
+        <p>Erkunden Sie Wirkung an Praxisbeispielen und kleinen interaktiven Anwendungen. Dabei werden Output, Outcome, Wirkungsbeitrag und die Reichweite von Wirkungsaussagen unmittelbar erfahrbar.</p>
+        <div class="level-links">
+          <a href="wirkungsfall.html">Der Wirkungsfall →</a>
+          <a href="wirkung-oder-zahl.html">Wirkung oder nur Zahl? →</a>
+          <a href="zu-viel-versprochen.html">Zu viel versprochen? →</a>
+          <a href="vier-wochen-spaeter.html">Vier Wochen später … →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+<section id="werkzeuge" aria-labelledby="tools-heading">
     <div class="section-head">
       <h2 id="tools-heading">Oder direkt zu einem Werkzeug</h2>
       <p>Jedes Werkzeug kann einzeln genutzt werden. Mehrere Werkzeuge lassen sich zu einem praxisnahen Wirkungsprozess verbinden.</p>
@@ -211,19 +276,7 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 
   <section class="about" id="ueber">
     <h2>Über die Wirkungs-Werkstatt</h2>
-    <p>Die Toolbox richtet sich besonders an Einrichtungen der Erwachsenenbildung, die wirkungsorientiert arbeiten möchten, ohne ein umfangreiches Wirkungsmanagement oder komplexe Evaluationsverfahren einzuführen. Die einzelnen Werkzeuge unterstützen bei konkreten Fragen und können unabhängig voneinander genutzt werden.</p>
-  </section>
-
-  <section class="play-section">
-    <div class="play-card">
-      <div class="play-icon">🔎</div>
-      <div class="play-copy">
-        <div class="play-eyebrow">Wirkungs-Werkstatt · PLAY</div>
-        <h3>Der Wirkungsfall</h3>
-        <p>Ein Praxisbeispiel aus der Erwachsenenbildung. Folgen Sie den Spuren und entscheiden Sie Schritt für Schritt, was die vorliegenden Informationen über Output, Outcome und mögliche weiterreichende Wirkung zeigen.</p>
-        <a class="play-link" href="wirkungsfall.html">Wirkungsfall starten</a>
-      </div>
-    </div>
+    <p>Die Toolbox richtet sich an Einrichtungen der Erwachsenenbildung, die wirkungsorientiert arbeiten möchten, ohne ein umfangreiches Wirkungsmanagement oder komplexe Evaluationsverfahren einzuführen. Die einzelnen Werkzeuge unterstützen bei konkreten Fragen und können unabhängig voneinander genutzt werden.</p>
   </section>
 
 </div>
