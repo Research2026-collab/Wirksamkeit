@@ -6,20 +6,33 @@ Die Wirkungs-Werkstatt ist eine browserbasierte Toolbox für Einrichtungen der E
 
 ## Ziel
 
-Die Toolbox unterstützt Einrichtungen dabei, Wirkungsziele zu formulieren, Veränderungen zu erkennen, geeignete Indikatoren und Erhebungsmethoden auszuwählen, Ergebnisse einzuordnen und Wirkung nachvollziehbar darzustellen.
+Die Wirkungs-Werkstatt unterstützt Einrichtungen dabei, den Blick über Input und Output hinaus auf Outcomes und weiterreichende Wirkungen zu richten. Sie verbindet Werkzeuge für wirkungsorientierte Planung und Auswertung mit alternativen Formen der Wirkungserhebung und spielerischen Zugängen zum Wirkungsdenken.
 
 ## Aufbau
 
-Die Startseite bietet zwei Zugänge:
+Die Wirkungs-Werkstatt bietet drei Zugänge:
 
-- Einstieg über konkrete Situationen und Fragestellungen aus der Praxis
-- direkter Zugang zu einzelnen Werkzeugen
+### 1. Planen & Auswerten
 
-Die Seite **„Wirkung verstehen“** erläutert zentrale Begriffe wie Output, Outcome, Impact, Wirkungsziele, Indikatoren sowie Kausalität und Wirkungsbeitrag. Die fachlichen Hinweise sind so angelegt, dass sie bei Bedarf aus den einzelnen Werkzeugen heraus aufgerufen werden können.
+Werkzeuge unterstützen dabei, Wirkungsziele zu entwickeln, passende Indikatoren zu finden, Erhebungen zu planen, Ergebnisse einzuordnen und Wirkung nachvollziehbar darzustellen. Die Werkzeuge können einzeln oder als praxisnaher Wirkungsprozess genutzt werden.
+
+### 2. Anders erheben
+
+Dieser Bereich stellt alternative Formen der Wirkungserhebung bereit. Die Instrumente richten den Blick auf Wahrnehmungen, Erfahrungen und Veränderungen der Teilnehmenden und können für konkrete Bildungsangebote vorbereitet und eingesetzt werden. Den Anfang bildet die **Wirkungs-Landkarte**.
+
+### 3. PLAY
+
+Interaktive Anwendungen eröffnen einen spielerischen Zugang zu Wirkungsorientierung. Praxisbeispiele und kleine Simulationen machen unter anderem den Unterschied zwischen Output und Outcome, die Reichweite von Wirkungsaussagen und die Bedeutung des Erhebungszeitpunkts erfahrbar.
+
+### Metaebene: Wirkung verstehen
+
+Die Seite **„Wirkung verstehen“** erläutert zentrale Begriffe wie Output, Outcome, Impact, Wirkungsziele, Indikatoren sowie Kausalität und Wirkungsbeitrag. Sie bildet eine Metaebene zu den drei Zugängen. Fachliche Hinweise stehen zusätzlich in den einzelnen Anwendungen dort zur Verfügung, wo sie gebraucht werden.
 
 ## Technischer Ansatz
 
-Die Anwendung ist als statische HTML-Anwendung für GitHub Pages konzipiert. Für die Nutzung ist kein Benutzerkonto erforderlich. Eingaben in die Werkzeuge sollen soweit möglich lokal im Browser verarbeitet werden.
+Die Anwendung ist als browserbasierte HTML-Anwendung für GitHub Pages konzipiert. Für die Nutzung ist kein Benutzerkonto erforderlich. Eingaben in die Planungs-, Auswertungs- und PLAY-Werkzeuge sowie in lokal nutzbare Erhebungsinstrumente werden soweit möglich direkt im Browser verarbeitet.
+
+Für Erhebungsinstrumente, mit denen künftig Rückmeldungen mehrerer Teilnehmender gesammelt und zusammengeführt werden, kann eine ergänzende datensparsame Speicherlösung erforderlich werden. Diese wird jeweils gesondert ausgewiesen und dokumentiert.
 
 Repository: `Research2026-collab/Wirksamkeit`
 
@@ -33,7 +46,7 @@ Für die Weiterentwicklung der Toolbox ist eine datensparsame Nutzungsstatistik 
 - Werkzeug abgeschlossen
 - Ergebnis heruntergeladen
 
-Inhaltliche Eingaben der Nutzer:innen sollen nicht übertragen oder gespeichert werden. Der Zählmechanismus wird separat implementiert und dokumentiert.
+Inhaltliche Eingaben in die Planungs-, Auswertungs- und PLAY-Werkzeuge werden für die Nutzungsstatistik nicht übertragen oder gespeichert. Der Zählmechanismus wird separat implementiert und dokumentiert. Für zukünftige Erhebungsinstrumente mit einer ausdrücklich vorgesehenen Übermittlung von Teilnehmenden-Rückmeldungen gelten gesonderte Hinweise zur Datenspeicherung.
 
 ## Autorin
 

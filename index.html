@@ -117,7 +117,7 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 .levels-head .kicker { font-size:11px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--teal); margin-bottom:5px; }
 .levels-head h2 { color:var(--navy); margin:0 0 7px; }
 .levels-head p { color:var(--text-muted); margin:0; }
-.level-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.level-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
 .level-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px; display:flex; flex-direction:column; min-height:270px; }
 .level-number { font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); margin-bottom:7px; }
 .level-card h3 { color:var(--navy); margin:0 0 7px; font-size:19px; }
@@ -127,23 +127,21 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 .level-links a { display:block; color:var(--teal); text-decoration:none; font-size:13px; font-weight:700; padding:4px 0; }
 .level-links a:hover { text-decoration:underline; }
 .level-links .coming { display:block; color:var(--text-muted); font-size:12px; padding:4px 0; }
-@media(max-width:800px){ .level-grid{grid-template-columns:1fr}.level-card{min-height:0} }
+@media(max-width:980px){ .level-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:650px){ .level-grid{grid-template-columns:1fr}.level-card{min-height:0} }
 
 
 .level-icon{
-  width:54px;height:54px;border-radius:14px;
+  width:46px;height:46px;
   display:grid;place-items:center;
   margin-bottom:16px;
-  background:var(--soft);
   color:var(--teal);
 }
-.level-icon svg{width:29px;height:29px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.level-card:nth-child(2) .level-icon{background:#eef4fa;color:var(--navy2)}
-.level-card:nth-child(3) .level-icon{background:#f0f7f5;color:var(--teal)}
+.level-icon svg{width:31px;height:31px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .level-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
 .level-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(23,54,93,.07);border-color:#cbd7e2}
 .meta-card{border-style:dashed}
-.meta-card .level-icon{background:#f2f4f7;color:var(--navy)}
+.meta-card .level-icon{color:var(--teal)}
 
 </style>
 </head>
@@ -223,30 +221,34 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
       <p>Die Wirkungs-Werkstatt verbindet praktische Werkzeuge, alternative Formen der Wirkungserhebung und spielerische Zugänge zum Wirkungsdenken.</p>
     </div>
 
+    
     <div class="level-grid">
       <article class="level-card">
         <div class="level-icon" aria-hidden="true">
-<svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M20.5 11.5l-3 6-6 3 3-6 6-3z"/><path d="M16 3v2M16 27v2M3 16h2M27 16h2"/></svg></div>
+          <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M20.5 11.5l-3 6-6 3 3-6 6-3z"/><path d="M16 3v2M16 27v2M3 16h2M27 16h2"/></svg>
+        </div>
         <div class="level-number">01 · Planen &amp; auswerten</div>
         <h3>Mit Wirkung arbeiten</h3>
         <p class="level-question">Wie arbeiten Sie wirkungsorientiert?</p>
-        <p>Entwickeln Sie Wirkungsziele, finden Sie passende Indikatoren, planen Sie Erhebungen und ordnen Sie Ergebnisse ein. Die Werkzeuge können einzeln oder als praxisnaher Wirkungsprozess genutzt werden.</p>
+        <p>Entwickeln Sie Wirkungsziele, planen Sie Erhebungen und nutzen Sie Ergebnisse für die Weiterentwicklung Ihrer Angebote.</p>
         <div class="level-links">
-          <a href="wirkungsziel-check.html">Wirkungsziel entwickeln →</a>
-          <a href="indikatoren-finder.html">Indikatoren finden →</a>
-          <a href="erhebungsplaner.html">Erhebung planen →</a>
-          <a href="wirkungs-rueckblick.html">Ergebnisse einordnen →</a>
-          <span class="coming">Weitere Werkzeuge gehören ebenfalls zu diesem Bereich.</span>
+          <a href="wirkungsziel-check.html">Mit dem Wirkungsziel starten →</a>
         </div>
       </article>
 
       <article class="level-card">
         <div class="level-icon" aria-hidden="true">
-<svg viewBox="0 0 32 32"><path d="M7 25c4-5 6-8 9-12 2-3 5-5 9-6"/><circle cx="7" cy="25" r="2.5"/><circle cx="16" cy="13" r="2.5"/><circle cx="25" cy="7" r="2.5"/><path d="M10 7h5M12.5 4.5v5"/></svg></div>
+          <svg viewBox="0 0 32 32">
+            <circle cx="16" cy="16" r="4"/>
+            <path d="M16 3.5v3M16 25.5v3M3.5 16h3M25.5 16h3"/>
+            <path d="M7.2 7.2l2.1 2.1M22.7 22.7l2.1 2.1M24.8 7.2l-2.1 2.1M9.3 22.7l-2.1 2.1"/>
+            <circle cx="16" cy="16" r="9"/>
+          </svg>
+        </div>
         <div class="level-number">02 · Anders erheben</div>
         <h3>Veränderungen sichtbar machen</h3>
         <p class="level-question">Wie erfahren Sie, was sich für Teilnehmende verändert hat?</p>
-        <p>Nutzen Sie alternative Erhebungsformen, die Wahrnehmungen, Erfahrungen und Veränderungen der Teilnehmenden sichtbar machen. Die Instrumente können für ein konkretes Bildungsangebot vorbereitet und mit Teilnehmenden eingesetzt werden.</p>
+        <p>Nutzen Sie alternative Erhebungsformen, die Wahrnehmungen, Erfahrungen und Veränderungen der Teilnehmenden sichtbar machen.</p>
         <div class="level-links">
           <a href="wirkungs-landkarte.html">Wirkungs-Landkarte →</a>
           <span class="coming">Weitere Instrumente folgen.</span>
@@ -255,11 +257,12 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 
       <article class="level-card">
         <div class="level-icon" aria-hidden="true">
-<svg viewBox="0 0 32 32"><path d="M12 8l12 8-12 8z"/><path d="M6 7v3M4.5 8.5h3M25 4v4M23 6h4M26 24v3M24.5 25.5h3"/></svg></div>
+          <svg viewBox="0 0 32 32"><path d="M12 8l12 8-12 8z"/><path d="M6 7v3M4.5 8.5h3M25 4v4M23 6h4M26 24v3M24.5 25.5h3"/></svg>
+        </div>
         <div class="level-number">03 · PLAY</div>
         <h3>Wirkung ausprobieren</h3>
         <p class="level-question">Wie lässt sich Wirkung spielerisch verstehen?</p>
-        <p>Erkunden Sie Wirkung an Praxisbeispielen und kleinen interaktiven Anwendungen. Dabei werden Output, Outcome, Wirkungsbeitrag und die Reichweite von Wirkungsaussagen unmittelbar erfahrbar.</p>
+        <p>Erkunden Sie Wirkung an Praxisbeispielen und interaktiven Anwendungen und machen Sie Wirkungslogiken unmittelbar erfahrbar.</p>
         <div class="level-links">
           <a href="wirkungsfall.html">Der Wirkungsfall →</a>
           <a href="wirkung-oder-zahl.html">Wirkung oder nur Zahl? →</a>
@@ -267,12 +270,38 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
           <a href="vier-wochen-spaeter.html">Vier Wochen später … →</a>
         </div>
       </article>
+
+      <article class="level-card">
+        <div class="level-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32">
+            <rect x="5" y="5" width="8" height="8" rx="1.5"/>
+            <rect x="19" y="5" width="8" height="8" rx="1.5"/>
+            <rect x="5" y="19" width="8" height="8" rx="1.5"/>
+            <rect x="19" y="19" width="8" height="8" rx="1.5"/>
+          </svg>
+        </div>
+        <div class="level-number">04 · Werkzeuge</div>
+        <h3>Alle Werkzeuge im Überblick</h3>
+        <p class="level-question">Welches Werkzeug brauchen Sie gerade?</p>
+        <p>Öffnen Sie die vollständige Werkzeugübersicht mit Wirkungsziel-Check, Indikatoren-Finder, Methoden-Navigator, Mini-Evaluation, Wirkungs-Geschichten, Aussage-Check, Wirkungs-Rückblick und Wirkung zeigen.</p>
+        <div class="level-links">
+          <a href="werkzeuge.html">Zu allen Werkzeugen →</a>
+        </div>
+      </article>
     </div>
+
   </section>
 
 
   <section class="info-strip">
-    <div class="info-card privacy" style="grid-column:1/-1;">
+
+    <div class="info-card">
+      <h3>Wirkung verstehen</h3>
+      <p>Kurze Erklärungen zu Output, Outcome, Impact, Wirkungszielen, Indikatoren und Kausalität finden Sie auf einer eigenen Unterseite. In den Werkzeugen erscheinen Hinweise zusätzlich genau dort, wo sie gebraucht werden.</p>
+      <p style="margin-top:12px;"><a href="wirkung-verstehen.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Zu „Wirkung verstehen“ →</a></p>
+    </div>
+
+    <div class="info-card privacy">
       <h3>Ihre Daten bleiben bei Ihnen</h3>
       <p><strong>Keine Anmeldung erforderlich.</strong> Eingaben können vollständig lokal im Browser verarbeitet werden. Für eine spätere Nutzungsstatistik würden ausschließlich anonyme Aufrufzahlen gezählt, keine Inhalte aus den Werkzeugen.</p>
     </div>
