@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wirkungs-Werkstatt – Wirkung einfach angehen</title>
+<style>
+:root {
+  --navy:#1a365d;
+  --navy-light:#2a4a7f;
+  --teal:#2b7a78;
+  --teal-light:#3aafa9;
+  --bg:#f7f8fa;
+  --surface:#ffffff;
+  --text:#1a202c;
+  --text-muted:#4a5568;
+  --text-light:#718096;
+  --border:#e2e8f0;
+  --soft-teal:#edf8f7;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6; font-size:15px;
+}
+.app { max-width:1040px; margin:0 auto; padding:24px 20px 72px; }
+.topnav {
+  display:flex; justify-content:space-between; align-items:center; gap:24px;
+  padding:10px 0 18px; border-bottom:1px solid var(--border);
+}
+.brand { font-weight:800; color:var(--navy); font-size:15px; }
+.topnav nav { display:flex; gap:18px; flex-wrap:wrap; }
+.topnav a { color:var(--text-muted); text-decoration:none; font-size:13px; }
+.topnav a:hover { color:var(--teal); }
+.header { text-align:center; padding:56px 0 34px; }
+.eyebrow { font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+.header h1 { font-size:34px; line-height:1.15; font-weight:800; color:var(--navy); margin-bottom:14px; }
+.header .subtitle { font-size:16px; color:var(--text-muted); max-width:700px; margin:0 auto; }
+.intro {
+  max-width:760px; margin:0 auto 40px; text-align:center; color:var(--text-muted);
+  font-size:15px;
+}
+.intro strong { color:var(--text); }
+.section-head { margin:0 0 18px; }
+.section-head h2 { font-size:22px; color:var(--navy); margin-bottom:5px; }
+.section-head p { font-size:14px; color:var(--text-muted); }
+.journey-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:48px; }
+.journey-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:10px;
+  padding:18px; min-height:154px; cursor:pointer; transition:box-shadow .2s, transform .15s, border-color .15s;
+}
+.journey-card:hover { box-shadow:0 4px 16px rgba(0,0,0,.08); transform:translateY(-2px); border-color:var(--teal-light); }
+.journey-card .icon { font-size:22px; margin-bottom:9px; }
+.journey-card h3 { font-size:16px; color:var(--navy); margin-bottom:6px; }
+.journey-card p { font-size:13px; color:var(--text-muted); }
+.journey-card .hint { display:block; margin-top:12px; font-size:12px; color:var(--teal); font-weight:700; }
+.tools-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:48px; }
+.tool-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px;
+  min-height:166px; position:relative; transition:box-shadow .2s, transform .15s;
+}
+.tool-card:hover { box-shadow:0 4px 16px rgba(0,0,0,.08); transform:translateY(-2px); }
+.tool-no { font-size:11px; color:var(--teal); font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
+.tool-card h3 { font-size:15px; color:var(--navy); margin:6px 0 6px; }
+.tool-card p { font-size:13px; color:var(--text-muted); padding-bottom:26px; }
+.tool-card a { position:absolute; left:18px; bottom:16px; font-size:12px; color:var(--teal); font-weight:700; text-decoration:none; }
+.info-strip {
+  display:grid; grid-template-columns:1.2fr .8fr; gap:18px; margin-bottom:40px;
+}
+.info-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:22px; }
+.info-card h3 { font-size:17px; color:var(--navy); margin-bottom:8px; }
+.info-card p { font-size:13px; color:var(--text-muted); }
+
+.glossary-intro { margin-bottom:14px; }
+.mini-glossary { display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; margin-top:10px; }
+.mini-glossary div { padding:10px 0; border-top:1px solid var(--border); }
+.mini-glossary dt { font-size:13px; font-weight:800; color:var(--teal); margin-bottom:3px; }
+.mini-glossary dd { font-size:12.5px; color:var(--text-muted); line-height:1.55; }
+.sources { margin-top:14px; padding-top:12px; border-top:1px solid var(--border); font-size:11.5px!important; color:var(--text-light)!important; }
+.sources a { color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(43,122,120,.3); }
+.sources a:hover { border-bottom-color:var(--teal); }
+
+.privacy { background:var(--soft-teal); border-color:#cfe8e5; }
+.privacy strong { color:var(--teal); }
+.about { border-top:1px solid var(--border); padding-top:28px; }
+.about h2 { font-size:20px; color:var(--navy); margin-bottom:8px; }
+.about p { font-size:14px; color:var(--text-muted); max-width:780px; }
+footer.site-footer { border-top:1px solid var(--border); background:#eef0f3; padding:14px 20px; }
+footer.site-footer p { max-width:1040px; margin:0 auto; font-size:13px; color:#8a8a86; text-align:center; }
+footer.site-footer a { color:#8a8a86; text-decoration:underline; }
+@media(max-width:850px){
+  .journey-grid{grid-template-columns:1fr 1fr;}
+  .tools-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .topnav{align-items:flex-start; flex-direction:column;}
+  .header{padding:42px 0 28px;}
+  .header h1{font-size:29px;}
+  .journey-grid,.tools-grid,.info-strip,.mini-glossary{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topnav">
+    <div class="brand">Wirkungs-Werkstatt</div>
+    <nav aria-label="Hauptnavigation">
+      <a href="#start">Start</a>
+      <a href="#werkzeuge">Werkzeuge</a>
+      <a href="wirkung-verstehen.html">Wirkung verstehen</a>
+      <a href="#ueber">Über die Toolbox</a>
+    </nav>
+  </div>
+
+  <header class="header" id="start">
+    <div class="eyebrow">Wirkungsorientierung einfach angehen</div>
+    <h1>Wirkungs-Werkstatt</h1>
+    <p class="subtitle">Kleine digitale Werkzeuge für Einrichtungen der Erwachsenenbildung, die wissen möchten, was ihre Arbeit verändert.</p>
+  </header>
+
+  <div class="intro">
+    <strong>Wirkungsorientierung hilft, über die Zahl der Angebote und Teilnehmenden hinauszuschauen.</strong>
+    Sie macht sichtbar, was sich durch unsere Bildungsarbeit für Menschen und in der Gesellschaft verändert und was Einrichtungen daraus für ihre weitere Arbeit lernen können.
+  </div>
+
+  <section aria-labelledby="stand-heading">
+    <div class="section-head">
+      <h2 id="stand-heading">Wo stehen Sie gerade?</h2>
+      <p>Wählen Sie die Situation, die am besten zu Ihrer aktuellen Frage passt.</p>
+    </div>
+    <div class="journey-grid">
+      <article class="journey-card" data-route="planen">
+        <div class="icon">🌱</div>
+        <h3>Wir planen ein Angebot</h3>
+        <p>Was soll sich für unsere Teilnehmenden verändern?</p>
+        <span class="hint">Passende Werkzeuge anzeigen →</span>
+      </article>
+      <article class="journey-card" data-route="erkennen">
+        <div class="icon">🔎</div>
+        <h3>Wir möchten Wirkung erkennen</h3>
+        <p>Woran können wir erkennen, ob und welche Veränderung eingetreten ist?</p>
+        <span class="hint">Passende Werkzeuge anzeigen →</span>
+      </article>
+      <article class="journey-card" data-route="feedback">
+        <div class="icon">💬</div>
+        <h3>Wir möchten Rückmeldungen einholen</h3>
+        <p>Wie erheben wir mit wenig Aufwand hilfreiche Informationen?</p>
+        <span class="hint">Passende Werkzeuge anzeigen →</span>
+      </article>
+      <article class="journey-card" data-route="daten">
+        <div class="icon">📊</div>
+        <h3>Wir haben bereits Daten</h3>
+        <p>Was sagen unsere Ergebnisse aus und wo liegen ihre Grenzen?</p>
+        <span class="hint">Passende Werkzeuge anzeigen →</span>
+      </article>
+      <article class="journey-card" data-route="verbessern">
+        <div class="icon">🧭</div>
+        <h3>Wir möchten unser Angebot verbessern</h3>
+        <p>Was können wir aus Rückmeldungen und Beobachtungen lernen?</p>
+        <span class="hint">Passende Werkzeuge anzeigen →</span>
+      </article>
+      <article class="journey-card" data-route="zeigen">
+        <div class="icon">📄</div>
+        <h3>Wir müssen Wirkung darstellen</h3>
+        <p>Wie können wir Ergebnisse für Antrag, Bericht oder Öffentlichkeit aufbereiten?</p>
+        <span class="hint">Passende Werkzeuge anzeigen →</span>
+      </article>
+    </div>
+  </section>
+
+  <section id="werkzeuge" aria-labelledby="tools-heading">
+    <div class="section-head">
+      <h2 id="tools-heading">Oder direkt zu einem Werkzeug</h2>
+      <p>Jedes Werkzeug kann einzeln genutzt werden. Mehrere Werkzeuge lassen sich zu einem praxisnahen Wirkungsprozess verbinden.</p>
+    </div>
+    <div class="tools-grid">
+      <article class="tool-card" data-tool="wirkungsziel-check"><div class="tool-no">Werkzeug 01</div><h3>Wirkungsziel-Check</h3><p>Aus einer Idee ein realistisches und überprüfbares Wirkungsziel entwickeln.</p><a href="#">Werkzeug öffnen →</a></article>
+      <article class="tool-card" data-tool="indikatoren-finder"><div class="tool-no">Werkzeug 02</div><h3>Indikatoren-Finder</h3><p>Anzeichen finden, an denen Veränderung erkennbar werden kann.</p><a href="#">Werkzeug öffnen →</a></article>
+      <article class="tool-card" data-tool="methoden-navigator"><div class="tool-no">Werkzeug 03</div><h3>Methoden-Navigator</h3><p>Eine Erhebungsmethode auswählen, die zur Frage und zum verfügbaren Aufwand passt.</p><a href="#">Werkzeug öffnen →</a></article>
+      <article class="tool-card" data-tool="mini-evaluation"><div class="tool-no">Werkzeug 04</div><h3>Mini-Evaluation</h3><p>Eine kurze Evaluation für ein konkretes Bildungsangebot zusammenstellen.</p><a href="#">Werkzeug öffnen →</a></article>
+      <article class="tool-card" data-tool="wirkungs-geschichten"><div class="tool-no">Werkzeug 05</div><h3>Wirkungs-Geschichten</h3><p>Veränderungen mit einem kleinen qualitativen Verfahren sichtbar machen.</p><a href="#">Werkzeug öffnen →</a></article>
+      <article class="tool-card" data-tool="aussage-check"><div class="tool-no">Werkzeug 06</div><h3>Aussage-Check</h3><p>Prüfen, welche Aussagen durch die vorhandenen Daten tatsächlich getragen werden.</p><a href="#">Werkzeug öffnen →</a></article>
+      <article class="tool-card" data-tool="wirkungs-rueckblick"><div class="tool-no">Werkzeug 07</div><h3>Wirkungs-Rückblick</h3><p>Aus Ergebnissen und Beobachtungen Konsequenzen für die weitere Praxis ableiten.</p><a href="#">Werkzeug öffnen →</a></article>
+      <article class="tool-card" data-tool="wirkung-zeigen"><div class="tool-no">Werkzeug 08</div><h3>Wirkung zeigen</h3><p>Ergebnisse verständlich für Förderer, Berichte oder die eigene Öffentlichkeit aufbereiten.</p><a href="#">Werkzeug öffnen →</a></article>
+    </div>
+  </section>
+
+  <section class="info-strip">
+    <div class="info-card">
+      <h3>Wirkung verstehen</h3>
+      <p>Kurze Erklärungen zu Output, Outcome, Impact, Wirkungszielen, Indikatoren und Kausalität finden Sie auf einer eigenen Unterseite. In den Werkzeugen erscheinen Hinweise zusätzlich genau dort, wo sie gebraucht werden.</p>
+      <p style="margin-top:12px;"><a href="wirkung-verstehen.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Zu „Wirkung verstehen“ →</a></p>
+    </div>
+    <div class="info-card privacy">
+      <h3>Ihre Daten bleiben bei Ihnen</h3>
+      <p><strong>Keine Anmeldung erforderlich.</strong> Eingaben können vollständig lokal im Browser verarbeitet werden. Für eine spätere Nutzungsstatistik würden ausschließlich anonyme Aufrufzahlen gezählt, keine Inhalte aus den Werkzeugen.</p>
+    </div>
+  </section>
+
+  <section class="about" id="ueber">
+    <h2>Über die Wirkungs-Werkstatt</h2>
+    <p>Die Toolbox richtet sich besonders an Einrichtungen der Erwachsenenbildung, die wirkungsorientiert arbeiten möchten, ohne ein umfangreiches Wirkungsmanagement oder komplexe Evaluationsverfahren einzuführen. Die einzelnen Werkzeuge unterstützen bei konkreten Fragen und können unabhängig voneinander genutzt werden.</p>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; Elisabeth Vanderheiden · <a href="https://research2026-collab.github.io/elisabeth.vanderheiden/" target="_blank" rel="noopener">Website Elisabeth Vanderheiden</a> · Lizenz: <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0 – Namensnennung, nicht kommerzielle Nutzung</a>.</p>
+</footer>
+
+<script>
+// Nur Demo-Navigation: Die Karten scrollen zur Werkzeugübersicht.
+// Eine echte Nutzungszählung ist hier bewusst noch NICHT eingebaut.
+document.querySelectorAll('.journey-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.getElementById('werkzeuge').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+document.querySelectorAll('.tool-card a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('Dieses Werkzeug wird im nächsten Schritt als eigene Anwendung ergänzt.');
+  });
+});
+</script>
+</body>
+</html>
