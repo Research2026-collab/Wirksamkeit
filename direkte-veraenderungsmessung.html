@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Direkte Veränderungsmessung – Wirkungs-Werkstatt</title>
+<style>
+:root{--navy:#17365d;--navy2:#2a4a7f;--teal:#2b7a78;--teal2:#3aafa9;--bg:#f6f8fa;--surface:#fff;--text:#1d2939;--muted:#667085;--light:#98a2b3;--border:#dfe5eb;--soft:#eef7f6;--softblue:#eef4fa}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:15px}.app{max-width:1040px;margin:auto;padding:24px 20px 72px}.topnav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:10px 0 18px;border-bottom:1px solid var(--border)}.brand{font-weight:800;color:var(--navy);font-size:15px}.topnav nav{display:flex;gap:18px;flex-wrap:wrap}.topnav a{font-size:13px;color:var(--muted);text-decoration:none}.topnav a:hover{color:var(--teal)}
+.header{text-align:center;padding:42px 0 30px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}.header-icon{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;margin:0 auto 16px;background:var(--soft);color:var(--teal)}.header-icon svg{width:31px;height:31px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.header h1{font-size:31px;line-height:1.15;color:var(--navy);margin:0 0 9px;font-weight:800}.header p{max-width:760px;margin:auto;color:var(--muted)}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:0 auto 24px}.meta-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px}.meta-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}.meta-card p{font-size:13px;color:var(--muted);margin:0}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:18px}.card h2{font-size:21px;color:var(--navy);margin:0 0 8px}.card p{margin:0 0 13px;color:var(--muted)}.card p:last-child{margin-bottom:0}.question{background:var(--soft);border-left:3px solid var(--teal);border-radius:9px;padding:16px 18px;margin:16px 0;font-size:16px;font-weight:700;color:var(--navy)}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 8px}.scale-item{border:1px solid var(--border);border-radius:10px;padding:13px 8px;background:var(--surface);text-align:center}.scale-value{display:block;font-size:17px;font-weight:800;color:var(--navy);margin-bottom:4px}.scale-label{font-size:12px;color:var(--muted)}.scale-item.mid{background:var(--soft);border-color:#cfe8e5}.scale-item.mid .scale-value{color:var(--teal)}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.step{border:1px solid var(--border);border-radius:10px;padding:18px;background:var(--surface)}.step-no{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:5px}.step h3{font-size:16px;color:var(--navy);margin:0 0 6px}.step p{font-size:13px;margin:0;color:var(--muted)}
+.example{background:var(--softblue);border-radius:10px;padding:18px;margin-top:14px}.example-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy2);margin-bottom:7px}.example p{font-size:13px;color:var(--muted);margin:0 0 10px}.example p:last-child{margin-bottom:0}.example strong{color:var(--navy)}
+.note{padding:14px 15px;border-radius:9px;background:var(--soft);border-left:3px solid var(--teal);font-size:13px;color:var(--muted);margin-top:14px}.note strong{color:var(--teal)}.source-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px}.source-card h2{font-size:18px;color:var(--navy);margin:0 0 10px}.source-card p{font-size:12.5px;color:var(--muted);margin:0 0 10px}.source-card p:last-child{margin-bottom:0}.source-card a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(43,122,120,.3)}footer{border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px;text-align:center;font-size:12px;color:#8a8a86}footer a{color:#8a8a86}
+@media(max-width:760px){.meta,.steps{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale-item{text-align:left;display:grid;grid-template-columns:55px 1fr;align-items:center}.topnav{align-items:flex-start;flex-direction:column}.header{padding:36px 0 26px}.header h1{font-size:29px}.card{padding:22px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topnav"><div class="brand">Wirkungs-Werkstatt</div><nav aria-label="Hauptnavigation"><a href="index.html">Startseite</a><a href="wirkung-verstehen.html">Wirkung verstehen</a></nav></div>
+
+  <header class="header">
+    <div class="eyebrow">Anders erheben</div>
+    <div class="header-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 9h18"/><path d="M7 16h18"/><path d="M7 23h18"/><circle cx="12" cy="9" r="2.4"/><circle cx="19" cy="16" r="2.4"/><circle cx="23" cy="23" r="2.4"/></svg></div>
+    <h1>Veränderung direkt einschätzen</h1>
+    <p>Teilnehmende schätzen am Ende eines Bildungsangebots direkt ein, ob und in welche Richtung sich ein für sie relevantes Merkmal verändert hat. Eine Erhebung vor Beginn ist dafür nicht erforderlich.</p>
+  </header>
+
+  <div class="meta">
+    <div class="meta-card"><div class="meta-label">Einsatz</div><p>Einzelveranstaltungen und kurze Bildungsangebote mit wenig Zeit für Evaluation.</p></div>
+    <div class="meta-card"><div class="meta-label">Aufwand</div><p>Eine kurze Frage am Ende des Angebots, ergänzt durch eine knappe Begründung.</p></div>
+  </div>
+
+  <section class="card">
+    <h2>Kurz erklärt</h2>
+    <p>Die Erhebung richtet sich unmittelbar an die Teilnehmenden. Sie beurteilen rückblickend die Veränderung eines Merkmals, das zum Wirkungsziel des Angebots passt. Geeignet sind zum Beispiel Wissen, Handlungssicherheit, Orientierung oder Selbstvertrauen.</p>
+    <div class="question">Wenn Sie an die Zeit vor dem Angebot denken: Wie hat sich Ihre Sicherheit im Umgang mit dem Thema verändert?</div>
+    <div class="scale" aria-label="Beispielskala zur direkten Veränderungsmessung">
+      <div class="scale-item"><span class="scale-value">1</span><span class="scale-label">deutlich geringer</span></div>
+      <div class="scale-item"><span class="scale-value">2</span><span class="scale-label">etwas geringer</span></div>
+      <div class="scale-item mid"><span class="scale-value">3</span><span class="scale-label">unverändert</span></div>
+      <div class="scale-item"><span class="scale-value">4</span><span class="scale-label">etwas größer</span></div>
+      <div class="scale-item"><span class="scale-value">5</span><span class="scale-label">deutlich größer</span></div>
+    </div>
+    <div class="note"><strong>Ergänzung:</strong> Eine offene Anschlussfrage erhöht den Erkenntniswert. Geeignet ist zum Beispiel: „Woran merken Sie diese Veränderung?“</div>
+  </section>
+
+  <section class="card">
+    <h2>So wird erhoben</h2>
+    <div class="steps">
+      <div class="step"><div class="step-no">Vorbereitung</div><h3>Veränderung festlegen</h3><p>Die Frage bezieht sich auf ein Merkmal, dessen Veränderung für das Bildungsangebot fachlich relevant ist.</p></div>
+      <div class="step"><div class="step-no">Abschluss</div><h3>Veränderung einschätzen lassen</h3><p>Die Teilnehmenden geben ihre Einschätzung am Ende des Angebots ab und begründen sie kurz.</p></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Praxisbeispiel</h2>
+    <div class="example">
+      <div class="example-label">Fortbildung zu künstlicher Intelligenz</div>
+      <p><strong>Frage:</strong> „Wenn Sie an die Zeit vor der Fortbildung denken: Wie hat sich Ihre Sicherheit bei der Auswahl geeigneter KI-Anwendungen verändert?“</p>
+      <p>Eine Teilnehmerin wählt „deutlich größer“ und ergänzt: „Ich kann inzwischen besser entscheiden, für welche Aufgaben ich KI nutzen möchte und wann ich darauf verzichte.“</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Aussagekraft</h2>
+    <p>Die Methode erfasst die subjektiv wahrgenommene Veränderung. Sie eignet sich gut für eine schnelle Rückmeldung zu einem Wirkungsziel und kann Hinweise auf relevante Entwicklungen geben.</p>
+    <p>Die Einschätzung beruht auf der Erinnerung der Teilnehmenden an ihren früheren Stand. Ein kausaler Wirkungsnachweis entsteht daraus nicht. Für die Interpretation sind deshalb die Formulierung der Frage und die ergänzenden Begründungen wichtig.</p>
+  </section>
+
+  <section class="source-card">
+    <h2>Zum Weiterlesen</h2>
+    <p>Baumgartner, E., &amp; Haunberger, S. (2024). <em>Wirkungsevaluationen in der Sozialen Arbeit: Ein Orientierungsbuch für die Praxis</em>. Haupt Verlag.</p>
+    <p>Schmidt-Atzert, L., Krumm, S., &amp; Amelang, M. (2021). <em>Psychologische Diagnostik</em> (6. Aufl.). Springer. <a href="https://www.lehrbuch-psychologie.springernature.com/glossar/direkte-ver%C3%A4nderungsmessung-direct-measurement-change-13">Direkte Veränderungsmessung im Springer-Lehrbuch Psychologie</a></p>
+  </section>
+</div>
+<footer>&copy; Elisabeth Vanderheiden · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0</a></footer>
+</body>
+</html>

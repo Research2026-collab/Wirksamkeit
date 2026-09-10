@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Most Significant Change – Wirkungs-Werkstatt</title>
+<style>
+:root{
+  --navy:#17365d;--navy2:#2a4a7f;--teal:#2b7a78;--teal2:#3aafa9;
+  --bg:#f6f8fa;--surface:#fff;--text:#1d2939;--muted:#667085;--light:#98a2b3;
+  --border:#dfe5eb;--soft:#eef7f6;--softblue:#eef4fa;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:15px}
+.app{max-width:1040px;margin:auto;padding:24px 20px 72px}
+.topnav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:10px 0 18px;border-bottom:1px solid var(--border)}
+.brand{font-weight:800;color:var(--navy);font-size:15px}
+.topnav nav{display:flex;gap:18px;flex-wrap:wrap}.topnav a{font-size:13px;color:var(--muted);text-decoration:none}.topnav a:hover{color:var(--teal)}
+.header{text-align:center;padding:42px 0 30px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.header-icon{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;margin:0 auto 16px;background:var(--softblue);color:var(--navy2)}
+.header-icon svg{width:31px;height:31px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.header h1{font-size:31px;line-height:1.15;color:var(--navy);margin:0 0 9px;font-weight:800}.header p{max-width:760px;margin:auto;color:var(--muted)}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:0 auto 24px}
+.meta-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px}.meta-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}.meta-card p{font-size:13px;color:var(--muted);margin:0}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:18px}.card h2{font-size:21px;color:var(--navy);margin:0 0 8px}.card p{margin:0 0 13px;color:var(--muted)}.card p:last-child{margin-bottom:0}
+.question{background:var(--soft);border-left:3px solid var(--teal);border-radius:9px;padding:16px 18px;margin:16px 0;font-size:16px;font-weight:700;color:var(--navy)}
+.question.secondary{background:var(--softblue);border-left-color:var(--navy2)}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.step{border:1px solid var(--border);border-radius:10px;padding:18px;background:var(--surface)}.step-no{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:5px}.step h3{font-size:16px;color:var(--navy);margin:0 0 6px}.step p{font-size:13px;margin:0;color:var(--muted)}
+.example{background:var(--softblue);border-radius:10px;padding:18px;margin-top:14px}.example-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy2);margin-bottom:7px}.quote{padding-left:14px;border-left:2px solid var(--navy2);margin:12px 0;color:var(--text);font-size:14px}.example p{font-size:13px}
+.note{padding:14px 15px;border-radius:9px;background:var(--soft);border-left:3px solid var(--teal);font-size:13px;color:var(--muted);margin-top:14px}.note strong{color:var(--teal)}
+.source-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px}.source-card h2{font-size:18px;color:var(--navy);margin:0 0 10px}.source-card p{font-size:12.5px;color:var(--muted);margin:0 0 10px}.source-card p:last-child{margin-bottom:0}.source-card a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(43,122,120,.3)}
+footer{border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px;text-align:center;font-size:12px;color:#8a8a86}footer a{color:#8a8a86}
+@media(max-width:760px){.meta,.steps{grid-template-columns:1fr}.topnav{align-items:flex-start;flex-direction:column}.header{padding:36px 0 26px}.header h1{font-size:29px}.card{padding:22px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topnav">
+    <div class="brand">Wirkungs-Werkstatt</div>
+    <nav aria-label="Hauptnavigation">
+      <a href="index.html">Start</a>
+      <a href="index.html#zugaenge">Zugänge</a>
+      <a href="wirkung-verstehen.html">Wirkung verstehen</a>
+      <a href="index.html#ueber">Über die Toolbox</a>
+    </nav>
+  </div>
+
+  <header class="header">
+    <div class="header-icon" aria-hidden="true">
+      <svg viewBox="0 0 32 32">
+        <path d="M7 9.5h18a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H15l-6 4v-4H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3z"/>
+        <path d="M10 14h12M10 18h8"/>
+      </svg>
+    </div>
+    <div class="eyebrow">Anders erheben</div>
+    <h1>Die wichtigste Veränderung</h1>
+    <p><strong>Most Significant Change (MSC)</strong> sammelt Geschichten über bedeutsame Veränderungen. Die Methode macht sichtbar, welche Wirkung Teilnehmende selbst mit einem Bildungsangebot verbinden und warum diese Veränderung für sie Bedeutung besitzt.</p>
+  </header>
+
+  <div class="meta">
+    <div class="meta-card"><div class="meta-label">Aufwand</div><p>Kurzform etwa 10 bis 20 Minuten. Für eine ausführliche Anwendung wird zusätzliche Zeit für Sammlung und Auswertung benötigt.</p></div>
+    <div class="meta-card"><div class="meta-label">Besonders geeignet</div><p>Für längerfristige Bildungsangebote, offene Wirkungsziele und Veränderungen mit schwer vorab festlegbaren Indikatoren.</p></div>
+  </div>
+
+  <section class="card">
+    <h2>Worum geht es?</h2>
+    <p>Veränderungen durch Bildungsangebote können erst im Verlauf oder im Alltag der Teilnehmenden sichtbar werden. MSC setzt bei diesen Erfahrungen an. Teilnehmende erzählen von einer Veränderung, die sie selbst als besonders bedeutsam einschätzen.</p>
+    <p>Für einzelne Veranstaltungen kann die Methode in einer kompakten Form eingesetzt werden. In größeren Projekten lassen sich mehrere Geschichten sammeln und gemeinsam auswerten.</p>
+  </section>
+
+  <section class="card">
+    <h2>Die zentrale Frage</h2>
+    <div class="question">Wenn Sie an die Zeit seit Beginn des Angebots zurückdenken: Was ist die wichtigste Veränderung, die für Sie durch das Angebot entstanden ist?</div>
+    <p>Die Beschreibung sollte möglichst konkret sein. Anschließend wird die Bedeutung der Veränderung erfragt.</p>
+    <div class="question secondary">Warum ist diese Veränderung für Sie besonders wichtig?</div>
+  </section>
+
+  <section class="card">
+    <h2>So geht es</h2>
+    <div class="steps">
+      <div class="step"><div class="step-no">01 · Sammeln</div><h3>Veränderung beschreiben</h3><p>Die Teilnehmenden halten ihre wichtigste Veränderung schriftlich fest oder erzählen sie in einem kurzen Gespräch.</p></div>
+      <div class="step"><div class="step-no">02 · Einordnen</div><h3>Bedeutung festhalten</h3><p>Zu jeder Geschichte wird dokumentiert, warum die Veränderung für die Person wichtig ist.</p></div>
+      <div class="step"><div class="step-no">03 · Auswerten</div><h3>Geschichten betrachten</h3><p>Mehrere Geschichten werden gemeinsam gelesen. Wiederkehrende Themen und Wirkungsmuster können dabei sichtbar werden.</p></div>
+      <div class="step"><div class="step-no">04 · Auswählen</div><h3>Bedeutsame Geschichte bestimmen</h3><p>Die Beteiligten wählen eine besonders bedeutsame Geschichte aus und halten die Begründung für ihre Auswahl fest.</p></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Beispiel aus der Erwachsenenbildung</h2>
+    <div class="example">
+      <div class="example-label">Fortbildungsreihe „KI in der Erwachsenenbildung“</div>
+      <div class="quote">„Seit der Fortbildung probiere ich neue Anwendungen selbst aus. Inzwischen tausche ich mich regelmäßig mit einer Kollegin darüber aus. Gemeinsam haben wir zwei Kursabläufe verändert.“</div>
+      <p><strong>Warum ist diese Veränderung wichtig?</strong></p>
+      <div class="quote">„Ich fühle mich inzwischen sicher genug, selbst zu entscheiden, wo KI für meine Arbeit hilfreich ist.“</div>
+      <p>Die Geschichte gibt einen Hinweis auf gewachsene Handlungssicherheit. Der Bezug zur beruflichen Praxis wird in der Beschreibung der Teilnehmerin sichtbar.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Was lässt sich damit erkennen?</h2>
+    <p>MSC erfasst bedeutsame Veränderungen aus Sicht der Beteiligten. Die Geschichten können Wirkungen sichtbar machen, deren Bedeutung bei der Planung des Angebots noch offen war. Wiederkehrende Erfahrungen in mehreren Geschichten geben Hinweise auf gemeinsame Wirkungsmuster.</p>
+    <p>Die Begründung der ausgewählten Geschichte erweitert die Auswertung. Sie zeigt, welchen Veränderungen die Beteiligten selbst besondere Bedeutung geben.</p>
+  </section>
+
+  <section class="card">
+    <h2>Was lässt sich daraus ableiten?</h2>
+    <p>Eine MSC-Geschichte dokumentiert eine wahrgenommene Veränderung und die von der Person hergestellte Verbindung zum Bildungsangebot. Mehrere Geschichten können gemeinsam ausgewertet und mit weiteren Daten verbunden werden.</p>
+    <div class="note"><strong>Für die Praxis:</strong> Bei wenig Zeit kann bereits die zentrale Frage mit der anschließenden Begründung eingesetzt werden. Für eine systematische MSC-Auswertung werden mehrere Geschichten gesammelt und in einem begründeten Auswahlprozess ausgewertet.</div>
+  </section>
+
+  <section class="source-card">
+    <h2>Zum Weiterlesen</h2>
+    <p>Baumgartner, E., &amp; Haunberger, S. (2024). <em>Wirkungsevaluationen in der Sozialen Arbeit: Ein Orientierungsbuch für die Praxis</em>. Haupt Verlag.</p>
+    <p>Dart, J., &amp; Davies, R. (2003). A dialogical, story-based evaluation tool: The Most Significant Change technique. <em>American Journal of Evaluation, 24</em>(2), 137–155. <a href="https://doi.org/10.1177/109821400302400202">https://doi.org/10.1177/109821400302400202</a></p>
+    <p>Davies, R., &amp; Dart, J. (2005). <em>The ‘Most Significant Change’ (MSC) technique: A guide to its use</em>.</p>
+  </section>
+</div>
+
+<footer>&copy; Elisabeth Vanderheiden · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0</a></footer>
+</body>
+</html>

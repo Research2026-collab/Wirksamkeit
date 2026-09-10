@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ripple Effects Mapping – Wirkungs-Werkstatt</title>
+<style>
+:root{--navy:#17365d;--navy2:#2a4a7f;--teal:#2b7a78;--teal2:#3aafa9;--bg:#f6f8fa;--surface:#fff;--text:#1d2939;--muted:#667085;--light:#98a2b3;--border:#dfe5eb;--soft:#eef7f6;--softblue:#eef4fa}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+.app{max-width:1040px;margin:auto;padding:24px 20px 72px}.topnav{display:flex;justify-content:space-between;align-items:center;padding:10px 0 18px;border-bottom:1px solid var(--border);gap:24px}.brand{font-weight:800;color:var(--navy)}.topnav nav{display:flex;gap:18px;flex-wrap:wrap}.topnav a{font-size:13px;color:var(--muted);text-decoration:none}.topnav a:hover{color:var(--teal)}
+.header{text-align:center;padding:42px 0 26px}.level-icon{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;margin:0 auto 16px;background:var(--softblue);color:var(--navy2)}.level-icon svg{width:29px;height:29px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}.header h1{font-size:31px;color:var(--navy);margin:0 0 9px}.header p{max-width:760px;margin:auto;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:18px}.card h2{font-size:21px;color:var(--navy);margin:0 0 7px}.card p{margin:0 0 12px}.card p:last-child{margin-bottom:0}.lead{color:var(--muted)}
+.note{padding:14px 15px;border-radius:9px;background:var(--soft);border-left:3px solid var(--teal);font-size:13px;color:var(--muted);margin-top:14px}.note strong{color:var(--teal)}
+.question{background:var(--softblue);border:1px solid #d8e4f0;border-radius:12px;padding:20px;margin-top:16px}.question .label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy2);margin-bottom:6px}.question strong{font-size:17px;color:var(--navy);font-weight:750}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.step{border:1px solid var(--border);border-radius:10px;padding:17px;background:#fff}.step .num{font-size:11px;font-weight:800;color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}.step h3{font-size:15px;color:var(--navy);margin:0 0 5px}.step p{font-size:13px;color:var(--muted);margin:0}
+.ripple{position:relative;min-height:280px;margin:22px auto 8px;max-width:620px;display:grid;place-items:center}.ring{position:absolute;border:1px solid #b8d6d2;border-radius:50%}.r1{width:150px;height:150px;background:var(--soft)}.r2{width:270px;height:270px}.r3{width:390px;height:390px;max-width:88vw;max-height:88vw}.center{position:relative;z-index:3;width:118px;height:118px;border-radius:50%;background:#fff;border:2px solid var(--teal);display:grid;place-items:center;text-align:center;padding:10px;font-size:13px;font-weight:800;color:var(--navy)}.tag{position:absolute;z-index:4;background:#fff;border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-size:12px;color:var(--muted);box-shadow:0 2px 8px rgba(23,54,93,.06)}.t1{top:26px;right:90px}.t2{bottom:34px;left:65px}.t3{top:128px;left:20px}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:14px}.meta .card{margin:0}.source{font-size:13px;color:var(--muted)}.source a{color:var(--teal);text-decoration:none}
+footer{border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px;margin-top:24px;text-align:center;font-size:12px;color:#8a8a86}footer a{color:#777;text-decoration:none}
+@media(max-width:700px){.topnav{align-items:flex-start;flex-direction:column}.steps,.meta{grid-template-columns:1fr}.card{padding:21px}.header h1{font-size:27px}.ripple{min-height:250px}.r3{width:310px;height:310px}.r2{width:225px;height:225px}.t1{right:8px}.t2{left:8px}.t3{left:0}}
+</style></head>
+<body>
+<div class="app">
+<div class="topnav"><div class="brand">Wirkungs-Werkstatt</div><nav><a href="index.html">Start</a><a href="index.html#zugaenge">Zugänge</a><a href="wirkung-verstehen.html">Wirkung verstehen</a><a href="index.html#ueber">Über die Toolbox</a></nav></div>
+<header class="header">
+<div class="level-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 25c4-5 6-8 9-12 2-3 5-5 9-6"/><circle cx="7" cy="25" r="2.5"/><circle cx="16" cy="13" r="2.5"/><circle cx="25" cy="7" r="2.5"/><path d="M10 7h5M12.5 4.5v5"/></svg></div>
+<div class="eyebrow">Anders erheben</div><h1>Ripple Effects Mapping</h1>
+<p>Gemeinsam sichtbar machen, welche Veränderungen sich von einem Bildungsangebot aus weiterentwickelt haben.</p>
+</header>
+
+<section class="card"><h2>Worum es geht</h2>
+<p class="lead">Ripple Effects Mapping, kurz REM, ist ein partizipatives Verfahren. Beteiligte erinnern sich gemeinsam an Veränderungen und tragen diese in einer visuellen Landkarte zusammen.</p>
+<p>Im Zentrum steht ein Bildungsangebot oder Projekt. Von dort aus werden weitere Veränderungen ergänzt. So können auch Entwicklungen sichtbar werden, die über einzelne Teilnehmende hinausreichen oder bei der Planung noch keine Rolle spielten.</p>
+<div class="note"><strong>Grundidee:</strong> Veränderungen breiten sich manchmal wie Wellen aus. Eine Erfahrung führt zu einem neuen Handeln. Daraus können weitere Veränderungen im Umfeld entstehen.</div>
+</section>
+
+<section class="card"><h2>Leitfrage</h2>
+<div class="question"><div class="label">Ausgangspunkt</div><strong>Denken Sie an die Zeit seit dem Angebot. Nennen Sie eine Veränderung, die Sie damit in Verbindung bringen.</strong></div>
+<div class="question"><div class="label">Weiterführung</div><strong>Hat diese Veränderung weitere Entwicklungen bei Ihnen oder in Ihrem Umfeld angestoßen?</strong></div>
+</section>
+
+<section class="card"><h2>So entsteht die Landkarte</h2>
+<div class="ripple" aria-label="Beispiel einer Ripple Effects Map">
+<div class="ring r3"></div><div class="ring r2"></div><div class="ring r1"></div>
+<div class="center">Fortbildung<br>Digitale Bildung</div>
+<div class="tag t1">neue Kursidee</div><div class="tag t2">Austausch im Team</div><div class="tag t3">Übernahme in weiteren Kurs</div>
+</div>
+<p class="lead" style="text-align:center">Die Darstellung ist offen. Neue Verbindungen und weiterführende Veränderungen werden während des Gesprächs ergänzt.</p>
+</section>
+
+<section class="card"><h2>Ablauf</h2><div class="steps">
+<div class="step"><div class="num">01</div><h3>Erfahrungen erinnern</h3><p>Die Beteiligten sammeln bedeutsame Veränderungen seit dem Angebot.</p></div>
+<div class="step"><div class="num">02</div><h3>Veränderungen erzählen</h3><p>Konkrete Beispiele geben den Entwicklungen einen nachvollziehbaren Kontext.</p></div>
+<div class="step"><div class="num">03</div><h3>Verbindungen eintragen</h3><p>Die Veränderungen werden auf einer gemeinsamen Karte angeordnet und miteinander verbunden.</p></div>
+<div class="step"><div class="num">04</div><h3>Landkarte auswerten</h3><p>Die Gruppe betrachtet wiederkehrende Entwicklungen und weiterführende Wirkungen.</p></div>
+</div></section>
+
+<section class="card"><h2>Praxisbeispiel Erwachsenenbildung</h2>
+<p>Nach einer Fortbildungsreihe zur digitalen Bildung berichten Kursleitende über die weitere Entwicklung ihrer Praxis.</p>
+<p>Eine Teilnehmerin setzt erstmals ein digitales Abstimmungstool ein. Im Team entsteht daraus ein regelmäßiger Austausch über digitale Methoden. Eine Kollegin übernimmt das Format später in einen eigenen Kurs. In der Ripple Effects Map werden diese Verbindungen sichtbar.</p>
+<div class="note"><strong>Wichtig:</strong> Die Landkarte bildet berichtete Zusammenhänge ab. Sie zeigt, welche Entwicklungen Beteiligte mit dem Angebot verbinden.</div>
+</section>
+
+<div class="meta">
+<section class="card"><h2>Besonders geeignet</h2><p class="lead">Für längerfristige Bildungsangebote und Projekte mit Wirkungen über die unmittelbare Veranstaltung hinaus. REM ist besonders interessant, wenn Veränderungen gemeinsam mit Beteiligten rekonstruiert werden sollen.</p></section>
+<section class="card"><h2>Aufwand</h2><p class="lead">REM wird typischerweise als moderierter Gruppenprozess durchgeführt. Für die Wirkungs-Werkstatt lässt sich eine kompakte Variante mit kleiner Gruppe und einfacher digitaler oder analoger Landkarte einsetzen.</p></section>
+</div>
+
+<section class="card" style="margin-top:18px"><h2>Aussagekraft</h2>
+<p>Die Methode erschließt wahrgenommene und berichtete Veränderungen aus Sicht der Beteiligten. Sie unterstützt die Rekonstruktion von Zusammenhängen und macht unerwartete Entwicklungen zugänglich.</p>
+<p>Für die Interpretation bleibt die Zurechnung bedeutsam. Bildungsprozesse werden durch Vorerfahrungen und weitere Einflüsse mitgeprägt. Die Landkarte sollte deshalb als Grundlage einer plausiblen Wirkungseinschätzung genutzt werden.</p>
+</section>
+
+<section class="card source"><h2>Methodischer Hintergrund</h2>
+<p>Ripple Effects Mapping wurde für die Evaluation komplexer Programme und gemeinschaftlicher Prozesse entwickelt. Das Verfahren verbindet moderierte Reflexion mit einer visuellen Darstellung beabsichtigter und unerwarteter Veränderungen. Die hier dargestellte Fassung ist eine kompakte Übertragung für Einrichtungen der Erwachsenenbildung.</p>
+<p style="margin-top:12px"><strong>Literatur:</strong> Chazdon, S. A., Emery, M., Hansen, D., Higgins, L., &amp; Sero, R. (Eds.). (2017). <em>A Field Guide to Ripple Effects Mapping</em>. University of Minnesota Libraries Publishing.</p>
+<p>Bergmüller, C., Causemann, B., Höck, S., Krier, J.-M., &amp; Quiring, E. (2019). <em>Wirkungsorientierung in der entwicklungspolitischen Inlandsarbeit</em>. Waxmann.</p>
+</section>
+</div>
+<footer>© Elisabeth Vanderheiden · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0</a></footer>
+</body></html>

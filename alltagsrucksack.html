@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mein Alltagsrucksack – Wirkungs-Werkstatt</title>
+<style>
+:root{--navy:#18375e;--teal:#2b7a78;--bg:#f7f9fa;--line:#dce4e8;--muted:#63717d;--soft:#edf7f5;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#17202a;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.45}
+main{max-width:920px;margin:auto;padding:22px 16px 60px}.top{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:10px 0 17px}.top b{color:var(--navy)}.top span{font-size:12px;color:var(--teal);font-weight:800}
+header{text-align:center;padding:34px 0 22px}.ey{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:800}h1,h2{color:var(--navy)}h1{font-size:31px;margin:6px 0}header p{max-width:650px;margin:auto;color:var(--muted)}
+.switch{display:flex;justify-content:center;gap:8px;margin-bottom:20px}.switch button,.btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 15px;font-weight:750;cursor:pointer}.switch button.on,.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.view{display:none}.view.on{display:block}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:24px}
+.intro{text-align:center}.intro h2{font-size:25px;margin:0 0 8px}.intro p{color:var(--muted);max-width:600px;margin:0 auto 20px}
+.play{display:none}.play.on{display:block}.progress{height:7px;background:#e9eef0;border-radius:8px;overflow:hidden;margin-bottom:22px}.progress i{height:100%;display:block;background:var(--teal);transition:.25s}
+.scene{text-align:center}.scene h2{font-size:25px;margin-bottom:4px}.scene>p{color:var(--muted);margin-top:0}
+.objects{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}.object{min-height:145px;border:2px solid var(--line);border-radius:15px;background:#fff;padding:15px 10px;cursor:pointer;font:inherit;transition:.15s}.object:hover{border-color:#aababc}.object.chosen{border-color:var(--teal);background:var(--soft);transform:translateY(-2px)}.object svg{width:55px;height:55px;stroke:var(--navy);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.object strong{display:block;color:var(--navy);font-size:16px;margin-top:6px}.object small{color:var(--muted)}
+.backpack-wrap{display:grid;grid-template-columns:1fr 260px;gap:22px;align-items:start}.bag{min-height:315px;border:2px dashed #9fb7b5;border-radius:90px 90px 28px 28px;background:var(--soft);padding:58px 22px 25px;position:relative;text-align:center}.bag:before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:90px;height:48px;border:7px solid #9fb7b5;border-bottom:0;border-radius:45px 45px 0 0}.bag h3{color:var(--teal);margin:0 0 10px}.bag-items{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.chip{background:#fff;border:1px solid var(--line);border-radius:20px;padding:7px 10px;font-size:12px;color:var(--navy);font-weight:700}
+.prompt{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px}.prompt h3{color:var(--navy);margin:0 0 5px}.prompt p{color:var(--muted);font-size:14px}.levels{display:grid;gap:8px}.level{border:1px solid var(--line);border-radius:9px;background:#fff;padding:11px;text-align:left;cursor:pointer;font:inherit}.level.sel{border:2px solid var(--teal);background:var(--soft)}.actions{display:flex;justify-content:space-between;gap:10px;margin-top:20px}.btn.primary{padding:11px 17px}.result{text-align:center}.result .bigbag{max-width:450px;margin:18px auto}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.sum{border:1px solid var(--line);border-radius:11px;padding:13px}.sum b{display:block;color:var(--teal);font-size:22px}.note{background:var(--soft);border-left:3px solid var(--teal);padding:13px 15px;border-radius:8px;color:#52636d;font-size:13px;margin-top:18px}.teacher-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.teacher-grid .box{border:1px solid var(--line);border-radius:11px;padding:17px}.teacher-grid h3{color:var(--navy);margin-top:0}.qr{width:150px;height:150px;margin:12px auto;display:grid;grid-template-columns:repeat(9,1fr);gap:1px;padding:7px;border:1px solid var(--line)}.qr i{background:#fff}.qr i.b{background:#17202a}
+@media(max-width:680px){.objects{grid-template-columns:repeat(2,1fr)}.backpack-wrap,.teacher-grid{grid-template-columns:1fr}.bag{min-height:240px}.summary{grid-template-columns:1fr}.object{min-height:130px}}
+</style></head>
+<body><main>
+<div class="top"><b>Wirkungs-Werkstatt</b><span>PLAY</span></div>
+<header><div class="ey">Grundbildung &amp; Deutschkurse</div><h1>Mein Alltagsrucksack</h1><p>Ein spielerischer Rückblick auf den Kurs: Packen Sie in Ihren Rucksack, was Ihnen heute im Alltag leichter gelingt.</p></header>
+<div class="switch"><button class="on" data-view="participant">Ausprobieren</button><button data-view="teacher">Für Kursleitungen</button></div>
+
+<section id="participant" class="view on">
+<div id="start" class="card intro"><h2>Was kommt in Ihren Rucksack?</h2><p>Denken Sie an Ihren Alltag seit dem Kurs. Wählen Sie Dinge aus, bei denen Sie heute einen Unterschied bemerken.</p><button id="startBtn" class="btn primary">Rucksack packen</button></div>
+<div id="play" class="play">
+<div class="progress"><i id="prog" style="width:20%"></i></div>
+<div class="backpack-wrap">
+<div>
+<div class="scene"><div class="ey" id="round">1 von 5</div><h2 id="question">Was geht heute besser?</h2><p>Wählen Sie eine Karte.</p></div>
+<div class="objects" id="objects"></div>
+</div>
+<div class="bag"><h3>Mein Rucksack</h3><div class="bag-items" id="bagItems"><span style="color:var(--muted);font-size:13px">Noch leer</span></div></div>
+</div>
+<div id="detail" class="prompt" style="display:none"><h3 id="detailTitle"></h3><p>Wie ist es heute?</p><div class="levels">
+<button class="level" data-level="Allein">Das mache ich allein</button>
+<button class="level" data-level="Mit etwas Hilfe">Manchmal brauche ich Hilfe</button>
+<button class="level" data-level="Noch schwierig">Das ist noch schwierig</button>
+</div></div>
+<div class="actions"><button id="skip" class="btn">Überspringen</button><button id="next" class="btn primary" disabled>Weiter</button></div>
+</div>
+<div id="result" class="card result" style="display:none"><div class="ey">Fertig</div><h2>Das ist Ihr Alltagsrucksack</h2><p>Der Rucksack zeigt die Alltagssituationen, in denen Sie seit dem Kurs eine Veränderung wahrnehmen.</p><div class="bigbag bag"><h3>Mein Rucksack</h3><div class="bag-items" id="finalItems"></div></div><div class="summary" id="summary"></div><button id="again" class="btn primary">Noch einmal</button></div>
+</section>
+
+<section id="teacher" class="view"><div class="card"><h2>Wozu dient der Alltagsrucksack?</h2><p class="lead">Der Alltagsrucksack ist ein spielerischer Reflexionszugang für Grundbildungsangebote und Deutschkurse. Teilnehmende schauen auf ihren Alltag und wählen Situationen aus, in denen sie seit dem Kurs eine Veränderung wahrnehmen.</p>
+<div class="teacher-grid"><div class="box"><h3>Im Kurs einsetzen</h3><p>Der Rucksack eignet sich als Abschluss oder Rückblick. Die ausgewählten Karten können ein Gespräch über Veränderungen im Alltag eröffnen. Die Einschätzung „allein / mit Hilfe / noch schwierig“ unterstützt die persönliche Einordnung des aktuellen Standes.</p></div>
+<div class="box"><h3>So kommt der Rucksack in den Kurs</h3><div class="qr" id="qr"></div><p style="text-align:center;font-size:13px;color:var(--muted)">Später: QR-Code zum direkten Öffnen des Alltagsrucksacks.</p></div></div>
+<div class="note"><b>Einordnung:</b> Der Alltagsrucksack dient der spielerischen Reflexion. Er kann Gespräche über wahrgenommene Veränderungen anregen. Für eine systematische Wirkungserhebung stehen in der Wirkungs-Werkstatt eigene Instrumente unter „Anders erheben“ zur Verfügung.</div>
+</div></section>
+</main>
+<script>
+const categories=[
+[{n:"Brief",s:"Briefe verstehen",icon:"<path d='M9 5h30v42H9z'/><path d='M15 15h18M15 22h18M15 29h13'/>"},{n:"Formular",s:"Formulare ausfüllen",icon:"<path d='M10 5h28v42H10z'/><path d='M16 15h16M16 23h16M16 31h8'/><path d='M29 34l8-8 4 4-8 8-6 2z'/>"},{n:"Handy",s:"Nachrichten verstehen",icon:"<rect x='14' y='4' width='22' height='44' rx='4'/><path d='M21 10h8M23 42h4'/>"}],
+[{n:"Kalender",s:"Termine machen",icon:"<rect x='7' y='11' width='38' height='34' rx='3'/><path d='M15 5v12M37 5v12M7 21h38'/><path d='M16 29h5M27 29h5M16 36h5'/>"},{n:"Gespräch",s:"Mit anderen sprechen",icon:"<path d='M6 9h34v25H20l-9 8v-8H6z'/><path d='M14 19h18M14 25h12'/>"},{n:"Arzt",s:"Beim Arzt sprechen",icon:"<circle cx='26' cy='26' r='20'/><path d='M26 15v22M15 26h22'/>"}],
+[{n:"Bus",s:"Bus und Bahn nutzen",icon:"<rect x='8' y='8' width='36' height='32' rx='5'/><path d='M13 15h26v12H13z'/><circle cx='17' cy='42' r='3'/><circle cx='35' cy='42' r='3'/>"},{n:"Weg",s:"Einen Weg finden",icon:"<path d='M8 43c7-15 9-30 19-30 8 0 7 11 17 11'/><circle cx='10' cy='40' r='4'/><path d='M40 8l5 5-5 5'/>"},{n:"Fahrplan",s:"Fahrplan verstehen",icon:"<rect x='8' y='6' width='36' height='40' rx='3'/><path d='M15 15h22M15 23h8M29 23h8M15 31h8M29 31h8'/>"}],
+[{n:"Einkauf",s:"Beim Einkaufen zurechtkommen",icon:"<path d='M8 16h36l-4 24H13z'/><path d='M17 16c0-7 4-11 9-11s9 4 9 11'/><path d='M18 26h16'/>"},{n:"Geld",s:"Mit Geld umgehen",icon:"<circle cx='26' cy='26' r='19'/><path d='M31 17c-8-4-13 0-13 9s5 13 13 9M15 23h14M15 29h14'/>"},{n:"Preis",s:"Preise verstehen",icon:"<path d='M7 9h22l16 16-20 20L7 27z'/><circle cx='17' cy='18' r='3'/>"}],
+[{n:"Arbeit",s:"Am Arbeitsplatz sprechen",icon:"<rect x='7' y='16' width='38' height='27' rx='3'/><path d='M18 16v-6h16v6M7 27h38M22 27v5h8v-5'/>"},{n:"Computer",s:"Digitales selbst erledigen",icon:"<rect x='5' y='7' width='42' height='30' rx='3'/><path d='M18 45h16M22 37v8M30 37v8'/>"},{n:"Fragen",s:"Nachfragen, wenn etwas unklar ist",icon:"<circle cx='26' cy='24' r='19'/><path d='M20 18c1-7 13-7 13 1 0 5-7 5-7 10M26 36h.1'/>"}]
+];
+let step=0,chosen=null,level=null,answers=[];
+function render(){
+ document.getElementById("round").textContent=(step+1)+" von "+categories.length;
+ document.getElementById("prog").style.width=((step+1)/categories.length*100)+"%";
+ const box=document.getElementById("objects");box.innerHTML="";
+ categories[step].forEach((o,i)=>{const b=document.createElement("button");b.type="button";b.className="object";b.innerHTML="<svg viewBox='0 0 52 52'>"+o.icon+"</svg><strong>"+o.n+"</strong><small>"+o.s+"</small>";b.addEventListener("click",()=>select(i,b));box.appendChild(b)});
+ chosen=null;level=null;document.getElementById("detail").style.display="none";document.getElementById("next").disabled=true;
+}
+function select(i,b){chosen=categories[step][i];document.querySelectorAll(".object").forEach(x=>x.classList.remove("chosen"));b.classList.add("chosen");document.getElementById("detail").style.display="block";document.getElementById("detailTitle").textContent=chosen.s;document.querySelectorAll(".level").forEach(x=>x.classList.remove("sel"));document.getElementById("next").disabled=true}
+document.querySelectorAll(".level").forEach(b=>b.addEventListener("click",()=>{level=b.dataset.level;document.querySelectorAll(".level").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");document.getElementById("next").disabled=false}));
+function advance(save){if(save&&chosen&&level)answers.push({name:chosen.s,level});step++;updateBag();if(step>=categories.length)finish();else render()}
+function updateBag(){const b=document.getElementById("bagItems");b.innerHTML=answers.length?answers.map(a=>"<span class='chip'>"+a.name+"</span>").join(""):"<span style='color:var(--muted);font-size:13px'>Noch leer</span>"}
+function finish(){document.getElementById("play").classList.remove("on");document.getElementById("result").style.display="block";document.getElementById("finalItems").innerHTML=answers.length?answers.map(a=>"<span class='chip'>"+a.name+"</span>").join(""):"<span>Heute ist nichts im Rucksack gelandet.</span>";const levels=["Allein","Mit etwas Hilfe","Noch schwierig"],s=document.getElementById("summary");s.innerHTML=levels.map(l=>"<div class='sum'><b>"+answers.filter(a=>a.level===l).length+"</b>"+l+"</div>").join("")}
+document.getElementById("startBtn").addEventListener("click",()=>{document.getElementById("start").style.display="none";document.getElementById("play").classList.add("on");render()});
+document.getElementById("next").addEventListener("click",()=>advance(true));document.getElementById("skip").addEventListener("click",()=>advance(false));
+document.getElementById("again").addEventListener("click",()=>{step=0;answers=[];document.getElementById("result").style.display="none";document.getElementById("play").classList.add("on");updateBag();render()});
+document.querySelectorAll(".switch button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".switch button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id===b.dataset.view))}));
+const q=document.getElementById("qr"),pat=["111010111","101110101","111010111","000101000","101111010","011001101","111010111","101101101","111010111"];pat.join("").split("").forEach(v=>{const i=document.createElement("i");if(v==="1")i.className="b";q.appendChild(i)});
+</script></body></html>

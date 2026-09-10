@@ -46,6 +46,7 @@ body {
 .section-head p { font-size:14px; color:var(--text-muted); }
 .journey-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:48px; }
 .journey-card {
+  display:block; text-decoration:none; color:inherit;
   background:var(--surface); border:1px solid var(--border); border-radius:10px;
   padding:18px; min-height:154px; cursor:pointer; transition:box-shadow .2s, transform .15s, border-color .15s;
 }
@@ -111,7 +112,7 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 @media(max-width:650px){ .play-card{flex-direction:column;align-items:flex-start}.play-icon{width:50px;height:50px} }
 
 
-/* Drei Zugänge zur Wirkungs-Werkstatt */
+/* Zugänge zur Wirkungs-Werkstatt */
 .levels { margin:42px 0 8px; }
 .levels-head { max-width:760px; margin-bottom:22px; }
 .levels-head .kicker { font-size:11px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--teal); margin-bottom:5px; }
@@ -193,49 +194,49 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
       <p>Wählen Sie die Situation, die am besten zu Ihrer aktuellen Frage passt.</p>
     </div>
     <div class="journey-grid">
-      <article class="journey-card" data-route="planen">
+      <a class="journey-card" href="planen-auswerten.html">
         <div class="icon">🌱</div>
         <h3>Wir planen ein Angebot</h3>
         <p>Was soll sich für unsere Teilnehmenden verändern?</p>
         <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </article>
-      <article class="journey-card" data-route="erkennen">
+      </a>
+      <a class="journey-card" href="anders-erheben.html">
         <div class="icon">🔎</div>
         <h3>Wir möchten Wirkung erkennen</h3>
         <p>Woran können wir erkennen, ob und welche Veränderung eingetreten ist?</p>
         <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </article>
-      <article class="journey-card" data-route="feedback">
+      </a>
+      <a class="journey-card" href="anders-erheben.html">
         <div class="icon">💬</div>
         <h3>Wir möchten Rückmeldungen einholen</h3>
         <p>Wie erheben wir mit wenig Aufwand hilfreiche Informationen?</p>
         <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </article>
-      <article class="journey-card" data-route="daten">
+      </a>
+      <a class="journey-card" href="planen-auswerten.html">
         <div class="icon">📊</div>
         <h3>Wir haben bereits Daten</h3>
         <p>Was sagen unsere Ergebnisse aus und wo liegen ihre Grenzen?</p>
         <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </article>
-      <article class="journey-card" data-route="verbessern">
+      </a>
+      <a class="journey-card" href="planen-auswerten.html">
         <div class="icon">🧭</div>
         <h3>Wir möchten unser Angebot verbessern</h3>
         <p>Was können wir aus Rückmeldungen und Beobachtungen lernen?</p>
         <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </article>
-      <article class="journey-card" data-route="zeigen">
+      </a>
+      <a class="journey-card" href="werkzeuge.html">
         <div class="icon">📄</div>
-        <h3>Wir müssen Wirkung darstellen</h3>
+        <h3>Wir möchten Wirkung darstellen</h3>
         <p>Wie können wir Ergebnisse für Antrag, Bericht oder Öffentlichkeit aufbereiten?</p>
         <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </article>
+      </a>
     </div>
   </section>
 
   
   <section class="levels" id="zugaenge">
     <div class="levels-head">
-      <div class="kicker">Drei Zugänge</div>
+      <div class="kicker">Vier Zugänge</div>
       <h2>Wie möchten Sie mit Wirkung arbeiten?</h2>
       <p>Die Wirkungs-Werkstatt verbindet praktische Werkzeuge, alternative Formen der Wirkungserhebung und spielerische Zugänge zum Wirkungsdenken und -handeln.</p>
     </div>
@@ -249,9 +250,9 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
         <div class="level-number">01 · Planen &amp; auswerten</div>
         <h3>Mit Wirkung arbeiten</h3>
         <p class="level-question">Wie arbeiten Sie wirkungsorientiert?</p>
-        <p>Entwickeln Sie Wirkungsziele, planen Sie Erhebungen und nutzen Sie Ergebnisse für die Weiterentwicklung Ihrer Angebote.</p>
+        <p>Entwickeln Sie Wirkungsziele, planen Sie Erhebungen und ordnen Sie Ergebnisse für die Weiterentwicklung Ihrer Angebote ein.</p>
         <div class="level-links">
-          <a href="wirkungsziel-check.html">Mit dem Wirkungsziel starten →</a>
+          <a href="planen-auswerten.html">Methoden zum Planen &amp; Auswerten →</a>
         </div>
       </article>
 
@@ -266,11 +267,10 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
         </div>
         <div class="level-number">02 · Anders erheben</div>
         <h3>Veränderungen sichtbar machen</h3>
-        <p class="level-question">Wie erfahren Sie, was sich für Teilnehmende verändert hat?</p>
-        <p>Nutzen Sie alternative Erhebungsformen, die Wahrnehmungen, Erfahrungen und Veränderungen der Teilnehmenden sichtbar machen.</p>
+        <p class="level-question">Wie lassen sich Veränderungen erfassen und gemeinsam rekonstruieren?</p>
+        <p>Nutzen Sie alternative Erhebungsformen, um Veränderungen sichtbar zu machen und gemeinsam mit Beteiligten zu rekonstruieren.</p>
         <div class="level-links">
-          <a href="wirkungs-landkarte.html">Wirkungs-Landkarte →</a>
-          <span class="coming">Weitere Instrumente folgen.</span>
+          <a href="anders-erheben.html">Erhebungsformen ansehen →</a>
         </div>
       </article>
 
@@ -280,13 +280,14 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
         </div>
         <div class="level-number">03 · PLAY</div>
         <h3>Wirkung ausprobieren</h3>
-        <p class="level-question">Wie lässt sich Wirkung spielerisch verstehen?</p>
+        <p class="level-question">Wie lässt sich Wirkung spielerisch erkunden?</p>
         <p>Erkunden Sie Wirkung an Praxisbeispielen und interaktiven Anwendungen und machen Sie Wirkungslogiken unmittelbar erfahrbar.</p>
         <div class="level-links">
           <a href="wirkungsfall.html">Der Wirkungsfall →</a>
           <a href="wirkung-oder-zahl.html">Wirkung oder nur Zahl? →</a>
           <a href="zu-viel-versprochen.html">Zu viel versprochen? →</a>
           <a href="vier-wochen-spaeter.html">Vier Wochen später … →</a>
+          <a href="alltagsrucksack.html">Mein Alltagsrucksack →</a>
         </div>
       </article>
 
@@ -334,24 +335,9 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 </div>
 
 <footer class="site-footer">
-  <p>&copy; Elisabeth Vanderheiden · <a href="https://research2026-collab.github.io/elisabeth.vanderheiden/" target="_blank" rel="noopener">Website Elisabeth Vanderheiden</a> · Lizenz: <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0 – Namensnennung, nicht kommerzielle Nutzung</a>.</p>
+  <p>&copy; Elisabeth Vanderheiden · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
 </footer>
 
-<script>
-// Nur Demo-Navigation: Die Karten scrollen zur Werkzeugübersicht.
-// Eine echte Nutzungszählung ist hier bewusst noch NICHT eingebaut.
-document.querySelectorAll('.journey-card').forEach(card => {
-  card.addEventListener('click', () => {
-    document.getElementById('werkzeuge').scrollIntoView({behavior:'smooth'});
-  });
-});
 
-document.querySelectorAll('.tool-card a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert('Dieses Werkzeug wird im nächsten Schritt als eigene Anwendung ergänzt.');
-  });
-});
-</script>
 </body>
 </html>

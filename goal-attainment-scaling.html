@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Goal Attainment Scaling – Wirkungs-Werkstatt</title>
+<style>
+:root{--navy:#17365d;--navy2:#2a4a7f;--teal:#2b7a78;--teal2:#3aafa9;--bg:#f6f8fa;--surface:#fff;--text:#1d2939;--muted:#667085;--light:#98a2b3;--border:#dfe5eb;--soft:#eef7f6;--softblue:#eef4fa}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:15px}.app{max-width:1040px;margin:auto;padding:24px 20px 72px}.topnav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:10px 0 18px;border-bottom:1px solid var(--border)}.brand{font-weight:800;color:var(--navy);font-size:15px}.topnav nav{display:flex;gap:18px;flex-wrap:wrap}.topnav a{font-size:13px;color:var(--muted);text-decoration:none}.topnav a:hover{color:var(--teal)}
+.header{text-align:center;padding:42px 0 30px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}.header-icon{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;margin:0 auto 16px;background:var(--softblue);color:var(--navy2)}.header-icon svg{width:31px;height:31px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.header h1{font-size:31px;line-height:1.15;color:var(--navy);margin:0 0 9px;font-weight:800}.header p{max-width:760px;margin:auto;color:var(--muted)}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:0 auto 24px}.meta-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px}.meta-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}.meta-card p{font-size:13px;color:var(--muted);margin:0}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:18px}.card h2{font-size:21px;color:var(--navy);margin:0 0 8px}.card p{margin:0 0 13px;color:var(--muted)}.card p:last-child{margin-bottom:0}.question{background:var(--soft);border-left:3px solid var(--teal);border-radius:9px;padding:16px 18px;margin:16px 0;font-size:16px;font-weight:700;color:var(--navy)}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:20px 0 8px}.scale-item{border:1px solid var(--border);border-radius:10px;padding:14px 10px;background:var(--surface);text-align:center}.scale-value{display:block;font-size:19px;font-weight:800;color:var(--navy);margin-bottom:4px}.scale-label{font-size:12px;color:var(--muted)}.scale-item.expected{background:var(--soft);border-color:#cfe8e5}.scale-item.expected .scale-value{color:var(--teal)}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.step{border:1px solid var(--border);border-radius:10px;padding:18px;background:var(--surface)}.step-no{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:5px}.step h3{font-size:16px;color:var(--navy);margin:0 0 6px}.step p{font-size:13px;margin:0;color:var(--muted)}
+.example{background:var(--softblue);border-radius:10px;padding:18px;margin-top:14px}.example-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy2);margin-bottom:7px}.example-goal{font-weight:700;color:var(--navy);margin-bottom:14px}.example-row{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:8px 0;border-top:1px solid rgba(42,74,127,.12);font-size:13px}.example-row strong{color:var(--navy)}.example-row span{color:var(--muted)}
+.note{padding:14px 15px;border-radius:9px;background:var(--soft);border-left:3px solid var(--teal);font-size:13px;color:var(--muted);margin-top:14px}.note strong{color:var(--teal)}.source-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px}.source-card h2{font-size:18px;color:var(--navy);margin:0 0 10px}.source-card p{font-size:12.5px;color:var(--muted);margin:0 0 10px}.source-card p:last-child{margin-bottom:0}.source-card a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(43,122,120,.3)}footer{border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px;text-align:center;font-size:12px;color:#8a8a86}footer a{color:#8a8a86}
+@media(max-width:760px){.meta,.steps{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale-item{text-align:left;display:grid;grid-template-columns:45px 1fr;align-items:center}.topnav{align-items:flex-start;flex-direction:column}.header{padding:36px 0 26px}.header h1{font-size:29px}.card{padding:22px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topnav"><div class="brand">Wirkungs-Werkstatt</div><nav aria-label="Hauptnavigation"><a href="index.html">Startseite</a><a href="wirkung-verstehen.html">Wirkung verstehen</a></nav></div>
+  <header class="header">
+    <div class="eyebrow">Anders erheben</div>
+    <div class="header-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 25h20"/><path d="M8 23V13"/><path d="M14 23V9"/><path d="M20 23V15"/><path d="M26 23V6"/><path d="M6 8l5 3 6-5 5 3 5-5"/></svg></div>
+    <h1>Individuelle Ziele sichtbar machen</h1>
+    <p>Goal Attainment Scaling (GAS) erfasst individuelle Veränderungen anhand eines persönlichen Ziels. Vor Beginn werden konkrete Stufen beschrieben, am vereinbarten Zeitpunkt wird der erreichte Stand gemeinsam eingeschätzt.</p>
+  </header>
+
+  <div class="meta">
+    <div class="meta-card"><div class="meta-label">Einsatz</div><p>Längerfristige Bildungsangebote mit individuellen Entwicklungszielen.</p></div>
+    <div class="meta-card"><div class="meta-label">Aufwand</div><p>Vorbereitung des Ziels und der fünf Zielstufen, spätere Einschätzung der erreichten Stufe.</p></div>
+  </div>
+
+  <section class="card">
+    <h2>Kurz erklärt</h2>
+    <p>Bei GAS steht das individuelle Entwicklungsziel einer Person im Mittelpunkt. Zu Beginn werden mögliche Ausprägungen der Zielerreichung beschrieben. Später ordnet die Person ihren erreichten Stand einer dieser Stufen zu, bei Bedarf gemeinsam mit der Kursleitung.</p>
+    <div class="question">Ein persönliches Ziel festlegen, fünf nachvollziehbare Zielstufen beschreiben und den erreichten Stand später einordnen.</div>
+    <p>Die mittlere Stufe <strong>0</strong> bezeichnet das erwartete Ergebnis. Die Stufen <strong>+1</strong> und <strong>+2</strong> beschreiben eine stärkere Zielerreichung. Die Stufen <strong>−1</strong> und <strong>−2</strong> bilden eine geringere Zielerreichung ab. Diese fünfstufige Skalierung gehört zum klassischen GAS-Verfahren.</p>
+    <div class="scale" aria-label="Fünfstufige GAS-Skala">
+      <div class="scale-item"><span class="scale-value">−2</span><span class="scale-label">deutlich unter dem erwarteten Ergebnis</span></div>
+      <div class="scale-item"><span class="scale-value">−1</span><span class="scale-label">unter dem erwarteten Ergebnis</span></div>
+      <div class="scale-item expected"><span class="scale-value">0</span><span class="scale-label">erwartetes Ergebnis</span></div>
+      <div class="scale-item"><span class="scale-value">+1</span><span class="scale-label">über dem erwarteten Ergebnis</span></div>
+      <div class="scale-item"><span class="scale-value">+2</span><span class="scale-label">deutlich über dem erwarteten Ergebnis</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Ablauf</h2>
+    <div class="steps">
+      <div class="step"><div class="step-no">01</div><h3>Ziel festlegen</h3><p>Das individuelle Entwicklungsziel wird vor Beginn des Bildungsprozesses möglichst konkret formuliert.</p></div>
+      <div class="step"><div class="step-no">02</div><h3>Erwartetes Ergebnis beschreiben</h3><p>Für die Stufe 0 wird festgehalten, woran eine realistische Zielerreichung zu erkennen wäre.</p></div>
+      <div class="step"><div class="step-no">03</div><h3>Zielstufen bestimmen</h3><p>Für −2, −1, +1 und +2 werden beobachtbare Ausprägungen beschrieben. Jede Stufe soll eindeutig von den anderen unterscheidbar sein.</p></div>
+      <div class="step"><div class="step-no">04</div><h3>Zielerreichung einschätzen</h3><p>Am vereinbarten Zeitpunkt wird geprüft, welche der vorab beschriebenen Stufen am besten zum erreichten Stand passt.</p></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Praxisbeispiel Erwachsenenbildung</h2>
+    <p>Eine Teilnehmerin besucht eine längerfristige Qualifizierung für ehrenamtliche Lernbegleitung. Ihr persönliches Ziel lautet:</p>
+    <div class="example">
+      <div class="example-label">Individuelles Ziel</div>
+      <div class="example-goal">„Ich möchte Lernende in schwierigen Gesprächssituationen sicherer begleiten.“</div>
+      <div class="example-row"><strong>−2</strong><span>Ich vermeide schwierige Gesprächssituationen weiterhin.</span></div>
+      <div class="example-row"><strong>−1</strong><span>Ich führe solche Gespräche mit Unterstützung einer erfahrenen Person.</span></div>
+      <div class="example-row"><strong>0</strong><span>Ich führe ein schwieriges Gespräch selbstständig und nutze dabei mindestens eine in der Qualifizierung erprobte Gesprächstechnik.</span></div>
+      <div class="example-row"><strong>+1</strong><span>Ich führe mehrere schwierige Gespräche selbstständig und passe mein Vorgehen an die jeweilige Situation an.</span></div>
+      <div class="example-row"><strong>+2</strong><span>Ich nutze meine Erfahrungen zusätzlich, um andere Lernbegleitende bei schwierigen Gesprächssituationen zu unterstützen.</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Aussagekraft</h2>
+    <p>GAS macht sichtbar, welchen Stand eine Person bei einem zuvor beschriebenen individuellen Ziel erreicht hat. Die Methode eignet sich besonders für Bildungsprozesse mit unterschiedlichen Ausgangslagen und persönlichen Entwicklungszielen. Die vorab beschriebenen Stufen erleichtern eine nachvollziehbare Einschätzung der Veränderung.</p>
+    <div class="note"><strong>Für die Praxis:</strong> Die Qualität der Auswertung hängt stark von der Formulierung der Zielstufen ab. Beschreibungen konkreter beobachtbarer Veränderungen erleichtern eine nachvollziehbare Zuordnung.</div>
+  </section>
+
+  <section class="card">
+    <h2>Einordnung</h2>
+    <p>Goal Attainment Scaling wurde von Thomas J. Kiresuk und Robert E. Sherman entwickelt. Das ursprüngliche Verfahren ermöglicht zusätzlich die rechnerische Zusammenführung mehrerer Ziele. Für den Einsatz als niedrigschwelliges Instrument der Wirkungs-Werkstatt steht zunächst die nachvollziehbare Skalierung eines individuellen Ziels im Mittelpunkt.</p>
+  </section>
+
+  <section class="source-card">
+    <h2>Zum Weiterlesen</h2>
+    <p>Baumgartner, E., &amp; Haunberger, S. (2024). <em>Wirkungsevaluationen in der Sozialen Arbeit: Ein Orientierungsbuch für die Praxis</em>. Haupt Verlag.</p>
+    <p>Kiresuk, T. J., &amp; Sherman, R. E. (1968). Goal attainment scaling: A general method for evaluating comprehensive community mental health programs. <em>Community Mental Health Journal, 4</em>(6), 443–453. <a href="https://doi.org/10.1007/BF01530764">https://doi.org/10.1007/BF01530764</a></p>
+  </section>
+</div>
+<footer>&copy; Elisabeth Vanderheiden · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0</a></footer>
+</body>
+</html>

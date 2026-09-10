@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MAPP – Wirkungs-Werkstatt</title>
+<style>
+:root{--navy:#17365d;--navy2:#2a4a7f;--teal:#2b7a78;--teal2:#3aafa9;--bg:#f6f8fa;--surface:#fff;--text:#1d2939;--muted:#667085;--light:#98a2b3;--border:#dfe5eb;--soft:#eef7f6;--softblue:#eef4fa}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}.app{max-width:1040px;margin:auto;padding:24px 20px 72px}
+.topnav{display:flex;justify-content:space-between;align-items:center;padding:10px 0 18px;border-bottom:1px solid var(--border);gap:24px}.brand{font-weight:800;color:var(--navy)}.topnav nav{display:flex;gap:18px;flex-wrap:wrap}.topnav a{font-size:13px;color:var(--muted);text-decoration:none}.topnav a:hover{color:var(--teal)}
+.header{text-align:center;padding:42px 0 26px}.level-icon{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;margin:0 auto 16px;background:var(--softblue);color:var(--navy2)}.level-icon svg{width:29px;height:29px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}.header h1{font-size:31px;color:var(--navy);margin:0 0 9px}.header p{max-width:760px;margin:auto;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:18px}.card h2{font-size:21px;color:var(--navy);margin:0 0 7px}.card p{margin:0 0 12px}.card p:last-child{margin-bottom:0}.lead{color:var(--muted)}
+.note{padding:14px 15px;border-radius:9px;background:var(--soft);border-left:3px solid var(--teal);font-size:13px;color:var(--muted);margin-top:14px}.note strong{color:var(--teal)}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.step{border:1px solid var(--border);border-radius:10px;padding:17px;background:#fff}.step .num{font-size:11px;font-weight:800;color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}.step h3{font-size:15px;color:var(--navy);margin:0 0 5px}.step p{font-size:13px;color:var(--muted);margin:0}
+.matrix{overflow-x:auto;margin-top:18px}.matrix table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}.matrix th,.matrix td{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:11px;text-align:center}.matrix th:first-child,.matrix td:first-child{text-align:left}.matrix th{background:var(--softblue);color:var(--navy);font-weight:750}.matrix tr:first-child th{border-top:1px solid var(--border)}.matrix th:first-child,.matrix td:first-child{border-left:1px solid var(--border)}.matrix tr:first-child th:first-child{border-top-left-radius:9px}.matrix tr:first-child th:last-child{border-top-right-radius:9px}.score{font-weight:800;color:var(--teal)}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:14px}.meta .card{margin:0}.source{font-size:13px;color:var(--muted)}.source a{color:var(--teal);text-decoration:none}
+footer{border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px;margin-top:24px;text-align:center;font-size:12px;color:#8a8a86}footer a{color:#777;text-decoration:none}
+@media(max-width:700px){.topnav{align-items:flex-start;flex-direction:column}.steps,.meta{grid-template-columns:1fr}.card{padding:21px}.header h1{font-size:27px}}
+</style></head>
+<body>
+<div class="app">
+<div class="topnav"><div class="brand">Wirkungs-Werkstatt</div><nav><a href="index.html">Start</a><a href="index.html#zugaenge">Zugänge</a><a href="wirkung-verstehen.html">Wirkung verstehen</a><a href="index.html#ueber">Über die Toolbox</a></nav></div>
+<header class="header">
+<div class="level-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 25c4-5 6-8 9-12 2-3 5-5 9-6"/><circle cx="7" cy="25" r="2.5"/><circle cx="16" cy="13" r="2.5"/><circle cx="25" cy="7" r="2.5"/><path d="M10 7h5M12.5 4.5v5"/></svg></div>
+<div class="eyebrow">Anders erheben</div><h1>MAPP</h1>
+<p>Veränderungen gemeinsam bewerten und den Beitrag einzelner Aktivitäten nachvollziehen.</p>
+</header>
+
+<section class="card"><h2>Worum es geht</h2>
+<p class="lead">MAPP steht für <em>Method for Impact Assessment of Programmes and Projects</em>. Das partizipative Verfahren arbeitet mit moderierten Gruppengesprächen. Beteiligte betrachten zunächst Entwicklungen über einen Zeitraum und untersuchen anschließend den Einfluss einzelner Aktivitäten.</p>
+<p>MAPP verbindet qualitative Einschätzungen mit einfachen Bewertungen. Dadurch entsteht ein strukturiertes Bild von Veränderungen und möglichen Beiträgen eines Programms.</p>
+<div class="note"><strong>Grundidee:</strong> Zuerst werden Veränderungen betrachtet. Anschließend bewertet die Gruppe den Einfluss des Angebots und weiterer Faktoren.</div>
+</section>
+
+<section class="card"><h2>Für die Wirkungs-Werkstatt</h2>
+<p class="lead">Das vollständige MAPP-Verfahren umfasst mehrere aufeinander bezogene Instrumente und benötigt eine sorgfältige Moderation. Für Einrichtungen der Erwachsenenbildung eignet sich eine reduzierte Anwendung mit vier Arbeitsschritten.</p>
+<div class="steps">
+<div class="step"><div class="num">01</div><h3>Entwicklung betrachten</h3><p>Die Gruppe beschreibt wichtige Veränderungen seit Beginn des Projekts oder Angebots.</p></div>
+<div class="step"><div class="num">02</div><h3>Veränderungen bewerten</h3><p>Ausgewählte Entwicklungen werden gemeinsam eingeschätzt.</p></div>
+<div class="step"><div class="num">03</div><h3>Einflüsse zuordnen</h3><p>Die Gruppe bewertet den Beitrag einzelner Aktivitäten zu den beobachteten Veränderungen.</p></div>
+<div class="step"><div class="num">04</div><h3>Ergebnis einordnen</h3><p>Weitere Einflussfaktoren werden berücksichtigt und die Ergebnisse gemeinsam interpretiert.</p></div>
+</div>
+</section>
+
+<section class="card"><h2>Einflussmatrix</h2>
+<p class="lead">Eine einfache Matrix unterstützt die gemeinsame Einschätzung. Die Zahlen stehen für die Stärke des wahrgenommenen Einflusses. Auch negative Einflüsse können eingetragen werden.</p>
+<div class="matrix"><table>
+<tr><th>Beobachtete Veränderung</th><th>Workshop</th><th>Praxisphase</th><th>Austauschgruppe</th></tr>
+<tr><td>mehr Sicherheit bei digitalen Methoden</td><td class="score">++</td><td class="score">++</td><td class="score">+</td></tr>
+<tr><td>häufigerer Einsatz im eigenen Kurs</td><td class="score">+</td><td class="score">++</td><td class="score">+</td></tr>
+<tr><td>mehr Austausch im Team</td><td>0</td><td class="score">+</td><td class="score">++</td></tr>
+</table></div>
+<div class="note"><strong>Bewertung:</strong> ++ starker positiver Einfluss · + positiver Einfluss · 0 kein erkennbarer Einfluss · − negativer Einfluss · −− starker negativer Einfluss</div>
+</section>
+
+<section class="card"><h2>Praxisbeispiel Erwachsenenbildung</h2>
+<p>Eine Bildungseinrichtung wertet eine sechsmonatige Fortbildungsreihe für Kursleitende aus. Die Gruppe blickt zunächst auf Veränderungen im eigenen Arbeitsalltag zurück. Danach werden die einzelnen Bestandteile der Fortbildungsreihe in einer Einflussmatrix den beobachteten Veränderungen zugeordnet.</p>
+<p>Dadurch wird sichtbar, dass die Praxisphase besonders stark mit dem späteren Einsatz digitaler Methoden verbunden wird. Für den Austausch im Team erhält dagegen die begleitende Austauschgruppe die höchste Bewertung.</p>
+</section>
+
+<div class="meta">
+<section class="card"><h2>Besonders geeignet</h2><p class="lead">Für Programme und längerfristige Projekte mit mehreren Aktivitäten. MAPP ist hilfreich, wenn unterschiedliche Einflüsse gemeinsam betrachtet werden sollen und nur wenige quantitative Daten vorliegen.</p></section>
+<section class="card"><h2>Aufwand</h2><p class="lead">Das vollständige Verfahren ist deutlich aufwendiger als die bisherigen Kurzformate der Wirkungs-Werkstatt. Die hier vorgeschlagene reduzierte Variante lässt sich in einem moderierten Workshop einsetzen.</p></section>
+</div>
+
+<section class="card" style="margin-top:18px"><h2>Aussagekraft</h2>
+<p>MAPP macht Einschätzungen der Beteiligten systematisch vergleichbar und unterstützt die Plausibilisierung von Wirkungszusammenhängen. Die Einflussmatrix erleichtert die Zuordnung von Veränderungen zu einzelnen Aktivitäten.</p>
+<p>Die vergebenen Punktwerte sind gemeinsame Bewertungen der Gruppe. Sie sind keine statistischen Messwerte.</p>
+<div class="note"><strong>Für Bildungsprozesse wichtig:</strong> Lern- und Veränderungsprozesse entstehen unter dem Einfluss verschiedener Bedingungen. Die gemeinsame Bewertung kann diese Einflüsse sichtbar machen und vorschnelle Zurechnungen vermeiden.</div>
+</section>
+
+<section class="card source"><h2>Methodischer Hintergrund</h2>
+<p>MAPP wurde von Susanne Neubert am Deutschen Institut für Entwicklungspolitik entwickelt. Das Verfahren umfasst eine logisch verbundene Folge partizipativer Instrumente. Dazu gehören unter anderem eine zeitliche Entwicklungsperspektive und eine Einflussmatrix. MAPP wurde auch im Bildungsbereich eingesetzt.</p>
+<p style="margin-top:12px"><strong>Literatur:</strong> Neubert, S. <em>MAPP: A Participatory Method for Impact Assessment of Programmes and Projects.</em></p>
+<p>Bergmüller, C., Causemann, B., Höck, S., Krier, J.-M., &amp; Quiring, E. (2019). <em>Wirkungsorientierung in der entwicklungspolitischen Inlandsarbeit</em>. Waxmann.</p>
+</section>
+</div>
+<footer>© Elisabeth Vanderheiden · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0</a></footer>
+</body></html>
