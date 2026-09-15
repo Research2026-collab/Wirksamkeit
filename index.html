@@ -181,6 +181,28 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 .srs-copy { flex:1; } .srs-copy h3 { margin:0 0 3px; font-size:18px; color:#fff; } .srs-copy p { margin:0; color:#fff; opacity:.94; font-size:14px; }
 .srs-cta { flex:0 0 auto; background:#fff; color:var(--teal); font-weight:800; font-size:13px; padding:9px 15px; border-radius:999px; }
 @media(max-width:650px){.srs-banner{align-items:flex-start;flex-wrap:wrap}.srs-cta{margin-left:66px}}
+
+
+/* Finale Startseiten-Anpassungen */
+.header { text-align:left; max-width:980px; margin:0 auto; }
+.header .subtitle { max-width:980px; margin:0; }
+.intro { max-width:980px; margin:0 auto 40px; text-align:left; }
+.levels-head { max-width:none; text-align:center; margin:0 0 22px; }
+.levels-head h2 { font-size:26px; margin-bottom:6px; }
+.levels-head p { margin:0 auto; }
+.level-card { min-height:410px; }
+.level-links { min-height:54px; display:flex; align-items:flex-end; }
+.level-links a { width:100%; }
+.lower-info { margin-top:18px; }
+.lower-info .info-card { display:flex; flex-direction:column; min-height:190px; }
+.lower-info .info-link { margin-top:auto !important; padding-top:12px; }
+.lower-info .info-link a { color:var(--teal); font-weight:700; text-decoration:none; }
+@media(max-width:650px){
+  .header,.intro{text-align:left;}
+  .level-card{min-height:0;}
+  .level-links{min-height:0;}
+}
+
 </style>
 </head>
 <body>
@@ -208,8 +230,7 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 
   <section class="levels" id="zugaenge">
     <div class="levels-head">
-      <div class="kicker">Vier Zugänge</div>
-      <h2>Wählen Sie Ihren Zugang</h2>
+      <h2>Was möchten Sie tun?</h2>
       <p>Jeder Zugang kann direkt genutzt werden. Die Anordnung bildet keine feste Reihenfolge.</p>
     </div>
 
@@ -290,22 +311,17 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
     <span class="srs-cta">SRS öffnen →</span>
   </a>
 
-  <section class="info-strip">
+  <section class="info-strip lower-info" id="ueber">
     <div class="info-card">
-      <h3>Alle Werkzeuge</h3>
-      <p>Direkter Überblick über sämtliche Werkzeuge und Anwendungen der Wirkungs-Werkstatt.</p>
-      <p style="margin-top:12px;"><a href="werkzeuge.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Werkzeugübersicht öffnen →</a></p>
+      <h3>Über die Wirkungs-Werkstatt</h3>
+      <p>Die Wirkungs-Werkstatt richtet sich an Einrichtungen der Erwachsenenbildung. Sie verbindet praktische Unterstützung bei Planung, Erhebung und Auswertung mit spielerischen Anwendungen und der kritischen Reflexion von Wirkungsmessung. Alle Zugänge können unabhängig voneinander genutzt werden.</p>
+      <p class="info-link"><a href="wirkung-verstehen.html">Mehr erfahren →</a></p>
     </div>
     <div class="info-card">
-      <h3>Wirkung verstehen</h3>
-      <p>Begriffe und Grundlagen zu Output, Outcome, Impact, Wirkungszielen, Indikatoren und Wirkungsbeitrag.</p>
-      <p style="margin-top:12px;"><a href="wirkung-verstehen.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Grundlagen öffnen →</a></p>
+      <h3>Für die Praxis entwickelt</h3>
+      <p>Die Inhalte greifen fachliche Standards der Wirkungsorientierung auf und sind für die Erwachsenenbildung verständlich und alltagsnah aufbereitet. Die Werkzeuge können einzeln und passend zur jeweiligen Fragestellung genutzt werden.</p>
+      <p class="info-link"><a href="werkzeuge.html">Alle Werkzeuge →</a></p>
     </div>
-  </section>
-
-  <section class="about" id="ueber">
-    <h2>Über die Wirkungs-Werkstatt</h2>
-    <p>Die Wirkungs-Werkstatt richtet sich an Einrichtungen der Erwachsenenbildung. Sie verbindet praktische Unterstützung bei Planung, Erhebung und Auswertung mit spielerischen Anwendungen und der kritischen Reflexion von Wirkungsmessung. Alle Zugänge können unabhängig voneinander genutzt werden.</p>
   </section>
 
 </div>

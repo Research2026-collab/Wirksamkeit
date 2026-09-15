@@ -165,6 +165,44 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
   fill: none !important;
 }
 
+
+/* Interaktive Hauptzugänge */
+.level-card { cursor:pointer; transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease; }
+.level-card:hover { border-color:var(--teal); transform:translateY(-2px); }
+.level-card.selected { background:var(--teal); border-color:var(--teal); color:#fff; }
+.level-card.selected h3,.level-card.selected .level-number,.level-card.selected p,.level-card.selected .level-question,.level-card.selected a { color:#fff !important; }
+.level-card.selected .level-icon { color:#fff !important; }
+.level-card.selected .level-icon svg,.level-card.selected .level-icon svg * { stroke:#fff !important; }
+.level-card.selected .level-icon { background:rgba(255,255,255,.14) !important; }
+.srs-banner { display:flex; align-items:center; gap:18px; margin:22px 0; padding:20px 24px; border-radius:14px; background:var(--teal); color:#fff; text-decoration:none; box-shadow:0 1px 2px rgba(0,0,0,.04); transition:transform .18s ease,background .18s ease; }
+.srs-banner:hover { transform:translateY(-2px); background:#246b69; }
+.srs-icon { width:48px; height:48px; flex:0 0 48px; border-radius:50%; background:rgba(255,255,255,.14); display:flex; align-items:center; justify-content:center; }
+.srs-icon svg { width:27px; height:27px; fill:none; stroke:#fff; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.srs-copy { flex:1; } .srs-copy h3 { margin:0 0 3px; font-size:18px; color:#fff; } .srs-copy p { margin:0; color:#fff; opacity:.94; font-size:14px; }
+.srs-cta { flex:0 0 auto; background:#fff; color:var(--teal); font-weight:800; font-size:13px; padding:9px 15px; border-radius:999px; }
+@media(max-width:650px){.srs-banner{align-items:flex-start;flex-wrap:wrap}.srs-cta{margin-left:66px}}
+
+
+/* Finale Startseiten-Anpassungen */
+.header { text-align:left; max-width:980px; margin:0 auto; }
+.header .subtitle { max-width:980px; margin:0; }
+.intro { max-width:980px; margin:0 auto 40px; text-align:left; }
+.levels-head { max-width:none; text-align:center; margin:0 0 22px; }
+.levels-head h2 { font-size:26px; margin-bottom:6px; }
+.levels-head p { margin:0 auto; }
+.level-card { min-height:410px; }
+.level-links { min-height:54px; display:flex; align-items:flex-end; }
+.level-links a { width:100%; }
+.lower-info { margin-top:18px; }
+.lower-info .info-card { display:flex; flex-direction:column; min-height:190px; }
+.lower-info .info-link { margin-top:auto !important; padding-top:12px; }
+.lower-info .info-link a { color:var(--teal); font-weight:700; text-decoration:none; }
+@media(max-width:650px){
+  .header,.intro{text-align:left;}
+  .level-card{min-height:0;}
+  .level-links{min-height:0;}
+}
+
 </style>
 </head>
 <body>
@@ -182,7 +220,7 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
   <header class="header" id="start">
     <div class="eyebrow">Wirkungsorientierung einfach angehen</div>
     <h1>Wirkungs-Werkstatt</h1>
-    <p class="subtitle">Kleine digitale Werkzeuge für Einrichtungen der Erwachsenenbildung, die wissen möchten, was ihre Arbeit verändert.</p>
+    <p class="subtitle">Hintergründe und digitale Werkzeuge für Einrichtungen der Erwachsenenbildung, die wissen möchten, wie ihr Engagement mehr Wirkung entfalten kann.</p>
   </header>
 
   <div class="intro">
@@ -192,8 +230,7 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 
   <section class="levels" id="zugaenge">
     <div class="levels-head">
-      <div class="kicker">Vier Zugänge</div>
-      <h2>Wählen Sie Ihren Zugang</h2>
+      <h2>Was möchten Sie tun?</h2>
       <p>Jeder Zugang kann direkt genutzt werden. Die Anordnung bildet keine feste Reihenfolge.</p>
     </div>
 
@@ -208,8 +245,7 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
         <p class="level-question">Hier finden Sie Werkzeuge für die Planung und Auswertung von Wirkung.</p>
         <p>Sie unterstützen dabei, Wirkungsziele zu formulieren, passende Indikatoren zu entwickeln und Ergebnisse für die weitere Arbeit einzuordnen.</p>
         <div class="level-links">
-          <a href="planen-auswerten.html">Methoden zum Planen &amp; Auswerten →</a>
-          <a href="social-reporting-standard.html">Social Reporting Standard (SRS) →</a>
+          <a href="planen-auswerten.html">Zugang öffnen →</a>
         </div>
       </article>
 
@@ -264,22 +300,28 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
   </section>
 
 
-  <section class="info-strip">
-    <div class="info-card">
-      <h3>Alle Werkzeuge</h3>
-      <p>Direkter Überblick über sämtliche Werkzeuge und Anwendungen der Wirkungs-Werkstatt.</p>
-      <p style="margin-top:12px;"><a href="werkzeuge.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Werkzeugübersicht öffnen →</a></p>
+  <a class="srs-banner" href="social-reporting-standard.html" aria-label="Social Reporting Standard öffnen">
+    <div class="srs-icon" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><path d="M9 4h10l5 5v19H9z"/><path d="M19 4v6h6M13 15h8M13 20h8"/></svg>
     </div>
-    <div class="info-card">
-      <h3>Wirkung verstehen</h3>
-      <p>Begriffe und Grundlagen zu Output, Outcome, Impact, Wirkungszielen, Indikatoren und Wirkungsbeitrag.</p>
-      <p style="margin-top:12px;"><a href="wirkung-verstehen.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Grundlagen öffnen →</a></p>
+    <div class="srs-copy">
+      <h3>Social Reporting Standard (SRS)</h3>
+      <p>Hier finden Sie anschauliche Darstellungen zur Wirkungslogik und zum Aufbau der Wirkungsberichterstattung mit dem SRS.</p>
     </div>
-  </section>
+    <span class="srs-cta">SRS öffnen →</span>
+  </a>
 
-  <section class="about" id="ueber">
-    <h2>Über die Wirkungs-Werkstatt</h2>
-    <p>Die Wirkungs-Werkstatt richtet sich an Einrichtungen der Erwachsenenbildung. Sie verbindet praktische Unterstützung bei Planung, Erhebung und Auswertung mit spielerischen Anwendungen und der kritischen Reflexion von Wirkungsmessung. Alle Zugänge können unabhängig voneinander genutzt werden.</p>
+  <section class="info-strip lower-info" id="ueber">
+    <div class="info-card">
+      <h3>Über die Wirkungs-Werkstatt</h3>
+      <p>Die Wirkungs-Werkstatt richtet sich an Einrichtungen der Erwachsenenbildung. Sie verbindet praktische Unterstützung bei Planung, Erhebung und Auswertung mit spielerischen Anwendungen und der kritischen Reflexion von Wirkungsmessung. Alle Zugänge können unabhängig voneinander genutzt werden.</p>
+      <p class="info-link"><a href="wirkung-verstehen.html">Mehr erfahren →</a></p>
+    </div>
+    <div class="info-card">
+      <h3>Für die Praxis entwickelt</h3>
+      <p>Die Inhalte greifen fachliche Standards der Wirkungsorientierung auf und sind für die Erwachsenenbildung verständlich und alltagsnah aufbereitet. Die Werkzeuge können einzeln und passend zur jeweiligen Fragestellung genutzt werden.</p>
+      <p class="info-link"><a href="werkzeuge.html">Alle Werkzeuge →</a></p>
+    </div>
   </section>
 
 </div>
@@ -289,5 +331,18 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 </footer>
 
 
+
+<script>
+document.querySelectorAll('.level-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    const link = e.target.closest('a') || card.querySelector('.level-links a');
+    if (!link) return;
+    e.preventDefault();
+    document.querySelectorAll('.level-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    window.setTimeout(() => { window.location.href = link.href; }, 140);
+  });
+});
+</script>
 </body>
 </html>
