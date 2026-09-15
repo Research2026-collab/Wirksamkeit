@@ -6,7 +6,7 @@ Die Wirkungs-Werkstatt ist eine browserbasierte Toolbox für Einrichtungen der E
 
 ## Ziel
 
-Die Wirkungs-Werkstatt unterstützt Einrichtungen dabei, den Blick über Input und Output hinaus auf Outcomes und weiterreichende Wirkungen zu richten. Sie verbindet Werkzeuge für wirkungsorientierte Planung und Auswertung mit alternativen Formen der Wirkungserhebung und spielerischen Zugängen zum Wirkungsdenken.
+Die Wirkungs-Werkstatt unterstützt Einrichtungen dabei, den Blick über Input und Output hinaus auf Outcomes und weiterreichende Wirkungen zu richten. Sie verbindet Werkzeuge für wirkungsorientierte Planung und Auswertung mit alternativen Formen der Wirkungserhebung, spielerischen Zugängen zum Wirkungsdenken und einer kritischen Reflexion der Voraussetzungen und Grenzen von Wirkungsmessung.
 
 ## Aufbau
 
@@ -24,9 +24,11 @@ Dieser Bereich stellt alternative Formen der Wirkungserhebung bereit. Die Instru
 
 Interaktive Anwendungen eröffnen einen spielerischen Zugang zu Wirkungsorientierung. Praxisbeispiele und kleine Simulationen machen unter anderem den Unterschied zwischen Output und Outcome, die Reichweite von Wirkungsaussagen und die Bedeutung des Erhebungszeitpunkts erfahrbar.
 
-### Metaebene: Wirkung verstehen
+### Metaebene: Wirkung verstehen und kritisch reflektieren
 
-Die Seite **„Wirkung verstehen“** erläutert zentrale Begriffe wie Output, Outcome, Impact, Wirkungsziele, Indikatoren sowie Kausalität und Wirkungsbeitrag. Sie bildet eine Metaebene zu den drei Zugängen. Fachliche Hinweise stehen zusätzlich in den einzelnen Anwendungen dort zur Verfügung, wo sie gebraucht werden.
+Die Seite **„Wirkung verstehen“** erläutert zentrale Begriffe wie Output, Outcome, Impact, Wirkungsziele, Indikatoren sowie Kausalität und Wirkungsbeitrag. Fachliche Hinweise stehen zusätzlich in den einzelnen Anwendungen dort zur Verfügung, wo sie gebraucht werden.
+
+Die interaktive Anwendung **„Wirkung im kritischen Diskurs“** ergänzt diese Metaebene. Acht Argumentationsfelder erschließen zentrale Reflexionslinien zur Wirkungsmessung in der Erwachsenenbildung: Kausalität und Zurechnung, Offenheit und Eigenlogik von Bildungsprozessen, Messung und Sichtbarkeit, Menschenbild und Autonomie, Verzweckung und Utilitarisierung, Messbarkeit und Wert von Bildung, Evidenz und pädagogische Professionalität sowie Steuerung, Macht und Ressourcen. Zu jedem Feld werden Kernaussage, Begründung und zentrale Quellen angezeigt. Die vollständigen Referenzen lassen sich innerhalb der Anwendung aufklappen.
 
 ## Technischer Ansatz
 
