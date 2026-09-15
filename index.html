@@ -66,7 +66,7 @@ body {
 .tool-card p { font-size:13px; color:var(--text-muted); padding-bottom:26px; }
 .tool-card a { position:absolute; left:18px; bottom:16px; font-size:12px; color:var(--teal); font-weight:700; text-decoration:none; }
 .info-strip {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:40px;
+  display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:40px;
 }
 .info-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:22px; }
 .info-card h3 { font-size:17px; color:var(--navy); margin-bottom:8px; }
@@ -173,73 +173,26 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
     <nav aria-label="Hauptnavigation">
       <a href="#start">Start</a>
       <a href="#zugaenge">Zugänge</a>
+      <a href="werkzeuge.html">Alle Werkzeuge</a>
       <a href="wirkung-verstehen.html">Wirkung verstehen</a>
-      <a href="#ueber">Über die Toolbox</a>
     </nav>
   </div>
 
   <header class="header" id="start">
     <div class="eyebrow">Wirkungsorientierung einfach angehen</div>
     <h1>Wirkungs-Werkstatt</h1>
-    <p class="subtitle">Kleine digitale Werkzeuge für Einrichtungen der Erwachsenenbildung, die wissen möchten, was ihre Arbeit verändert.</p>
+    <p class="subtitle">Wirkung in der Erwachsenenbildung erkunden, erfassen und reflektieren.</p>
   </header>
 
   <div class="intro">
-    <strong>Wirkungsorientierung hilft, über die Zahl der Angebote und Teilnehmenden hinauszuschauen.</strong>
-    Sie macht sichtbar, was sich durch unsere Bildungsarbeit für Menschen und in der Gesellschaft verändert und was Einrichtungen daraus für ihre weitere Arbeit lernen können.
+    Die Wirkungs-Werkstatt unterstützt Einrichtungen der Erwachsenenbildung bei der Planung, Erhebung und Auswertung von Wirkungen. Sie bietet praktische Verfahren, spielerische Anwendungen und einen eigenen Zugang zur kritischen Reflexion von Wirkungsmessung.
   </div>
 
-  <section aria-labelledby="stand-heading">
-    <div class="section-head">
-      <h2 id="stand-heading">Wo stehen Sie gerade?</h2>
-      <p>Wählen Sie die Situation, die am besten zu Ihrer aktuellen Frage passt.</p>
-    </div>
-    <div class="journey-grid">
-      <a class="journey-card" href="planen-auswerten.html">
-        <div class="icon">🌱</div>
-        <h3>Wir planen ein Angebot</h3>
-        <p>Was soll sich für unsere Teilnehmenden verändern?</p>
-        <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </a>
-      <a class="journey-card" href="anders-erheben.html">
-        <div class="icon">🔎</div>
-        <h3>Wir möchten Wirkung erkennen</h3>
-        <p>Woran können wir erkennen, ob und welche Veränderung eingetreten ist?</p>
-        <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </a>
-      <a class="journey-card" href="anders-erheben.html">
-        <div class="icon">💬</div>
-        <h3>Wir möchten Rückmeldungen einholen</h3>
-        <p>Wie erheben wir mit wenig Aufwand hilfreiche Informationen?</p>
-        <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </a>
-      <a class="journey-card" href="planen-auswerten.html">
-        <div class="icon">📊</div>
-        <h3>Wir haben bereits Daten</h3>
-        <p>Was sagen unsere Ergebnisse aus und wo liegen ihre Grenzen?</p>
-        <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </a>
-      <a class="journey-card" href="planen-auswerten.html">
-        <div class="icon">🧭</div>
-        <h3>Wir möchten unser Angebot verbessern</h3>
-        <p>Was können wir aus Rückmeldungen und Beobachtungen lernen?</p>
-        <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </a>
-      <a class="journey-card" href="werkzeuge.html">
-        <div class="icon">📄</div>
-        <h3>Wir möchten Wirkung darstellen</h3>
-        <p>Wie können wir Ergebnisse für Antrag, Bericht oder Öffentlichkeit aufbereiten?</p>
-        <span class="hint">Passende Werkzeuge anzeigen →</span>
-      </a>
-    </div>
-  </section>
-
-  
   <section class="levels" id="zugaenge">
     <div class="levels-head">
       <div class="kicker">Vier Zugänge</div>
-      <h2>Wie möchten Sie mit Wirkung arbeiten?</h2>
-      <p>Die Wirkungs-Werkstatt verbindet praktische Werkzeuge, alternative Formen der Wirkungserhebung und spielerische Zugänge zum Wirkungsdenken und -handeln.</p>
+      <h2>Wählen Sie Ihren Zugang</h2>
+      <p>Jeder Zugang kann direkt genutzt werden. Die Anordnung bildet keine feste Reihenfolge.</p>
     </div>
 
     
@@ -249,9 +202,9 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
           <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M20.5 11.5l-3 6-6 3 3-6 6-3z"/><path d="M16 3v2M16 27v2M3 16h2M27 16h2"/></svg>
         </div>
         <div class="level-number">01 · Planen &amp; auswerten</div>
-        <h3>Mit Wirkung arbeiten</h3>
-        <p class="level-question">Wie arbeiten Sie wirkungsorientiert?</p>
-        <p>Entwickeln Sie Wirkungsziele, planen Sie Erhebungen und ordnen Sie Ergebnisse für die Weiterentwicklung Ihrer Angebote ein.</p>
+        <h3>Planen &amp; auswerten</h3>
+        <p class="level-question">Hier finden Sie Werkzeuge für die Planung und Auswertung von Wirkung.</p>
+        <p>Sie unterstützen dabei, Wirkungsziele zu formulieren, passende Indikatoren zu entwickeln und Ergebnisse für die weitere Arbeit einzuordnen.</p>
         <div class="level-links">
           <a href="planen-auswerten.html">Methoden zum Planen &amp; Auswerten →</a>
         </div>
@@ -266,12 +219,12 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
             <circle cx="16" cy="16" r="9"/>
           </svg>
         </div>
-        <div class="level-number">02 · Anders erheben</div>
-        <h3>Veränderungen sichtbar machen</h3>
-        <p class="level-question">Wie lassen sich Veränderungen erfassen und gemeinsam rekonstruieren?</p>
-        <p>Nutzen Sie alternative Erhebungsformen, um Veränderungen sichtbar zu machen und gemeinsam mit Beteiligten zu rekonstruieren.</p>
+        <div class="level-number">02 · Wirkung erheben</div>
+        <h3>Wirkung erheben</h3>
+        <p class="level-question">Hier finden Sie Verfahren, mit denen Sie Veränderungen erfassen können.</p>
+        <p>Dazu gehören SRS und weitere Erhebungsformen, die unterschiedliche Zugänge zu beobachteten und erlebten Veränderungen eröffnen.</p>
         <div class="level-links">
-          <a href="anders-erheben.html">Erhebungsformen ansehen →</a>
+          <a href="anders-erheben.html">Zu den Erhebungsverfahren →</a>
         </div>
       </article>
 
@@ -281,32 +234,26 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
         </div>
         <div class="level-number">03 · PLAY</div>
         <h3>Wirkung ausprobieren</h3>
-        <p class="level-question">Wie lässt sich Wirkung spielerisch erkunden?</p>
-        <p>Erkunden Sie Wirkung an Praxisbeispielen und interaktiven Anwendungen und machen Sie Wirkungslogiken unmittelbar erfahrbar.</p>
+        <p class="level-question">Hier finden Sie spielerische und interaktive Zugänge zum Thema Wirkung.</p>
+        <p>Die Anwendungen laden dazu ein, Wirkungsfragen an konkreten Situationen auszuprobieren und gemeinsam zu reflektieren.</p>
         <div class="level-links">
-          <a href="wirkungsfall.html">Der Wirkungsfall →</a>
-          <a href="wirkung-oder-zahl.html">Wirkung oder nur Zahl? →</a>
-          <a href="zu-viel-versprochen.html">Zu viel versprochen? →</a>
-          <a href="vier-wochen-spaeter.html">Vier Wochen später … →</a>
-          <a href="alltagsrucksack.html">Mein Alltagsrucksack →</a>
+          <a href="play.html">Zu PLAY →</a>
         </div>
       </article>
 
       <article class="level-card">
         <div class="level-icon" aria-hidden="true">
           <svg viewBox="0 0 32 32">
-            <rect x="5" y="5" width="8" height="8" rx="1.5"/>
-            <rect x="19" y="5" width="8" height="8" rx="1.5"/>
-            <rect x="5" y="19" width="8" height="8" rx="1.5"/>
-            <rect x="19" y="19" width="8" height="8" rx="1.5"/>
+            <circle cx="16" cy="16" r="11"/>
+            <path d="M16 5v22M5 16h22M8.2 8.2l15.6 15.6M23.8 8.2L8.2 23.8"/>
           </svg>
         </div>
-        <div class="level-number">04 · Werkzeuge</div>
-        <h3>Alle Werkzeuge im Überblick</h3>
-        <p class="level-question">Welches Werkzeug brauchen Sie gerade?</p>
-        <p>Öffnen Sie die vollständige Werkzeugübersicht mit Wirkungsziel-Check, Indikatoren-Finder, Methoden-Navigator, Mini-Evaluation, Wirkungs-Geschichten, Aussage-Check, Wirkungs-Rückblick und Wirkung zeigen.</p>
+        <div class="level-number">04 · Kritischer Diskurs</div>
+        <h3>Wirkung kritisch beleuchten</h3>
+        <p class="level-question">Hier finden Sie Argumente für einen kritischen Blick auf Wirkungsmessung in der Erwachsenenbildung.</p>
+        <p>Die Anwendung lädt dazu ein, Annahmen hinter Wirkungsmessung zu prüfen und ihre Bedeutung für Bildungsverständnis und pädagogisches Handeln zu reflektieren.</p>
         <div class="level-links">
-          <a href="werkzeuge.html">Zu allen Werkzeugen →</a>
+          <a href="wirkung-kritischer-diskurs.html">Zum kritischen Diskurs →</a>
         </div>
       </article>
     </div>
@@ -315,28 +262,21 @@ footer.site-footer a { color:#8a8a86; text-decoration:underline; }
 
 
   <section class="info-strip">
-
+    <div class="info-card">
+      <h3>Alle Werkzeuge</h3>
+      <p>Direkter Überblick über sämtliche Werkzeuge und Anwendungen der Wirkungs-Werkstatt.</p>
+      <p style="margin-top:12px;"><a href="werkzeuge.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Werkzeugübersicht öffnen →</a></p>
+    </div>
     <div class="info-card">
       <h3>Wirkung verstehen</h3>
-      <p>Kurze Erklärungen zu Output, Outcome, Impact, Wirkungszielen, Indikatoren und Kausalität finden Sie auf einer eigenen Unterseite. In den Werkzeugen erscheinen Hinweise zusätzlich genau dort, wo sie gebraucht werden.</p>
-      <p style="margin-top:12px;"><a href="wirkung-verstehen.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Zu „Wirkung verstehen“ →</a></p>
-    </div>
-
-    <div class="info-card">
-      <h3>Wirkung im kritischen Diskurs</h3>
-      <p>Acht Argumentationsfelder erschließen zentrale Einwände und Reflexionslinien zur Wirkungsmessung in der Erwachsenenbildung: von Kausalität und Offenheit von Bildungsprozessen bis zu Menschenbild, Utilitarisierung, Professionalität und Steuerung.</p>
-      <p style="margin-top:12px;"><a href="wirkung-kritischer-diskurs.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Zum kritischen Diskurs →</a></p>
-    </div>
-
-    <div class="info-card privacy">
-      <h3>Ihre Daten bleiben bei Ihnen</h3>
-      <p><strong>Keine Anmeldung erforderlich.</strong> Eingaben können vollständig lokal im Browser verarbeitet werden. Für eine spätere Nutzungsstatistik würden ausschließlich anonyme Aufrufzahlen gezählt, keine Inhalte aus den Werkzeugen.</p>
+      <p>Begriffe und Grundlagen zu Output, Outcome, Impact, Wirkungszielen, Indikatoren und Wirkungsbeitrag.</p>
+      <p style="margin-top:12px;"><a href="wirkung-verstehen.html" style="color:var(--teal);font-weight:700;text-decoration:none;">Grundlagen öffnen →</a></p>
     </div>
   </section>
 
   <section class="about" id="ueber">
     <h2>Über die Wirkungs-Werkstatt</h2>
-    <p>Die Toolbox richtet sich an Einrichtungen der Erwachsenenbildung, die wirkungsorientiert arbeiten möchten, ohne ein umfangreiches Wirkungsmanagement oder komplexe Evaluationsverfahren einzuführen. Die einzelnen Werkzeuge unterstützen bei konkreten Fragen und können unabhängig voneinander genutzt werden.</p>
+    <p>Die Wirkungs-Werkstatt richtet sich an Einrichtungen der Erwachsenenbildung. Sie verbindet praktische Unterstützung bei Planung, Erhebung und Auswertung mit spielerischen Anwendungen und der kritischen Reflexion von Wirkungsmessung. Alle Zugänge können unabhängig voneinander genutzt werden.</p>
   </section>
 
 </div>

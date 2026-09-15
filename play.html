@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAY – Wirkungs-Werkstatt</title>
+<style>
+:root{--navy:#1a365d;--navy-light:#2a4a7f;--teal:#2b7a78;--bg:#f7f8fa;--surface:#fff;--text:#1a202c;--muted:#4a5568;--border:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}
+.app{max-width:1040px;margin:0 auto;padding:24px 20px 72px}
+.topnav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:10px 0 18px;border-bottom:1px solid var(--border)}
+.brand{font-weight:800;color:var(--navy)}
+.topnav a{color:var(--muted);text-decoration:none;font-size:13px}.topnav a:hover{color:var(--teal)}
+.header{text-align:center;padding:58px 0 40px}.ey{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+h1{font-size:34px;line-height:1.15;color:var(--navy);margin-bottom:14px}.subtitle{max-width:700px;margin:auto;color:var(--muted);font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:23px;display:flex;flex-direction:column;min-height:215px;transition:.18s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(23,54,93,.07);border-color:#cbd7e2}
+.no{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:7px}
+h2{font-size:20px;line-height:1.25;color:var(--navy);margin-bottom:8px}.card p{color:var(--muted);font-size:13.5px;margin-bottom:18px}
+.card a{margin-top:auto;color:var(--teal);font-weight:700;text-decoration:none;font-size:13px}.card a:hover{text-decoration:underline}
+.note{margin-top:28px;border-top:1px solid var(--border);padding-top:18px;color:var(--muted);font-size:13px}
+footer{border-top:1px solid var(--border);background:#eef0f3;padding:14px 20px}footer p{max-width:1040px;margin:auto;text-align:center;color:#8a8a86;font-size:13px}footer a{color:#8a8a86}
+@media(max-width:650px){.topnav{align-items:flex-start;flex-direction:column}.header{padding:42px 0 30px}.header h1{font-size:29px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topnav">
+    <div class="brand">Wirkungs-Werkstatt · PLAY</div>
+    <nav><a href="index.html">Startseite</a></nav>
+  </div>
+  <header class="header">
+    <div class="ey">Wirkung ausprobieren</div>
+    <h1>PLAY</h1>
+    <p class="subtitle">Hier finden Sie interaktive Anwendungen, mit denen Sie Wirkungsfragen an konkreten Situationen ausprobieren und gemeinsam reflektieren können.</p>
+  </header>
+  <main class="grid">
+    <article class="card">
+      <div class="no">PLAY 01</div><h2>Der Wirkungsfall</h2>
+      <p>Hier finden Sie einen Fall, an dem Sie Output, Outcome und die Reichweite von Wirkungsaussagen Schritt für Schritt einordnen können.</p>
+      <a href="wirkungsfall.html">Anwendung öffnen →</a>
+    </article>
+    <article class="card">
+      <div class="no">PLAY 02</div><h2>Wirkung oder nur Zahl?</h2>
+      <p>Hier finden Sie eine kurze Anwendung zur Unterscheidung von Teilnahmezahlen, beobachteten Veränderungen und weiterreichenden Wirkungen.</p>
+      <a href="wirkung-oder-zahl.html">Anwendung öffnen →</a>
+    </article>
+    <article class="card">
+      <div class="no">PLAY 03</div><h2>Zu viel versprochen?</h2>
+      <p>Hier finden Sie eine Anwendung, mit der Sie prüfen können, wie weit eine Wirkungsaussage durch vorhandene Daten getragen wird.</p>
+      <a href="zu-viel-versprochen.html">Anwendung öffnen →</a>
+    </article>
+    <article class="card">
+      <div class="no">PLAY 04</div><h2>Vier Wochen später …</h2>
+      <p>Hier finden Sie eine Anwendung zur Frage, zu welchem Zeitpunkt unterschiedliche Veränderungen sichtbar werden können.</p>
+      <a href="vier-wochen-spaeter.html">Anwendung öffnen →</a>
+    </article>
+    <article class="card">
+      <div class="no">PLAY 05</div><h2>Mein Alltagsrucksack</h2>
+      <p>Hier finden Sie einen spielerischen Zugang, mit dem Teilnehmende Veränderungen im Alltag nach einem Kurs sichtbar machen können.</p>
+      <a href="alltagsrucksack.html">Anwendung öffnen →</a>
+    </article>
+  </main>
+  <p class="note">Die Anwendungen können unabhängig voneinander genutzt werden.</p>
+</div>
+<footer><p>&copy; Elisabeth Vanderheiden · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de">CC BY-NC 4.0</a></p></footer>
+</body></html>
